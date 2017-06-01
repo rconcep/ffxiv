@@ -67,6 +67,8 @@ def compare_potencies(dfs, labels):
     plt.xticks(rotation=20)
     ax.set_xticks(xlocs - bar_width/2)
     ax.set_xticklabels(dfs[-1]['action'])
+    ax.set_xlabel('Actions')
+    ax.set_ylabel('Cumulative Potency')
     ax.yaxis.grid(True)
     ax.legend(loc='best')
 

@@ -310,7 +310,18 @@ class Samurai():
         """ lvl 45, combo Fuga, AoE """
 
         if self.combo_act_oka:
-            potency = 200
+            if n_targets > 5:
+                potency = 200*(1 + 0.9 + 0.8 + 0.7 + 0.6 + 0.5*(n_targets-5))
+            elif n_targets > 4:
+                potency = 200 * (1 + 0.9 + 0.8 + 0.7 + 0.6)
+            elif n_targets > 3:
+                potency = 200 * (1 + 0.9 + 0.8 + 0.7)
+            elif n_targets > 2:
+                potency = 200 * (1 + 0.9 + 0.8)
+            elif n_targets > 1:
+                potency = 200 * (1 + 0.9)
+            else:
+                potency = 200
         else:
             potency = 100
 
@@ -326,7 +337,18 @@ class Samurai():
         """ lvl 35, combo Fuga, AoE """
 
         if self.combo_act_mangetsu:
-            potency = 200
+            if n_targets > 5:
+                potency = 200*(1 + 0.9 + 0.8 + 0.7 + 0.6 + 0.5*(n_targets-5))
+            elif n_targets > 4:
+                potency = 200 * (1 + 0.9 + 0.8 + 0.7 + 0.6)
+            elif n_targets > 3:
+                potency = 200 * (1 + 0.9 + 0.8 + 0.7)
+            elif n_targets > 2:
+                potency = 200 * (1 + 0.9 + 0.8)
+            elif n_targets > 1:
+                potency = 200 * (1 + 0.9)
+            else:
+                potency = 200
         else:
             potency = 100
 
@@ -356,20 +378,24 @@ class Samurai():
     def higanbana(self):
         """ 1 Sen Iaijutsu """
         if self.has_getsu or self.has_setsu or self.has_ka:
-            potency = 940
-            # haste buff doesn't apply to DoT
-            if self.has_jinpu and self.has_shifu:
-                potency = 940*self.potency_mod
-            elif self.has_jinpu:
-                potency = 940*1.15
-            elif self.has_shifu:
-                potency = 240*1.10 + 700
+            potency = 240*self.potency_mod
 
             self.has_getsu = False
             self.has_setsu = False
             self.has_ka = False
         else:
             raise ValueError('No Sen opened!')
+
+        return potency
+
+    def higanbana_dot(self):
+        """ DoT component of Higanbana """
+        avg_mod = 3/2.2 # this averages the DoT potency per GCD (3 second ticks but ~2.2 GCD under Shifu)
+
+        if self.has_jinpu:
+            potency = 1.15*35*avg_mod
+        else:
+            potency = 35*avg_mod
 
         return potency
 
