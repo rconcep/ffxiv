@@ -218,6 +218,8 @@ class Samurai():
         else:
             potency = 100
 
+        potency = self.potency_mod*potency # don't want buff before effect is applied
+
         self.combo_act_jinpu = False
         self.has_jinpu = True
         self.potency_mod_update()
@@ -226,7 +228,7 @@ class Samurai():
 
         self.inc_kenki_gauge(5)
 
-        return self.potency_mod*potency
+        return potency
 
     def gekko(self):
         """ lvl 30, combo Jinpu """
@@ -251,6 +253,8 @@ class Samurai():
         else:
             potency = 100
 
+        potency = self.potency_mod*potency # don't want updated potency before effect is applied
+
         self.combo_act_shifu = False
         self.has_shifu = True
         self.potency_mod_update()
@@ -259,7 +263,7 @@ class Samurai():
 
         self.inc_kenki_gauge(5)
 
-        return self.potency_mod*potency
+        return potency
 
     def kasha(self):
         """ lvl 40, combo Shifu """
@@ -349,22 +353,57 @@ class Samurai():
         return self.potency_mod*potency
 
     ## Iaijutsu
-    def iaijutsu(self):
-        """ lvl 30 """
-        return
-
     def higanbana(self):
-        """ """
-        return
+        """ 1 Sen Iaijutsu """
+        if self.has_getsu or self.has_setsu or self.has_ka:
+            potency = 940
+            # haste buff doesn't apply to DoT
+            if self.has_jinpu and self.has_shifu:
+                potency = 940*self.potency_mod
+            elif self.has_jinpu:
+                potency = 940*1.15
+            elif self.has_shifu:
+                potency = 240*1.10 + 700
 
-    def tenka_goken(self):
-        """      """
-        # AoE
-        return
+            self.has_getsu = False
+            self.has_setsu = False
+            self.has_ka = False
+        else:
+            raise ValueError('No Sen opened!')
+
+        return potency
+
+    def tenka_goken(self, n_targets):
+        """ 2 Sen Iaijutsu """
+        # AoE scaling
+
+        if sum([self.has_getsu, self.has_setsu, self.has_ka]) == 2:
+            if n_targets > 5:
+                potency = 360*(1 + 0.9 + 0.8 + 0.7 + 0.6 + 0.5*(n_targets-5))
+            elif n_targets > 4:
+                potency = 360 * (1 + 0.9 + 0.8 + 0.7 + 0.6)
+            elif n_targets > 3:
+                potency = 360 * (1 + 0.9 + 0.8 + 0.7)
+            elif n_targets > 2:
+                potency = 360 * (1 + 0.9 + 0.8)
+            elif n_targets > 1:
+                potency = 360 * (1 + 0.9)
+            else:
+                potency = 360
+        else:
+            raise ValueError('Not enough Sen opened!')
+
+        return self.potency_mod*potency
 
     def midare_setsugekka(self):
-        """ """
-        return
+        """ 3 Sen Iaijutsu """
+
+        if sum([self.has_getsu, self.has_setsu, self.has_ka]) == 3:
+            potency = 720
+        else:
+            raise ValueError('Not enough Sen opened!')
+
+        return self.potency_mod*potency
 
     ## Abilities
     def starry_eyes(self):
