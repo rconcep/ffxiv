@@ -1,3 +1,7 @@
+JINPU_MOD = 1.15
+SHIFU_MOD = 1.11
+YUKIKAZE_MOD = 1.11
+
 class Samurai():
     """
     SAM
@@ -9,6 +13,10 @@ class Samurai():
 
         self._has_jinpu = False
         self._has_shifu = False
+
+        self._applied_yukikaze = False
+
+        self._has_meikyo_shisui = False
 
         self._has_getsu = False
         self._has_ka = False
@@ -37,15 +45,14 @@ class Samurai():
             self._potency_mod = value
 
     def potency_mod_update(self):
-        JINPU_MOD = 1.15
-        SHIFU_MOD = 1.10
-
         self._potency_mod = 1.0
 
         if self.has_jinpu:
             self._potency_mod = 1.0*JINPU_MOD
         if self.has_shifu:
             self._potency_mod = SHIFU_MOD*self._potency_mod
+        if self.applied_yukikaze:
+            self._potency_mod = YUKIKAZE_MOD*self._potency_mod
 
     # Kenki gauge
     @property
@@ -61,9 +68,9 @@ class Samurai():
             self._kenki_gauge += inc_amt
 
         if self._kenki_gauge < 0:
-            kenki_gauge(0)
+            self.kenki_gauge = 0
         elif self._kenki_gauge > 100:
-            kenki_gauge(100)
+            self.kenki_gauge = 100
 
     # Buffs
     @property
@@ -84,6 +91,42 @@ class Samurai():
         if type(value) == bool:
             self._has_shifu = value
 
+    @property
+    def applied_yukikaze(self):
+        return self._applied_yukikaze
+
+    @applied_yukikaze.setter
+    def applied_yukikaze(self, value):
+        if type(value) == bool:
+            self._applied_yukikaze = value
+
+    @property
+    def has_meikyo_shisui(self):
+        return self._has_meikyo_shisui
+
+    @has_meikyo_shisui.setter
+    def has_meikyo_shisui(self, value):
+        if type(value) == bool:
+            self._has_meikyo_shisui = value
+
+    @property
+    def meikyo_shisui_active(self):
+        if self.has_meikyo_shisui:
+            self.combo_act_gekko = True
+            self.combo_act_mangetsu = True
+            self.combo_act_kasha = True
+            self.combo_act_shifu = True
+            self.combo_act_jinpu = True
+            self.combo_act_oka = True
+            self.combo_act_yukikaze = True
+        else:
+            self.combo_act_gekko = False
+            self.combo_act_mangetsu = False
+            self.combo_act_kasha = False
+            self.combo_act_shifu = False
+            self.combo_act_jinpu = False
+            self.combo_act_oka = False
+            self.combo_act_yukikaze = False
     # Sen
     @property
     def has_getsu(self):
@@ -195,7 +238,7 @@ class Samurai():
         if type(value) == bool:
             self._open_eyes = value
 
-            ## Weaponskills
+    ## Weaponskills
 
     def hakaze(self):
         """ lvl 1 """
@@ -215,18 +258,16 @@ class Samurai():
 
         if self.combo_act_jinpu:
             potency = 280
+            self.has_jinpu = True
+            self.combo_act_gekko = True
+            self.inc_kenki_gauge(5)
         else:
             potency = 100
 
         potency = self.potency_mod*potency # don't want buff before effect is applied
 
         self.combo_act_jinpu = False
-        self.has_jinpu = True
         self.potency_mod_update()
-
-        self.combo_act_gekko = True
-
-        self.inc_kenki_gauge(5)
 
         return potency
 
@@ -235,13 +276,12 @@ class Samurai():
 
         if self.combo_act_gekko:
             potency = 400
+            self.has_getsu = True
+            self.inc_kenki_gauge(10)
         else:
             potency = 100
 
         self.combo_act_gekko = False
-        self.has_getsu = True
-
-        self.inc_kenki_gauge(10)
 
         return self.potency_mod*potency
 
@@ -250,18 +290,16 @@ class Samurai():
 
         if self.combo_act_shifu:
             potency = 280
+            self.has_shifu = True
+            self.combo_act_kasha = True
+            self.inc_kenki_gauge(5)
         else:
             potency = 100
 
         potency = self.potency_mod*potency # don't want updated potency before effect is applied
 
         self.combo_act_shifu = False
-        self.has_shifu = True
         self.potency_mod_update()
-
-        self.combo_act_kasha = True
-
-        self.inc_kenki_gauge(5)
 
         return potency
 
@@ -270,13 +308,12 @@ class Samurai():
 
         if self.combo_act_kasha:
             potency = 400
+            self.has_ka = True
+            self.inc_kenki_gauge(10)
         else:
             potency = 100
 
         self.combo_act_kasha = False
-        self.has_ka = True
-
-        self.inc_kenki_gauge(10)
 
         return self.potency_mod*potency
 
@@ -285,28 +322,34 @@ class Samurai():
 
         if self.combo_act_yukikaze:
             potency = 340
+            self.applied_yukikaze = True
+            self.has_setsu = True
+            self.inc_kenki_gauge(10)
         else:
             potency = 100
+
+        potency = self.potency_mod*potency # don't want updated potency before effect is applied
 
         self.combo_act_yukikaze = False
         # add status to target?
 
-        self.has_setsu = True
+        self.potency_mod_update()
 
-        self.inc_kenki_gauge(10)
-
-        return self.potency_mod*potency
+        return potency
 
     def fuga(self, n_targets):
         """ lvl 26, cone AoE """
 
         potency = 100
 
+        self.combo_act_mangetsu = True
+        self.combo_act_oka = True
+
         self.inc_kenki_gauge(5)
 
         return self.potency_mod*potency*n_targets
 
-    def oka(self):
+    def oka(self, n_targets):
         """ lvl 45, combo Fuga, AoE """
 
         if self.combo_act_oka:
@@ -322,18 +365,17 @@ class Samurai():
                 potency = 200 * (1 + 0.9)
             else:
                 potency = 200
+
+            self.has_ka = True
+            self.inc_kenki_gauge(10)
         else:
             potency = 100
 
         self.combo_act_oka = False
 
-        self.has_ka = True
-
-        self.inc_kenki_gauge(10)
-
         return self.potency_mod*potency
 
-    def mangetsu(self):
+    def mangetsu(self, n_targets):
         """ lvl 35, combo Fuga, AoE """
 
         if self.combo_act_mangetsu:
@@ -349,14 +391,13 @@ class Samurai():
                 potency = 200 * (1 + 0.9)
             else:
                 potency = 200
+
+            self.has_getsu = True
+            self.inc_kenki_gauge(10)
         else:
             potency = 100
 
         self.combo_act_mangetsu = False
-
-        self.has_getsu = True
-
-        self.inc_kenki_gauge(10)
 
         return self.potency_mod*potency
 
@@ -393,7 +434,7 @@ class Samurai():
         avg_mod = 3/2.2 # this averages the DoT potency per GCD (3 second ticks but ~2.2 GCD under Shifu)
 
         if self.has_jinpu:
-            potency = 1.15*35*avg_mod
+            potency = JINPU_MOD*35*avg_mod
         else:
             potency = 35*avg_mod
 
@@ -401,7 +442,6 @@ class Samurai():
 
     def tenka_goken(self, n_targets):
         """ 2 Sen Iaijutsu """
-        # AoE scaling
 
         if sum([self.has_getsu, self.has_setsu, self.has_ka]) == 2:
             if n_targets > 5:
@@ -450,7 +490,9 @@ class Samurai():
 
     def meikyo_shisui(self):
         """ lvl 50, no combo prereqs """
-        return
+        self.has_meikyo_shisui = True
+        self.meikyo_shisui_active
+        return 0
 
     def ageha(self):
         """ lvl 10, pseudo-execution """

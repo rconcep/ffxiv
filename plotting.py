@@ -8,11 +8,11 @@ def plot_potency(df):
     :return: 
     """
 
-    fig, ax = plt.subplots(figsize=(16, 4))
+    fig, ax = plt.subplots(figsize=(12, 4))
 
     SMALL_SIZE = 12
-    MEDIUM_SIZE = 18
-    BIGGER_SIZE = 20
+    MEDIUM_SIZE = 14
+    BIGGER_SIZE = 16
 
     plt.rc('font', size=SMALL_SIZE)  # controls default text sizes
     plt.rc('axes', titlesize=SMALL_SIZE)  # fontsize of the axes title
@@ -23,10 +23,10 @@ def plot_potency(df):
     plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
     xlocs = np.arange(len(df))
-    bar_width = 0.4
+    bar_width = 0.2
     ax.bar(xlocs, df['total potency'], bar_width, label='rotation')
 
-    plt.xticks(rotation=20)
+    plt.xticks(rotation=70)
     ax.set_xticks(xlocs)
     ax.set_xticklabels(df['action'])
     ax.set_xlabel('Actions')
@@ -45,11 +45,11 @@ def compare_potencies(dfs, labels):
     :return: 
     """
 
-    fig, ax = plt.subplots(figsize=(16, 4))
+    fig, ax = plt.subplots(figsize=(12, 4))
 
     SMALL_SIZE = 12
-    MEDIUM_SIZE = 18
-    BIGGER_SIZE = 20
+    MEDIUM_SIZE = 14
+    BIGGER_SIZE = 16
 
     plt.rc('font', size=SMALL_SIZE)  # controls default text sizes
     plt.rc('axes', titlesize=SMALL_SIZE)  # fontsize of the axes title
@@ -60,11 +60,11 @@ def compare_potencies(dfs, labels):
     plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
     xlocs = np.arange(len(dfs[0]))
-    bar_width = 0.4
+    bar_width = 0.2
     ax.bar(xlocs - bar_width, dfs[0]['total potency'], bar_width, label=labels[0])
     ax.bar(xlocs, dfs[-1]['total potency'], bar_width, label=labels[-1])
 
-    plt.xticks(rotation=20)
+    plt.xticks(rotation=70)
     ax.set_xticks(xlocs - bar_width/2)
     ax.set_xticklabels(dfs[-1]['action'])
     ax.set_xlabel('Actions')
@@ -82,11 +82,11 @@ def compare_n_potencies(dfs, labels):
     :return: 
     """
 
-    fig, ax = plt.subplots(figsize=(16, 4))
+    fig, ax = plt.subplots(figsize=(12, 4))
 
     SMALL_SIZE = 12
-    MEDIUM_SIZE = 18
-    BIGGER_SIZE = 20
+    MEDIUM_SIZE = 14
+    BIGGER_SIZE = 16
 
     plt.rc('font', size=SMALL_SIZE)  # controls default text sizes
     plt.rc('axes', titlesize=SMALL_SIZE)  # fontsize of the axes title
@@ -102,9 +102,11 @@ def compare_n_potencies(dfs, labels):
     for k, df in enumerate(dfs):
         ax.bar(xlocs - bar_width/2 + k*bar_width, dfs[k]['total potency'], bar_width, label=labels[k])
 
-    plt.xticks(rotation=20)
+    plt.xticks(rotation=70)
     ax.set_xticks(xlocs + len(labels)*bar_width/4)
     ax.set_xticklabels(dfs[0]['action'])
+    ax.set_xlabel('Actions')
+    ax.set_ylabel('Cumulative Potency')
     ax.yaxis.grid(True)
     ax.legend(loc='best')
 
