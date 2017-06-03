@@ -1,3 +1,5 @@
+import pandas as pd
+
 JINPU_MOD = 1.15
 SHIFU_MOD = 1.11
 YUKIKAZE_MOD = 1.11
@@ -15,6 +17,7 @@ class Samurai():
         self._has_shifu = False
 
         self._applied_yukikaze = False
+        self._applied_higanbana = 0
 
         self._has_meikyo_shisui = False
 
@@ -32,6 +35,73 @@ class Samurai():
 
         self._enhanced_enbi = False
         self._open_eyes = False
+
+    def parse_rotation(self, rotation, n_targets=1):
+        """
+        Creates a dataframe describing the given rotation.
+        
+        :param rotation: A list of tuples describing each GCD with strings [(weaponskill, ability), ...]
+        :return: A Pandas DataFrame object
+        """
+
+        parsed_gcds = []
+        snapshot_dot_modifier = 0
+        n_applied_higanbana = 0
+        meikyo_shisui_counter = 3
+
+        for k in range(len(rotation)):
+            gcd = rotation[k]
+
+            if type(gcd) != tuple:
+                weaponskill = gcd
+                ability = []
+            else:
+                weaponskill = gcd[0]
+                ability = gcd[1]
+
+            # convert to lowercase and replace spaces with underscores
+            parsed_ws = weaponskill.lower().replace(' ', '_')
+
+            if not ability:
+                parsed_gcds.append((weaponskill, '', getattr(self, parsed_ws)(n_targets)
+                                    + snapshot_dot_modifier*self.higanbana_dot()))
+            else:
+                parsed_ability = ability.lower().replace(' ', '_')
+                parsed_gcds.append((weaponskill, ability, getattr(self, parsed_ws)(n_targets)
+                                    + getattr(self, parsed_ability)(n_targets)
+                                    + snapshot_dot_modifier*self.higanbana_dot()))
+
+                if parsed_ability == 'meikyo_shisui':
+                    meikyo_shisui_counter = 3
+
+            # update Higanbana DoT potency
+            if parsed_ws == 'higanbana':
+                n_applied_higanbana += 1
+
+                if n_targets >= n_applied_higanbana:
+                    # snapshot buffs at time of DoT application
+                    snapshot_dot_modifier += self._potency_mod
+
+                    self.applied_higanbana = n_applied_higanbana
+                else:
+                    # reset DoT potency modifier anyway
+                    snapshot_dot_modifier = self._potency_mod
+
+                    self.applied_higanbana = n_targets
+
+            # update counters
+            meikyo_shisui_counter -= 1
+
+            if meikyo_shisui_counter <= 0:
+                self.has_meikyo_shisui = False
+
+        #print(parsed_gcds)
+        df = pd.DataFrame(parsed_gcds, columns=['Weaponskill', 'Ability', 'Potency'])
+        df['Total Potency'] = df['Potency'].cumsum(axis=0)
+
+        average_potency = df['Total Potency'].max()/len(df)
+
+        return df, average_potency
 
     ## Properties
     # Potency modifier
@@ -99,6 +169,15 @@ class Samurai():
     def applied_yukikaze(self, value):
         if type(value) == bool:
             self._applied_yukikaze = value
+
+    @property
+    def applied_higanbana(self):
+        return self._applied_higanbana
+
+    @applied_higanbana.setter
+    def applied_higanbana(self, n_applied):
+        if type(n_applied) == int:
+            self._applied_higanbana = n_applied
 
     @property
     def has_meikyo_shisui(self):
@@ -240,7 +319,7 @@ class Samurai():
 
     ## Weaponskills
 
-    def hakaze(self):
+    def hakaze(self, n_targets=1):
         """ lvl 1 """
 
         potency = 150
@@ -253,7 +332,7 @@ class Samurai():
 
         return self.potency_mod*potency
 
-    def jinpu(self):
+    def jinpu(self, n_targets=1):
         """ lvl 4, combo Hakaze, damage up """
 
         if self.combo_act_jinpu:
@@ -271,7 +350,7 @@ class Samurai():
 
         return potency
 
-    def gekko(self):
+    def gekko(self, n_targets=1):
         """ lvl 30, combo Jinpu """
 
         if self.combo_act_gekko:
@@ -285,7 +364,7 @@ class Samurai():
 
         return self.potency_mod*potency
 
-    def shifu(self):
+    def shifu(self, n_targets=1):
         """ lvl 18, combo Hakaze, haste """
 
         if self.combo_act_shifu:
@@ -303,7 +382,7 @@ class Samurai():
 
         return potency
 
-    def kasha(self):
+    def kasha(self, n_targets=1):
         """ lvl 40, combo Shifu """
 
         if self.combo_act_kasha:
@@ -317,7 +396,7 @@ class Samurai():
 
         return self.potency_mod*potency
 
-    def yukikaze(self):
+    def yukikaze(self, n_targets=1):
         """ lvl 50, combo Hakaze, slashing resist down """
 
         if self.combo_act_yukikaze:
@@ -401,7 +480,7 @@ class Samurai():
 
         return self.potency_mod*potency
 
-    def enbi(self):
+    def enbi(self, n_targets=1):
         """ lvl 15, combo Hissatsu: Yaten, ranged """
 
         if self.enhanced_enbi:
@@ -416,7 +495,7 @@ class Samurai():
         return self.potency_mod*potency
 
     ## Iaijutsu
-    def higanbana(self):
+    def higanbana(self, n_targets=1):
         """ 1 Sen Iaijutsu """
         if self.has_getsu or self.has_setsu or self.has_ka:
             potency = 240*self.potency_mod
@@ -429,7 +508,7 @@ class Samurai():
 
         return potency
 
-    def higanbana_dot(self):
+    def higanbana_dot(self, n_targets=1):
         """ DoT component of Higanbana """
         avg_mod = 3/2.2 # this averages the DoT potency per GCD (3 second ticks but ~2.2 GCD under Shifu)
 
@@ -461,7 +540,7 @@ class Samurai():
 
         return self.potency_mod*potency
 
-    def midare_setsugekka(self):
+    def midare_setsugekka(self, n_targets=1):
         """ 3 Sen Iaijutsu """
 
         if sum([self.has_getsu, self.has_setsu, self.has_ka]) == 3:
@@ -488,7 +567,7 @@ class Samurai():
         """ lvl 58, selfheal """
         return
 
-    def meikyo_shisui(self):
+    def meikyo_shisui(self, n_targets=1):
         """ lvl 50, no combo prereqs """
         self.has_meikyo_shisui = True
         self.meikyo_shisui_active
