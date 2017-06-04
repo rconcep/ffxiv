@@ -13,7 +13,7 @@ plt.rc('ytick', labelsize=SMALL_SIZE)  # fontsize of the tick labels
 plt.rc('legend', fontsize=SMALL_SIZE)  # legend fontsize
 plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
-def plot_potency(df):
+def plot_potency(df, truncate_actions=False):
     """
     
     :param df: 
@@ -25,11 +25,15 @@ def plot_potency(df):
     xlocs = np.arange(len(df))
     bar_width = 0.2
     ax.bar(xlocs, df['Total Potency'], bar_width, label='rotation')
-
-    plt.xticks(rotation=70)
-    ax.set_xticks(xlocs)
-    ax.set_xticklabels(df['Weaponskill'])
-    ax.set_xlabel('Actions')
+    
+    if not truncate_actions:
+        ax.set_xticks(xlocs)
+        plt.xticks(rotation=70)
+        ax.set_xticklabels(df['Weaponskill']+'\n'+df['Ability'])
+        ax.set_xlabel('Actions')
+    else:
+        ax.set_xlabel('Time (GCD)')
+    
     ax.set_ylabel('Cumulative Potency')
     ax.yaxis.grid(True)
     ax.legend(loc='best')
@@ -54,7 +58,7 @@ def compare_potencies(dfs, labels):
 
     plt.xticks(rotation=70)
     ax.set_xticks(xlocs - bar_width/2)
-    ax.set_xticklabels(dfs[-1]['Weaponskill'])
+    ax.set_xticklabels(dfs[-1]['Weaponskill']+'\n'+dfs[-1]['Ability'])
     ax.set_xlabel('Actions')
     ax.set_ylabel('Cumulative Potency')
     ax.yaxis.grid(True)
@@ -80,7 +84,7 @@ def compare_n_potencies(dfs, labels):
 
     plt.xticks(rotation=70)
     ax.set_xticks(xlocs - bar_width*len(labels)/2)
-    ax.set_xticklabels(dfs[0]['Weaponskill'])
+    ax.set_xticklabels(dfs[-1]['Weaponskill']+'\n'+dfs[-1]['Ability'])
     ax.set_xlabel('Actions')
     ax.set_ylabel('Cumulative Potency')
     ax.yaxis.grid(True)

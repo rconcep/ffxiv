@@ -99,7 +99,7 @@ class Samurai():
         df = pd.DataFrame(parsed_gcds, columns=['Weaponskill', 'Ability', 'Potency'])
         df['Total Potency'] = df['Potency'].cumsum(axis=0)
 
-        average_potency = df['Total Potency'].max()/len(df)
+        average_potency = df['Potency'].mean()
 
         return df, average_potency
 
@@ -510,7 +510,7 @@ class Samurai():
 
     def higanbana_dot(self, n_targets=1):
         """ DoT component of Higanbana """
-        avg_mod = 3/2.2 # this averages the DoT potency per GCD (3 second ticks but ~2.2 GCD under Shifu)
+        avg_mod = 2.2/3.0 # this averages the DoT potency per GCD (3 second ticks but ~2.2 GCD under Shifu)
 
         if self.has_jinpu:
             potency = JINPU_MOD*35*avg_mod
