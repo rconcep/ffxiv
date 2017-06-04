@@ -10,6 +10,9 @@ class Samurai():
     """
 
     def __init__(self):
+        self._base_gcd = 2.40
+        self._current_gcd = self._base_gcd
+
         self._potency_mod = 1.0
         self._kenki_gauge = 0
 
@@ -49,6 +52,8 @@ class Samurai():
         n_applied_higanbana = 0
         meikyo_shisui_counter = 3
 
+        current_time = 0
+
         for k in range(len(rotation)):
             gcd = rotation[k]
 
@@ -63,11 +68,11 @@ class Samurai():
             parsed_ws = weaponskill.lower().replace(' ', '_')
 
             if not ability:
-                parsed_gcds.append((weaponskill, '', getattr(self, parsed_ws)(n_targets)
+                parsed_gcds.append((current_time, weaponskill, '', getattr(self, parsed_ws)(n_targets)
                                     + snapshot_dot_modifier*self.higanbana_dot()))
             else:
                 parsed_ability = ability.lower().replace(' ', '_')
-                parsed_gcds.append((weaponskill, ability, getattr(self, parsed_ws)(n_targets)
+                parsed_gcds.append((current_time, weaponskill, ability, getattr(self, parsed_ws)(n_targets)
                                     + getattr(self, parsed_ability)(n_targets)
                                     + snapshot_dot_modifier*self.higanbana_dot()))
 
@@ -95,15 +100,42 @@ class Samurai():
             if meikyo_shisui_counter <= 0:
                 self.has_meikyo_shisui = False
 
-        #print(parsed_gcds)
-        df = pd.DataFrame(parsed_gcds, columns=['Weaponskill', 'Ability', 'Potency'])
+            # update time
+            if self.has_shifu:
+                self.current_gcd = 0.90*self.base_gcd # Shifu haste buff reduces recast time
+
+            current_time += self.current_gcd
+
+        df = pd.DataFrame(parsed_gcds, columns=['Time', 'Weaponskill', 'Ability', 'Potency'])
         df['Total Potency'] = df['Potency'].cumsum(axis=0)
 
         average_potency = df['Potency'].mean()
+        potency_ps = df['Total Potency'].max()/current_time
 
-        return df, average_potency
+        print('average potency per GCD = %s' % average_potency)
+        print('average potency per second = %s' % potency_ps)
+
+        return df, average_potency, potency_ps
 
     ## Properties
+    # Global cooldown
+    @property
+    def base_gcd(self):
+        return self._base_gcd
+
+    @base_gcd.setter
+    def base_gcd(self, value):
+        raise NotImplementedError('The base GCD may only be set in the constructor!')
+
+    @property
+    def current_gcd(self):
+        return self._current_gcd
+
+    @current_gcd.setter
+    def current_gcd(self, value):
+        if type(value) == float:
+            self._current_gcd = value
+
     # Potency modifier
     @property
     def potency_mod(self):
@@ -119,8 +151,8 @@ class Samurai():
 
         if self.has_jinpu:
             self._potency_mod = 1.0*JINPU_MOD
-        if self.has_shifu:
-            self._potency_mod = SHIFU_MOD*self._potency_mod
+        #if self.has_shifu:
+        #    self._potency_mod = SHIFU_MOD*self._potency_mod
         if self.applied_yukikaze:
             self._potency_mod = YUKIKAZE_MOD*self._potency_mod
 
@@ -188,7 +220,6 @@ class Samurai():
         if type(value) == bool:
             self._has_meikyo_shisui = value
 
-    @property
     def meikyo_shisui_active(self):
         if self.has_meikyo_shisui:
             self.combo_act_gekko = True
@@ -249,7 +280,7 @@ class Samurai():
         return self._combo_act_mangetsu
 
     @combo_act_mangetsu.setter
-    def combo_act_magnetsu(self, value):
+    def combo_act_mangetsu(self, value):
         if type(value) == bool:
             self._combo_act_mangetsu = value
 
@@ -510,7 +541,7 @@ class Samurai():
 
     def higanbana_dot(self, n_targets=1):
         """ DoT component of Higanbana """
-        avg_mod = 2.2/3.0 # this averages the DoT potency per GCD (3 second ticks but ~2.2 GCD under Shifu)
+        avg_mod = self.current_gcd/3.0  # this averages the DoT potency per GCD (3 second ticks)
 
         if self.has_jinpu:
             potency = JINPU_MOD*35*avg_mod
@@ -570,7 +601,7 @@ class Samurai():
     def meikyo_shisui(self, n_targets=1):
         """ lvl 50, no combo prereqs """
         self.has_meikyo_shisui = True
-        self.meikyo_shisui_active
+        self.meikyo_shisui_active()
         return 0
 
     def ageha(self):
