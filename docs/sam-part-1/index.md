@@ -16,8 +16,6 @@ from IPython.display import display
 %matplotlib inline
 ```
 
-<hr width=75%>
-
 ## lvl 1-3
 
 Up to level 3, you only have one weaponskill... so use it.
@@ -134,9 +132,6 @@ display(df0)
   </tbody>
 </table>
 </div>
-
-
-<hr width=75%>
 
 ## lvl 4-17
 
@@ -266,9 +261,6 @@ compare_potencies([df0, df1], ['Hakaze only', 'Jinpu combo'])
 
 ![png](output_14_0.png)
 
-
-<hr width=75%>
-
 ## lvl 18-29
 
 Level 18 sees the introduction of your haste buff, Shifu. When executed as a combo, Shifu grants you this buff for a duration of 30s in addition to the additional combo potency. At these levels, it's fairly close as to which buff takes priority, Shifu or Jinpu. However, with the introduction of Sen, you will definitely want to prioritize Shifu so that you may open your Sen more often to execute the powerful Iaijutsu more often.
@@ -397,8 +389,6 @@ compare_potencies([df1, df2], ['Jinpu combo only', 'Jinpu and Shifu combos'])
 
 
 ** Note: The Shifu buff is only accounted for in potency per second calculations.
-
-<hr width=75%>
 
 Level 26 introduces your first AoE ability, Fuga. At this time, it does not combo to or from anything and deals 100 potency to all targets in a frontal cone.
 
@@ -606,8 +596,6 @@ Note that the potency per second of the buffed AoE rotation is greater than that
 ### Filler: Either combo to maintain the buffs.
 
 ### AoE: Shifu > Jinpu > Fuga for small groups. Fuga only for very large groups (>7 or so)
-
-<hr width=75%>
 
 ## lvl 30-39
 
@@ -1166,8 +1154,6 @@ compare_potencies([df3_clip, df3_noclip], ['Clipping', 'No clipping'])
 
 
 It's fairly close over this time horizon. The average potency per second is vastly dependent on where the encounter ends more than anything. Regardless if you clip Higanbana or not, it is better than not using Higanbana at all. The bottom line: use your Iaijutsu!
-
-<hr width=75%>
 
 Level 35 introduces an AoE combo with Mangetsu (combo from Fuga). This weaponskill also opens the Getsu Sen. Due to the diminishing AoE scaling, this combo is an average of no less than 100 potency per target over two GCDs. Because Mangetsu opens the Getsu Sen, this allows you to apply Higanbana to individual targets in the group. Depending on group size and encounter duration, this may be optimal. 
 
@@ -1739,8 +1725,6 @@ If the pull is long enough, you should buff first. Ideally, you would shift to a
 ### Filler: Gekko combo > Higanbana
 ### AoE: Mangetsu combo + Higanbana, depending on group size and encounter duration
 
-<hr width=75%>
-
 ## lvl 40-49
 
 Level 40 introduces the Kasha combo finisher (combo from Shifu). Equal in potency to the Gekko finisher, this weaponskill opens the Ka Sen. This leads to a maximum of two Sen open and also unlocks the use of the Iaijutsu Tenka Goken. This powerful, AoE weaponskill scales its potency depending on the number of targets from 180 potency up to a maximum of 360 potency for the first target hit. In AoE situations, this is likely Iaijutsu of choice due to its instantaneous damage. Unfortunately, you do not get the AoE weaponskill to open Ka until level 45. For single target, do we still want to try our shiny new Iaijutsu?
@@ -2153,8 +2137,6 @@ compare_potencies([df5_no_tenka, df5_tenka], ['No Tenka Goken', 'With Tenka Goke
 
 
 It's surprisingly close! I would favor using Tenka Goken since it's fresh though.
-
-<hr width=75%>
 
 With the addition of a second third-level combo finisher plus Tenka Goken, do we want to move away from the AoE weaponskill rotation in favor of a single target one for the standard three mob pull?
 
@@ -2957,8 +2939,6 @@ compare_potencies([df6_aoe_tenka_only, df6_aoe_higanbana2], ['Tenka Goken only',
 
 
 They're virtually equal, but applying Higanbana twice takes more time to pay off. Using Tenka Goken only is probably better in most cases. Although the inclusion of the AoE weaponskills will scale better with larger pulls, TP sustainability is a concern. As the number of targets dwindles down to 3, it may be better to favor rotations with single target weaponskills.
-
-<hr width=75%>
 
 Thankfully, level 45 introduces the Oka AoE combo (combo from Fuga). This finisher is equal in potency to the Mangetsu finisher, but similarly to Kasha for single target, opens the Ka Sen instead. This opens the AoE rotation of alternating combos to open Ka and Getsu in order to use Tenka Goken. While this is definitely TP unfriendly, it should scale very well with mob size.
 
