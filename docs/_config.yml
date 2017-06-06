@@ -1,1 +1,5 @@
 theme: jekyll-theme-dinky
+markdown: kramdown
+
+kramdown:
+  input: GFM
