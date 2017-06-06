@@ -3,15 +3,6 @@
 ## by Tzuyu Chou (Cactuar)
 
 ### Update log
-<ul>
-<li> 06/04/2017: Introduced modeling GCD time and GCD reduction through the Shifu haste buff. Changed analysis to emphasize potency per second over potency per GCD. Removed the Shifu potency buff from calculations.
-<li> 06/03/2017: Created a parser to convert strings describing action sequences into a rotation dataframe. Pruned some uninteresting analysis. Created new plots for analyzing scaling of AoE rotations with encounter length and group size. Included average potency per GCD calculations. Dataframe structure will allow monitoring of buffs, DoTs, and other statuses over time. Changed text size and added line breaks through Markdown.
-
-<li> 06/02/2017: Finished up to level 49 for now.
-
-<li> 06/01/2017: Up to level 40 rotation.
-</ul>
-
 
 ```python
 from samurai import *
