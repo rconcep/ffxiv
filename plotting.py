@@ -51,15 +51,18 @@ def compare_potencies(dfs, labels):
 
     fig, ax = plt.subplots(figsize=(12, 4))
 
-    xlocs = np.arange(len(dfs[0]))
     bar_width = 0.2
-    ax.bar(xlocs - bar_width, dfs[0]['Total Potency'], bar_width, label=labels[0])
-    ax.bar(xlocs, dfs[-1]['Total Potency'], bar_width, label=labels[-1])
+
+    xlocs = dfs[0]['Time']
+    ax.plot(xlocs, dfs[0]['Total Potency'], '-s', label=labels[0])
+
+    xlocs = dfs[-1]['Time']
+    ax.plot(xlocs, dfs[-1]['Total Potency'], ':o', label=labels[-1])
 
     plt.xticks(rotation=70)
-    ax.set_xticks(xlocs - bar_width/2)
-    ax.set_xticklabels(dfs[-1]['Weaponskill']+'\n'+dfs[-1]['Ability'])
-    ax.set_xlabel('Actions')
+    ax.set_xticks(xlocs)
+    #ax.set_xticklabels(dfs[-1]['Weaponskill']+'\n'+dfs[-1]['Ability'])
+    ax.set_xlabel('Time')
     ax.set_ylabel('Cumulative Potency')
     ax.yaxis.grid(True)
     ax.legend(loc='best')
@@ -76,16 +79,14 @@ def compare_n_potencies(dfs, labels):
 
     fig, ax = plt.subplots(figsize=(12, 4))
 
-    xlocs = np.arange(len(dfs[0]))
-    bar_width = 0.1
-
     for k, df in enumerate(dfs):
-        ax.bar(xlocs - bar_width*len(labels) + k*bar_width, dfs[k]['Total Potency'], bar_width, label=labels[k])
+        xlocs = dfs[k]['Time']
+        ax.plot(xlocs, dfs[k]['Total Potency'], '-o', label=labels[k])
 
     plt.xticks(rotation=70)
-    ax.set_xticks(xlocs - bar_width*len(labels)/2)
-    ax.set_xticklabels(dfs[-1]['Weaponskill']+'\n'+dfs[-1]['Ability'])
-    ax.set_xlabel('Actions')
+    ax.set_xticks(xlocs)
+    #ax.set_xticklabels(dfs[-1]['Weaponskill']+'\n'+dfs[-1]['Ability'])
+    ax.set_xlabel('Time')
     ax.set_ylabel('Cumulative Potency')
     ax.yaxis.grid(True)
     ax.legend(loc='best')
