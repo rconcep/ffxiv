@@ -121,14 +121,14 @@ class Samurai():
                 if n_targets >= n_applied_higanbana:
                     # in this case, there are more total targets than those afflicted with Higanbana DoT
                     # snapshot buffs at time of DoT application and add to current DoT tick multiplier
-                    snapshot_dot_modifier += self._potency_mod
+                    snapshot_dot_modifier += JINPU_MOD if self.has_jinpu else 1.0
 
                     # update the number of targets afflicted by Higanbana DoT
                     self.applied_higanbana = n_applied_higanbana
                 else:
                     # in this case, all targets have been afflicted with Higanbana DoT
                     # overwrite the DoT modifier due to clipping
-                    snapshot_dot_modifier = self._potency_mod
+                    snapshot_dot_modifier = JINPU_MOD if self.has_jinpu else 1.0
 
                     # max out the number of afflicted targets
                     self.applied_higanbana = n_targets
