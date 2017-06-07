@@ -1,5 +1,5 @@
-
 # Part 1: levels 1-49
+<a id="header"></a>
 
 ### Other parts
 [Part 1: levels 1-49](../sam-part-1/)
@@ -4035,11 +4035,4 @@ Once again, Higanbana takes some time to pay off. For pulls reaching the 60 seco
 
 Up to this point, Samurai has no abilities or offensive cooldowns that are used in its regular rotation, save for Ageha. The main themes are always keeping buffs up and making use of Iaijutsu as regularly as you can. Samurai has strong AoE although it is expensive to use. From level 50 going forward, Samurai picks up all of its abilities and at level 52, the Kenki gauge and Hissatsu abilities start to be introduced. Once you master the weaponskill rotation that is completed at level 50, you will need to start learning to manage Kenki and use the Kenki spenders efficiently to become a good samurai.
 
-### Other parts
-[Part 1: levels 1-49](../sam-part-1/)
-
-[Part 2: levels 50-51](../sam-part-2/)
-
-[Part 3: levels 52-61]()
-
-[Part 4: levels 62-70]()
+<a href="#header">back to the top...</a>
