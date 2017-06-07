@@ -2,14 +2,14 @@
 # Samurai by the numbers (lvl 50)
 ## by Tzuyu Chou (Cactuar)
 
-### Update log
+### Other parts
+[Part 1: levels 1-49](../sam-part-1/)
 
--06/05/2017: Finished through two extended rotations.
+[Part 2: levels 50-51](../sam-part-2/)
 
--06/03/2017: Updating format to be consistent with part 1. Including the new parse rotation function syntax.
+[Part 3: levels 52-61]()
 
--06/01/2017: Three openers and priority
-
+[Part 4: levels 62-70]()
 
 ```python
 from samurai import *
@@ -3191,3 +3191,12 @@ compare_potencies([df4_ext, df2_ext], labels=['With Opener 5', 'With Opener 3'])
 
 
 Ultimately, with only weaponskills to play with, one buff, and one DoT, there is a limited degree of complexity in the single target rotation at level 50. Following the described priority system for weaponskills, using Iaijutsu intelligently, and keeping the GCD moving, you will be close to optimal output.
+
+### Other parts
+[Part 1: levels 1-49](../sam-part-1/)
+
+[Part 2: levels 50-51](../sam-part-2/)
+
+[Part 3: levels 52-61]()
+
+[Part 4: levels 62-70]()
