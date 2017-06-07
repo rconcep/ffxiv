@@ -4,6 +4,7 @@ import pandas as pd
 JINPU_MOD = 1.15
 SHIFU_MOD = 0
 YUKIKAZE_MOD = 1.11
+KAITEN_MOD = 1.5
 
 
 class Samurai():
@@ -11,12 +12,14 @@ class Samurai():
     SAM
     """
 
-    def __init__(self, base_gcd=2.40):
+    def __init__(self, base_gcd=2.40, kenki_mastery=False):
         """
         Constructor for an instance of the Samurai class.
         """
         self._base_gcd = base_gcd
         self._current_gcd = self._base_gcd
+
+        self._kenki_mastery = kenki_mastery
 
         self._potency_mod = 1.0
         self._kenki_gauge = 0
@@ -80,17 +83,26 @@ class Samurai():
             parsed_ws = weaponskill.lower().replace(' ', '_')
 
             # record buff status at beginning of GCD
-            buff_status = (self.has_jinpu, self.has_shifu, self.applied_yukikaze, self.applied_higanbana,)
+            buff_status = (self.has_jinpu, self.has_shifu, self.applied_yukikaze,
+                           self.applied_higanbana, self.kenki_gauge)
+
+            # compute potency of weaponskill
+            if self.has_hissatsu_kaiten:
+                # Hissatsu: Kaiten buff is active; apply increased potency
+                ws_potency = KAITEN_MOD*getattr(self, parsed_ws)(n_targets)
+                self.has_hissatsu_kaiten = False
+            else:
+                ws_potency = getattr(self, parsed_ws)(n_targets)
 
             if not ability:
                 # use empty string to fill the ability value
-                parsed_gcds.append((current_time, weaponskill, '', getattr(self, parsed_ws)(n_targets)
+                parsed_gcds.append((current_time, weaponskill, '', ws_potency
                                     + snapshot_dot_modifier*self.higanbana_dot())
                                    + buff_status)
             else:
                 # parse the ability name as normal
                 parsed_ability = ability.lower().replace(' ', '_')
-                parsed_gcds.append((current_time, weaponskill, ability, getattr(self, parsed_ws)(n_targets)
+                parsed_gcds.append((current_time, weaponskill, ability, ws_potency
                                     + getattr(self, parsed_ability)(n_targets)
                                     + snapshot_dot_modifier*self.higanbana_dot())
                                    + buff_status)
@@ -172,7 +184,8 @@ class Samurai():
         # form output DataFrame and metrics
         df = pd.DataFrame(parsed_gcds,
                           columns=['Time', 'Weaponskill', 'Ability', 'Potency',
-                                   'Jinpu', 'Shifu', 'Yukikaze', 'Higanbana'])
+                                   'Jinpu', 'Shifu', 'Yukikaze', 'Higanbana',
+                                   'Kenki'])
         df['Total Potency'] = df['Potency'].cumsum(axis=0)
 
         average_potency = df['Potency'].mean()
@@ -201,6 +214,15 @@ class Samurai():
     def current_gcd(self, value):
         if type(value) == float:
             self._current_gcd = value
+
+    @property
+    def kenki_mastery(self):
+        """Kenki Mastery II if True, False if Kenki Mastery I."""
+        return self._kenki_mastery
+
+    @kenki_mastery.setter
+    def kenki_mastery(self, value):
+        raise NotImplementedError('Kenki Mastery may only be set in the constructor!')
 
     @property
     def potency_mod(self):
@@ -452,7 +474,8 @@ class Samurai():
         self.combo_act_shifu = True
         self.combo_act_jinpu = True
 
-        self.inc_kenki_gauge(5)
+        if self.kenki_mastery:
+            self.inc_kenki_gauge(5)
 
         return self.potency_mod*potency
 
@@ -471,7 +494,8 @@ class Samurai():
             potency = 280
             self.has_jinpu = True
             self.combo_act_gekko = True
-            self.inc_kenki_gauge(5)
+            if self.kenki_mastery:
+                self.inc_kenki_gauge(5)
         else:
             potency = 100
 
@@ -519,7 +543,8 @@ class Samurai():
             potency = 280
             self.has_shifu = True
             self.combo_act_kasha = True
-            self.inc_kenki_gauge(5)
+            if self.kenki_mastery:
+                self.inc_kenki_gauge(5)
         else:
             potency = 100
 
@@ -593,7 +618,8 @@ class Samurai():
         self.combo_act_mangetsu = True
         self.combo_act_oka = True
 
-        self.inc_kenki_gauge(5)
+        if self.kenki_mastery:
+            self.inc_kenki_gauge(5)
 
         return self.potency_mod*potency*n_targets
 
@@ -683,7 +709,8 @@ class Samurai():
 
         self.enhanced_enbi = False
 
-        self.inc_kenki_gauge(10)
+        if self.kenki_mastery:
+            self.inc_kenki_gauge(10)
 
         return self.potency_mod*potency
 
