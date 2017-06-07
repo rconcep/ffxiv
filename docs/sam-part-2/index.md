@@ -1,6 +1,5 @@
 
-# Samurai by the numbers (lvl 50)
-## by Tzuyu Chou (Cactuar)
+# Part 2: levels 50-51
 
 ### Other parts
 [Part 1: levels 1-49](../sam-part-1/)
