@@ -2,15 +2,14 @@
 # Samurai by the numbers (lvl 1-49)
 ## by Tzuyu Chou (Cactuar)
 
-### Update log
+### Other parts
+[Part 1: levels 1-49](sam-part-1/)
 
--06/04/2017: Introduced modeling GCD time and GCD reduction through the Shifu haste buff. Changed analysis to emphasize potency per second over potency per GCD. Removed the Shifu potency buff from calculations.
+[Part 2: levels 50-51](sam-part-2/)
 
--06/03/2017: Created a parser to convert strings describing action sequences into a rotation dataframe. Pruned some uninteresting analysis. Created new plots for analyzing scaling of AoE rotations with encounter length and group size. Included average potency per GCD calculations. Dataframe structure will allow monitoring of buffs, DoTs, and other statuses over time. Changed text size and added line breaks through Markdown.
+[Part 3: levels 52-61]()
 
--06/02/2017: Finished up to level 49 for now.
-
--06/01/2017: Up to level 40 rotation.
+[Part 4: levels 62-70]()
 
 
 ```python
@@ -4036,3 +4035,12 @@ Once again, Higanbana takes some time to pay off. For pulls reaching the 60 seco
 ### AoE: Buff first Shifu > Jinpu. Mangetsu combo, Oka combo if available, otherwise Kasha combo. For packs of 3, apply Higanbana to 1-2 sturdy targets before building for Tenka Goken if pulls approach 60 seconds in duration. For larger packs, use Tenka Goken only. Shift to single target weaponskills if TP is scarce but prioritize Iaijutsu as described.
 
 Up to this point, Samurai has no abilities or offensive cooldowns that are used in its regular rotation, save for Ageha. The main themes are always keeping buffs up and making use of Iaijutsu as regularly as you can. Samurai has strong AoE although it is expensive to use. From level 50 going forward, Samurai picks up all of its abilities and at level 52, the Kenki gauge and Hissatsu abilities start to be introduced. Once you master the weaponskill rotation that is completed at level 50, you will need to start learning to manage Kenki and use the Kenki spenders efficiently to become a good samurai.
+
+### Other parts
+[Part 1: levels 1-49](sam-part-1/)
+
+[Part 2: levels 50-51](sam-part-2/)
+
+[Part 3: levels 52-61]()
+
+[Part 4: levels 62-70]()
