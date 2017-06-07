@@ -1,4 +1,5 @@
 import pandas as pd
+import string
 
 # potency modifiers for each buff
 JINPU_MOD = 1.15
@@ -79,8 +80,8 @@ class Samurai():
                 weaponskill = gcd[0]
                 ability = gcd[1]
 
-            # convert to input text to lowercase and replace spaces with underscores
-            parsed_ws = weaponskill.lower().replace(' ', '_')
+            # convert input text to lowercase, replace punctuation, and replace spaces with underscores
+            parsed_ws = weaponskill.lower().translate(None, string.punctuation).replace(' ', '_')
 
             # record buff status at beginning of GCD
             buff_status = (self.has_jinpu, self.has_shifu, self.applied_yukikaze,
@@ -100,8 +101,9 @@ class Samurai():
                                     + snapshot_dot_modifier*self.higanbana_dot())
                                    + buff_status)
             else:
-                # parse the ability name as normal
-                parsed_ability = ability.lower().replace(' ', '_')
+                # convert input text to lowercase, replace punctuation, and replace spaces with underscores
+                parsed_ability = ability.lower().translate(None, string.punctuation).replace(' ', '_')
+
                 parsed_gcds.append((current_time, weaponskill, ability, ws_potency
                                     + getattr(self, parsed_ability)(n_targets)
                                     + snapshot_dot_modifier*self.higanbana_dot())
@@ -781,7 +783,7 @@ class Samurai():
 
         return self.potency_mod*potency
 
-    def starry_eyes(self):
+    def starry_eyes(self, n_targets=1):
         """
         lvl 66
         Delivers an attack with a potency of 200.
@@ -845,7 +847,7 @@ class Samurai():
         self.meikyo_shisui_active()
         return 0
 
-    def ageha(self):
+    def ageha(self, n_targets=1):
         """
         lvl 10
         Recast: 60s
@@ -855,10 +857,11 @@ class Samurai():
         ** Only available if target's HP is 20% or less
         """
         potency = 250
+        self.inc_kenki_gauge(10)
 
         return potency*self.potency_mod
 
-    def hagakure(self):
+    def hagakure(self, n_targets=1):
         """
         lvl 68
         Recast: 40s
@@ -878,7 +881,7 @@ class Samurai():
 
         return 0
 
-    def hissatsu_kaiten(self):
+    def hissatsu_kaiten(self, n_targets=1):
         """
         lvl 52
         Recast: 5s
@@ -891,6 +894,7 @@ class Samurai():
 
         if self.kenki_gauge >= kenki_cost:
             self.has_hissatsu_kaiten = True
+            self.inc_kenki_gauge(-kenki_cost)
             return 0
         else:
             raise ValueError('Not enough Kenki available!')
@@ -951,7 +955,7 @@ class Samurai():
         else:
             raise ValueError('Not enough Kenki available!')
 
-    def hissatsu_kyuten(self, n_targets=1):
+    def hissatsu_kyuten(self, n_targets):
         """
         lvl 64
         Recast: 1s
@@ -969,7 +973,7 @@ class Samurai():
             raise ValueError('Not enough Kenki available!')
 
 
-    def hissatsu_guren(self, n_targets=1):
+    def hissatsu_guren(self, n_targets):
         """
         lvl 70
         Recast: 120s
