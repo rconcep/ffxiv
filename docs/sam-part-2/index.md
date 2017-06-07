@@ -1,4 +1,4 @@
-
+<a id="header"></a>
 # Part 2: levels 50-51
 
 ### Other parts
@@ -3191,11 +3191,4 @@ compare_potencies([df4_ext, df2_ext], labels=['With Opener 5', 'With Opener 3'])
 
 Ultimately, with only weaponskills to play with, one buff, and one DoT, there is a limited degree of complexity in the single target rotation at level 50. Following the described priority system for weaponskills, using Iaijutsu intelligently, and keeping the GCD moving, you will be close to optimal output.
 
-### Other parts
-[Part 1: levels 1-49](../sam-part-1/)
-
-[Part 2: levels 50-51](../sam-part-2/)
-
-[Part 3: levels 52-61]()
-
-[Part 4: levels 62-70]()
+<a href="#header">back to the top...</a>
