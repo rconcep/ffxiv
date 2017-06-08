@@ -12,3 +12,6 @@ samurai.pyc
 *.pyc
 plotting.pyc
 *.pyc
+.docs/sphinx/_build
+.docs/sphinx/_static
+.docs/sphinx/_templates
