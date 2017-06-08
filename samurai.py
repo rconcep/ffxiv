@@ -13,7 +13,7 @@ class Samurai():
     SAM
     """
 
-    def __init__(self, base_gcd=2.40, kenki_mastery=False):
+    def __init__(self, base_gcd=2.40, kenki_mastery=False, kenki_gauge=0):
         """
         Constructor for an instance of the Samurai class.
         """
@@ -23,7 +23,7 @@ class Samurai():
         self._kenki_mastery = kenki_mastery
 
         self._potency_mod = 1.0
-        self._kenki_gauge = 0
+        self._kenki_gauge = kenki_gauge
 
         self._has_jinpu = False
         self._has_shifu = False
