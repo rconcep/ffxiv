@@ -4,9 +4,10 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = FFXIVSamuraiAnalysis
-SOURCEDIR     = source
-BUILDDIR      = ..
+SPHINXPROJ    = FFXIV-Analysis
+SOURCEDIR     = .
+# BUILDDIR      = _build
+BUILDDIR       = ../../../ffxiv-docs
 
 # Put it first so that "make" without argument is like "make help".
 help:
