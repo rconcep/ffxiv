@@ -1,6 +1,6 @@
 # Samurai by the numbers
 ## by Tzuyu Chou (Cactuar)
-An analytical investigation into playing Samurai optimally in any scenario. This analysis is based on the Python class for Samurai that I've written, located in this repository plus some visualization tools also living in the repository. The format of these pages is of exported Jupyter (IPython) notebooks that include the code used. Interested users may clone the code and try out some testing themselves (refer to the [documentation](sphinx/_build/html/).)
+An analytical investigation into playing Samurai optimally in any scenario. This analysis is based on the Python class for Samurai that I've written, located in this repository plus some visualization tools also living in the repository. The format of these pages is of exported Jupyter (IPython) notebooks that include the code used. Interested users may clone the code and try out some testing themselves (refer to the [documentation](html/).)
 
 [Part 1: levels 1-49](sam-part-1/)
 
@@ -10,7 +10,7 @@ An analytical investigation into playing Samurai optimally in any scenario. This
 
 [Part 4: levels 62-70]()
 
-View the code documentation [here](sphinx/_build/html/).
+View the code documentation [here](html/).
 
 ### Revision history
 - 06/07/2017: Added Sphinx documentation for the Python code.
