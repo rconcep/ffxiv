@@ -6,9 +6,9 @@ An analytical investigation into playing Samurai optimally in any scenario. This
 
 [Part 2: levels 50-51](sam-part-2/)
 
-[Part 3: levels 52-61]()
+[Part 3: levels 52-61](sam-part-3/)
 
-[Part 4: levels 62-70]()
+[Part 4: levels 62-70](sam-part-4/)
 
 View the code documentation [here](https://rconcep.github.io/ffxiv-docs/html/).
 
