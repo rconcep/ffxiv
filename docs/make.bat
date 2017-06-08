@@ -7,9 +7,10 @@ REM Command file for Sphinx documentation
 if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
-set SOURCEDIR=source
+set SOURCEDIR=.
+REM set BUILDDIR=_build
 set BUILDDIR=..
-set SPHINXPROJ=FFXIVSamuraiAnalysis
+set SPHINXPROJ=ffxiv-samurai
 
 if "%1" == "" goto help
 
