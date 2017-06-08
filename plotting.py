@@ -15,9 +15,9 @@ plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
 def plot_potency(df, truncate_actions=False):
     """
+    Bar graph depicting cumulative potency of a rotation over time.
     
-    :param df: 
-    :return: 
+    :param df: A Pandas DataFrame, output from Samurai.parse_rotation()
     """
 
     fig, ax = plt.subplots(figsize=(12, 4))
@@ -43,10 +43,11 @@ def plot_potency(df, truncate_actions=False):
 
 def compare_potencies(dfs, labels):
     """
-    Compares the potencies of two rotations over time
-    :param dfs: A list of dataframes
-    :param labels: A list of labels
-    :return: 
+    Compares the potencies of two rotations over time.
+
+    :param dfs: A list of DataFrames, output from Samurai.parse_rotation()
+
+    :param labels: A list of labels corresponding to each DataFrame
     """
 
     fig, ax = plt.subplots(figsize=(12, 4))
@@ -71,10 +72,11 @@ def compare_potencies(dfs, labels):
 
 def compare_n_potencies(dfs, labels):
     """
-    Compares the potencies of n rotations over time
-    :param dfs: A list of dataframes
-    :param labels: A list of labels
-    :return: 
+    Compares the potencies of n rotations over time.
+
+    :param dfs: A list of DataFrames, , output from Samurai.parse_rotation()
+
+    :param labels: A list of labels corresponding to each DataFrame
     """
 
     fig, ax = plt.subplots(figsize=(12, 4))

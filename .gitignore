@@ -9,3 +9,6 @@
 .ipynb_checkpoints/Untitled-checkpoint.ipynb
 *.pyc
 samurai.pyc
+*.pyc
+plotting.pyc
+*.pyc

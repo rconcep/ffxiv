@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Plotting/visualization utilities &#8212; FFXIV - Samurai Analysis  documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="The Samurai (Python) class" href="samurai.html" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>FFXIV - Samurai Analysis  documentation</span></a></h1>
+        <h2 class="heading"><span>Plotting/visualization utilities</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="samurai.html">The Samurai (Python) class</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="module-plotting">
+<span id="plotting-visualization-utilities"></span><h1>Plotting/visualization utilities<a class="headerlink" href="#module-plotting" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="plotting.compare_n_potencies">
+<code class="descclassname">plotting.</code><code class="descname">compare_n_potencies</code><span class="sig-paren">(</span><em>dfs</em>, <em>labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/plotting.html#compare_n_potencies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#plotting.compare_n_potencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares the potencies of n rotations over time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dfs</strong> &#8211; A list of DataFrames, , output from Samurai.parse_rotation()</li>
+<li><strong>labels</strong> &#8211; A list of labels corresponding to each DataFrame</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="plotting.compare_potencies">
+<code class="descclassname">plotting.</code><code class="descname">compare_potencies</code><span class="sig-paren">(</span><em>dfs</em>, <em>labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/plotting.html#compare_potencies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#plotting.compare_potencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares the potencies of two rotations over time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dfs</strong> &#8211; A list of DataFrames, output from Samurai.parse_rotation()</li>
+<li><strong>labels</strong> &#8211; A list of labels corresponding to each DataFrame</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="plotting.plot_potency">
+<code class="descclassname">plotting.</code><code class="descname">plot_potency</code><span class="sig-paren">(</span><em>df</em>, <em>truncate_actions=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/plotting.html#plot_potency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#plotting.plot_potency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bar graph depicting cumulative potency of a rotation over time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>df</strong> &#8211; A Pandas DataFrame, output from Samurai.parse_rotation()</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="samurai.html">The Samurai (Python) class</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, rconcep.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

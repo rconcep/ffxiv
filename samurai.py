@@ -3,7 +3,7 @@ import string
 
 # potency modifiers for each buff
 JINPU_MOD = 1.15
-SHIFU_MOD = 0
+SHIFU_MOD = 1.0
 YUKIKAZE_MOD = 1.11
 KAITEN_MOD = 1.5
 
@@ -53,9 +53,18 @@ class Samurai():
     def parse_rotation(self, rotation, n_targets=1):
         """
         Creates a dataframe describing the given rotation.
-        :param rotation: A list of tuples describing each GCD with strings [(weaponskill, ability), ...]
-        :param n_targets: Number of targets available. Default to 1.
-        :return: A Pandas DataFrame object, average potency per GCD, average potency per second
+
+        :param rotation: A list of tuples describing each GCD with strings.
+         Each tuple takes the format (weaponskill, ability). If no ability is used, a 1-tuple may be supplied:
+         ('weaponskill).
+
+        :param n_targets: Number of targets available in the encounter. Defaults to 1.
+
+        :return: df: A Pandas DataFrame object describing the rotation
+
+        :return: average_potency: The average potency per GCD of the rotation
+
+        :return: pps: The average potency per second of the rotation
         """
 
         parsed_gcds = []
@@ -219,7 +228,7 @@ class Samurai():
 
     @property
     def kenki_mastery(self):
-        """Kenki Mastery II if True, False if Kenki Mastery I."""
+        """Kenki Mastery II trait is active if True; False if Kenki Mastery I only."""
         return self._kenki_mastery
 
     @kenki_mastery.setter
@@ -266,7 +275,7 @@ class Samurai():
 
     @property
     def has_jinpu(self):
-        """If Jinpu buff is up."""
+        """If the Jinpu buff is active."""
         return self._has_jinpu
 
     @has_jinpu.setter
@@ -276,7 +285,7 @@ class Samurai():
 
     @property
     def has_shifu(self):
-        """If Shifu buff is up."""
+        """If the Shifu buff is active."""
         return self._has_shifu
 
     @has_shifu.setter
@@ -286,7 +295,7 @@ class Samurai():
 
     @property
     def applied_yukikaze(self):
-        """If slashing resistance down debuff is applied."""
+        """If the slashing resistance down debuff from Yukikaze is applied."""
         return self._applied_yukikaze
 
     @applied_yukikaze.setter
@@ -296,7 +305,7 @@ class Samurai():
 
     @property
     def applied_higanbana(self):
-        """Number of targets afflicted with Higanbana DoT."""
+        """Number of targets afflicted with the Higanbana DoT."""
         return self._applied_higanbana
 
     @applied_higanbana.setter
@@ -306,7 +315,7 @@ class Samurai():
 
     @property
     def has_meikyo_shisui(self):
-        """If Meikyo Shisui buff is up."""
+        """If the Meikyo Shisui buff is active."""
         return self._has_meikyo_shisui
 
     @has_meikyo_shisui.setter
@@ -335,7 +344,7 @@ class Samurai():
 
     @property
     def has_hissatsu_kaiten(self):
-        """If Hissatsu: Kaiten buff is up."""
+        """If the Hissatsu: Kaiten buff is active."""
         return self._has_hissatsu_kaiten
 
     @has_hissatsu_kaiten.setter
@@ -445,7 +454,7 @@ class Samurai():
 
     @property
     def enhanced_enbi(self):
-        """If the Enhanced Enbi status is up."""
+        """If the Enhanced Enbi status is active."""
         return self._enhanced_enbi
 
     @enhanced_enbi.setter
@@ -455,7 +464,7 @@ class Samurai():
 
     @property
     def open_eyes(self):
-        """If the Open Eyes status from Third Eye is up."""
+        """If the Open Eyes status from Third Eye is active."""
         return self._open_eyes
 
     @open_eyes.setter
@@ -466,8 +475,10 @@ class Samurai():
     def hakaze(self, n_targets=1):
         """
         lvl 1
+
         Delivers an attack with a potency of 150.
-        Additional Effect: Increases Kenki Gauge by 5
+
+        **Additional Effect**: Increases Kenki Gauge by 5
         """
 
         potency = 150
@@ -484,12 +495,18 @@ class Samurai():
     def jinpu(self, n_targets=1):
         """
         lvl 4
+
         Delivers an attack with a potency of 100.
-        Combo Action: Hakaze
-        Combo Potency: 280
-        Combo Bonus: Increases damage dealt by 15%
-        Duration: 30s
-        Combo Bonus: Increases Kenki Gauge by 5
+
+        **Combo Action**: Hakaze
+
+        **Combo Potency**: 280
+
+        **Combo Bonus**: Increases damage dealt by 15%
+
+        **Duration**: 30s
+
+        **Combo Bonus**: Increases Kenki Gauge by 5
         """
 
         if self.combo_act_jinpu:
@@ -511,11 +528,16 @@ class Samurai():
     def gekko(self, n_targets=1):
         """
         lvl 30
+
         Delivers an attack with a potency of 100.
-        Combo Action: Jinpu
-        Combo Potency: 400
-        Rear Combo Bonus: Increases Kenki Gauge by 10
-        Combo Bonuts: Grants Getsu
+
+        **Combo Action**: Jinpu
+
+        **Combo Potency**: 400
+
+        **Rear Combo Bonus**: Increases Kenki Gauge by 10
+
+        **Combo Bonus**: Grants Getsu
         """
 
         if self.combo_act_gekko:
@@ -532,13 +554,19 @@ class Samurai():
     def shifu(self, n_targets=1):
         """
         lvl 18
+
         Delivers an attack with a potency of 100.
-        Combo Action: Hakaze
-        Combo Potency: 280
-        Combo Bonus: Reduces weaponskill cast time and recast time, spell cast time and recast time,
+
+        **Combo Action**: Hakaze
+
+        **Combo Potency**: 280
+
+        **Combo Bonus**: Reduces weaponskill cast time and recast time, spell cast time and recast time,
         and auto-attack delay by 10%
-        Duration: 30s
-        Combo Bonus: Increases Kenki Gauge by 5
+
+        **Duration**: 30s
+
+        **Combo Bonus**: Increases Kenki Gauge by 5
         """
 
         if self.combo_act_shifu:
@@ -560,11 +588,16 @@ class Samurai():
     def kasha(self, n_targets=1):
         """
         lvl 40
+
         Delivers an attack with a potency of 100.
-        Combo Action: Shifu
-        Combo Potency: 400
-        Side Combo Bonus: Increases Kenki Gauge by 10
-        Combo Bonus: Grants Ka
+
+        **Combo Action**: Shifu
+
+        **Combo Potency**: 400
+
+        **Side Combo Bonus**: Increases Kenki Gauge by 10
+
+        **Combo Bonus**: Grants Ka
         """
 
         if self.combo_act_kasha:
@@ -581,13 +614,20 @@ class Samurai():
     def yukikaze(self, n_targets=1):
         """
         lvl 50
+
         Delivers an attack with a potency of 100.
-        Combo Action: Hakaze
-        Combo Potency: 340
-        Combo Bonus: Reduces target's slashing resistance by 10%
-        Duration: 30s
-        Combo Bonus: Increases Kenki Gauge by 10
-        Combo Bonus: Grants Setsu
+
+        **Combo Action**: Hakaze
+
+        **Combo Potency**: 340
+
+        **Combo Bonus**: Reduces target's slashing resistance by 10%
+
+        **Duration**: 30s
+
+        **Combo Bonus**: Increases Kenki Gauge by 10
+
+        **Combo Bonus**: Grants Setsu
         """
 
         if self.combo_act_yukikaze:
@@ -610,9 +650,10 @@ class Samurai():
     def fuga(self, n_targets):
         """
         lvl 26
+
         Delivers an attack with a potency of 100 to all enemies in a cone before you.
 
-        Additional Effect: Increases Kenki Gauge by 5
+        **Additional Effect**: Increases Kenki Gauge by 5
         """
 
         potency = 100
@@ -628,13 +669,17 @@ class Samurai():
     def oka(self, n_targets):
         """
         lvl 45
+
         Delivers an attack with a potency of 100 to all nearby enemies.
-        Combo Action: Fuga
-        Combo Potency: 200 for the first enemy, 10% less for the second, 20% less for the third,
+
+        **Combo Action**: Fuga
+
+        **Combo Potency**: 200 for the first enemy, 10% less for the second, 20% less for the third,
         30% less for the fourth, 40% less for the fifth, and 50% less for all remaining enemies
 
-        Combo Bonus: Increases Kenki Gauge by 10
-        Combo Bonus: Grants Ka
+        **Combo Bonus**: Increases Kenki Gauge by 10
+
+        **Combo Bonus**: Grants Ka
         """
 
         if self.combo_act_oka:
@@ -663,13 +708,17 @@ class Samurai():
     def mangetsu(self, n_targets):
         """
         lvl 35
+
         Delivers an attack with a potency of 100 to all nearby enemies.
-        Combo Action: Fuga
-        Combo Potency: 200 for the first enemy, 10% less for the second, 20% less for the third,
+
+        **Combo Action**: Fuga
+
+        **Combo Potency**: 200 for the first enemy, 10% less for the second, 20% less for the third,
         30% less for the fourth, 40% less for the fifth, and 50% less for all remaining enemies
 
-        Combo Bonus: Increases Kenki Gauge by 10
-        Combo Bonus: Grants Getsu
+        **Combo Bonus**: Increases Kenki Gauge by 10
+
+        **Combo Bonus**: Grants Getsu
         """
 
         if self.combo_act_mangetsu:
@@ -698,10 +747,12 @@ class Samurai():
     def enbi(self, n_targets=1):
         """
         lvl 15
+
         Delivers a ranged attack with a potency of 100.
 
-        Yaten Bonus Potency: 300
-        Additional Effect: Increases Kenki Gauge by 10
+        **Yaten Bonus Potency**: 300
+
+        **Additional Effect**: Increases Kenki Gauge by 10
         """
 
         if self.enhanced_enbi:
@@ -719,9 +770,12 @@ class Samurai():
     def higanbana(self, n_targets=1):
         """
         Delivers an attack with a potency of 240.
-        Additional Effect: Damage over time
-        Potency: 35
-        Duration: 60s
+
+        **Additional Effect**: Damage over time
+
+        **Potency**: 35
+
+        **Duration**: 60s
         """
         if self.has_getsu or self.has_setsu or self.has_ka:
             potency = 240*self.potency_mod
@@ -786,10 +840,13 @@ class Samurai():
     def starry_eyes(self, n_targets=1):
         """
         lvl 66
+
         Delivers an attack with a potency of 200.
 
-        Kenki Gauge Cost: 25
+        **Kenki Gauge Cost**: 25
+
         Can only be executed while under the effect of Open Eyes.
+
         Shares a recast timer with Merciful Eyes.
         """
         potency = 200
@@ -806,9 +863,12 @@ class Samurai():
     def third_eye(self):
         """
         lvl 6
-        Recast: 15s
+
+        **Recast**: 15s
+
         Grants the Open Eyes status, reducing the amount of damage taken by the next attack by 20%.
-        Duration: 3s
+
+        **Duration**: 3s
         """
         self.open_eyes = True
         return 0
@@ -816,10 +876,15 @@ class Samurai():
     def meditate(self):
         """
         lvl 60
-        Recast: 60s
+
+        **Recast**: 60s
+
         Gradually increases your Kenki Gauge.
-        Duration: 15s
+
+        **Duration**: 15s
+
         Kenki Gauge not affected when used outside battle.
+
         Cancels auto-attack upon execution.
         """
         return 0
@@ -827,11 +892,17 @@ class Samurai():
     def merciful_eyes(self):
         """
         lvl 58
-        Recast: 1s
+
+        **Recast**: 1s
+
         Instantly restores own HP.
-        Cure Potency: 500
+
+        **Cure Potency**: 500
+
         Cure potency varies with current attack power.
+
         Can only be executed while under the effect of Open Eyes.
+
         Shares a recast timer with Starry Eyes.
         """
         return 0
@@ -839,9 +910,12 @@ class Samurai():
     def meikyo_shisui(self, n_targets=1):
         """
         lvl 50
-        Recast: 80s
+
+        **Recast**: 80s
+
         Execute up to 3 combos without meeting combo prerequisites.
-        Duration: 10s
+
+        **Duration**: 10s
         """
         self.has_meikyo_shisui = True
         self.meikyo_shisui_active()
@@ -850,11 +924,16 @@ class Samurai():
     def ageha(self, n_targets=1):
         """
         lvl 10
-        Recast: 60s
+
+        **Recast**: 60s
+
         Delivers an attack with a potency of 250.
-        Additional Effect: Increases Kenki Gauge by 10
+
+        **Additional Effect**: Increases Kenki Gauge by 10
+
         If target's HP is 20% or less and killing blow is dealt, Kenki Gauge will increase by 20.
-        ** Only available if target's HP is 20% or less
+
+        *Only available if target's HP is 20% or less*
         """
         potency = 250
         self.inc_kenki_gauge(10)
@@ -864,7 +943,9 @@ class Samurai():
     def hagakure(self, n_targets=1):
         """
         lvl 68
-        Recast: 40s
+
+        **Recast**: 40s
+
         Converts Setsu, Getsu, and Ka into Kenki. Each Sen converted increases your Kenki Gauge by 20. Can only be
         executed if under the effect of at least one of the three statuses.
         """
@@ -884,10 +965,14 @@ class Samurai():
     def hissatsu_kaiten(self, n_targets=1):
         """
         lvl 52
-        Recast: 5s
+
+        **Recast**: 5s
+
         Increases potency of next weaponskill by 150%.
-        Duration: 10s
-        Kenki Gauge Cost: 20
+
+        **Duration**: 10s
+
+        **Kenki Gauge Cost**: 20
         """
 
         kenki_cost = 20
@@ -902,9 +987,13 @@ class Samurai():
     def hissatsu_gyoten(self, n_targets=1):
         """
         lvl 54
-        Recast: 10s
+
+        **Recast**: 10s
+
         Rushes target and delivers an attack with a potency of 100.
-        Kenki Gauge Cost: 10
+
+        **Kenki Gauge Cost**: 10
+
         Cannot be executed while bound.
         """
 
@@ -920,11 +1009,17 @@ class Samurai():
     def hissatsu_yaten(self, n_targets=1):
         """
         lvl 56
-        Recast: 10s
+
+        **Recast**: 10s
+
         Delivers an attack with a potency of 100.
-        Additional Effect: 10-yalm backstep
-        Additional Effect: Grants Enhanced Enbi
-        Kenki Gauge Cost: 10
+
+        **Additional Effect**: 10-yalm backstep
+
+        **Additional Effect**: Grants Enhanced Enbi
+
+        **Kenki Gauge Cost**: 10
+
         Cannot be executed while bound.
         """
 
@@ -941,9 +1036,12 @@ class Samurai():
     def hissatsu_shinten(self, n_targets=1):
         """
         lvl 62
-        Recast: 1s
+
+        **Recast**: 1s
+
         Delivers an attack with a potency of 300.
-        Kenki Gauge Cost: 25
+
+        **Kenki Gauge Cost**: 25
         """
 
         potency = 300
@@ -958,9 +1056,12 @@ class Samurai():
     def hissatsu_kyuten(self, n_targets):
         """
         lvl 64
-        Recast: 1s
+
+        **Recast**: 1s
+
         Delivers an attack with a potency of 150 to all nearby enemies.
-        Kenki Gauge Cost: 25
+
+        **Kenki Gauge Cost**: 25
         """
 
         potency = n_targets*150
@@ -976,10 +1077,13 @@ class Samurai():
     def hissatsu_guren(self, n_targets):
         """
         lvl 70
-        Recast: 120s
+
+        **Recast**: 120s
+
         Delivers an attack to all enemies in a straight line before you with a potency of 800 for the first enemy,
         25% less for the second, and 50% less for all remaining enemies.
-        Kenki Gauge Cost: 50
+
+        **Kenki Gauge Cost**: 50
         """
 
         if self.kenki_gauge >= kenki_cost:
