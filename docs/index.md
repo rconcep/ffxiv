@@ -13,5 +13,6 @@ An analytical investigation into playing Samurai optimally in any scenario. This
 View the code documentation [here](https://rconcep.github.io/ffxiv-docs/html/).
 
 ### Revision history
+- 06/07/2017: Added up to part 3.
 - 06/07/2017: Added Sphinx documentation for the Python code.
 - 06/06/2017: GitHub page now open! Parts 1 and 2 are more or less done and may be updated as DataFrame output or additional data visualization is added. Actual details for 4.0 will need to be implemented.
