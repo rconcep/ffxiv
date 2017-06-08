@@ -3,10 +3,7 @@
 .idea/modules.xml
 .idea/vcs.xml
 .idea/workspace.xml
-.ipynb_checkpoints/sam-by-the-numbers-50-60-checkpoint.ipynb
-.ipynb_checkpoints/sam-by-the-numbers-50-checkpoint.ipynb
-.ipynb_checkpoints/sam-by-the-numbers-checkpoint.ipynb
-.ipynb_checkpoints/Untitled-checkpoint.ipynb
+.ipynb_checkpoints/
 *.pyc
 samurai.pyc
 *.pyc

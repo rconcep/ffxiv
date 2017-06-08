@@ -1,3 +1,4 @@
+
 <a id="header"></a>
 # Part 2: levels 50-51
 
@@ -9,6 +10,7 @@
 [Part 3: levels 52-61]()
 
 [Part 4: levels 62-70]()
+
 
 ```python
 from samurai import *
@@ -55,6 +57,7 @@ actions = [('Hakaze'), ('Shifu'), ('Kasha'), ('Hakaze'),
 
 ```python
 df0, average_potency, pps = sam.parse_rotation(actions)
+df0.set_index(['Time'])
 display(df0)
 ```
 
@@ -76,6 +79,7 @@ display(df0)
       <th>Shifu</th>
       <th>Yukikaze</th>
       <th>Higanbana</th>
+      <th>Kenki</th>
       <th>Total Potency</th>
     </tr>
   </thead>
@@ -90,6 +94,7 @@ display(df0)
       <td>False</td>
       <td>False</td>
       <td>0</td>
+      <td>0</td>
       <td>150.000</td>
     </tr>
     <tr>
@@ -101,6 +106,7 @@ display(df0)
       <td>False</td>
       <td>False</td>
       <td>False</td>
+      <td>0</td>
       <td>0</td>
       <td>430.000</td>
     </tr>
@@ -114,6 +120,7 @@ display(df0)
       <td>True</td>
       <td>False</td>
       <td>0</td>
+      <td>0</td>
       <td>830.000</td>
     </tr>
     <tr>
@@ -126,6 +133,7 @@ display(df0)
       <td>True</td>
       <td>False</td>
       <td>0</td>
+      <td>10</td>
       <td>980.000</td>
     </tr>
     <tr>
@@ -138,6 +146,7 @@ display(df0)
       <td>True</td>
       <td>False</td>
       <td>0</td>
+      <td>10</td>
       <td>1260.000</td>
     </tr>
     <tr>
@@ -150,6 +159,7 @@ display(df0)
       <td>True</td>
       <td>False</td>
       <td>0</td>
+      <td>10</td>
       <td>1536.000</td>
     </tr>
     <tr>
@@ -162,6 +172,7 @@ display(df0)
       <td>True</td>
       <td>False</td>
       <td>1</td>
+      <td>10</td>
       <td>2029.327</td>
     </tr>
     <tr>
@@ -174,6 +185,7 @@ display(df0)
       <td>True</td>
       <td>False</td>
       <td>1</td>
+      <td>20</td>
       <td>2235.154</td>
     </tr>
     <tr>
@@ -186,6 +198,7 @@ display(df0)
       <td>True</td>
       <td>False</td>
       <td>1</td>
+      <td>20</td>
       <td>2659.481</td>
     </tr>
     <tr>
@@ -198,6 +211,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>30</td>
       <td>2884.283</td>
     </tr>
     <tr>
@@ -210,6 +224,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>30</td>
       <td>3275.030</td>
     </tr>
     <tr>
@@ -222,6 +237,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>30</td>
       <td>3818.957</td>
     </tr>
     <tr>
@@ -234,6 +250,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>40</td>
       <td>4771.364</td>
     </tr>
     <tr>
@@ -246,6 +263,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>40</td>
       <td>5315.291</td>
     </tr>
     <tr>
@@ -258,6 +276,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>50</td>
       <td>5859.218</td>
     </tr>
     <tr>
@@ -270,6 +289,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>60</td>
       <td>6326.555</td>
     </tr>
     <tr>
@@ -282,6 +302,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>70</td>
       <td>7278.962</td>
     </tr>
     <tr>
@@ -294,6 +315,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>70</td>
       <td>7503.764</td>
     </tr>
     <tr>
@@ -306,6 +328,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>70</td>
       <td>7894.511</td>
     </tr>
   </tbody>
@@ -319,7 +342,7 @@ plot_potency(df0)
 ```
 
 
-![png](output_9_0.png)
+![png](output_8_0.png)
 
 
 ## Opener 2
@@ -362,6 +385,7 @@ display(df1)
       <th>Shifu</th>
       <th>Yukikaze</th>
       <th>Higanbana</th>
+      <th>Kenki</th>
       <th>Total Potency</th>
     </tr>
   </thead>
@@ -376,6 +400,7 @@ display(df1)
       <td>False</td>
       <td>False</td>
       <td>0</td>
+      <td>0</td>
       <td>150.000</td>
     </tr>
     <tr>
@@ -387,6 +412,7 @@ display(df1)
       <td>False</td>
       <td>False</td>
       <td>False</td>
+      <td>0</td>
       <td>0</td>
       <td>430.000</td>
     </tr>
@@ -400,6 +426,7 @@ display(df1)
       <td>False</td>
       <td>False</td>
       <td>0</td>
+      <td>0</td>
       <td>890.000</td>
     </tr>
     <tr>
@@ -412,6 +439,7 @@ display(df1)
       <td>False</td>
       <td>False</td>
       <td>0</td>
+      <td>10</td>
       <td>1166.000</td>
     </tr>
     <tr>
@@ -424,6 +452,7 @@ display(df1)
       <td>False</td>
       <td>False</td>
       <td>1</td>
+      <td>10</td>
       <td>1375.530</td>
     </tr>
     <tr>
@@ -436,6 +465,7 @@ display(df1)
       <td>False</td>
       <td>False</td>
       <td>1</td>
+      <td>10</td>
       <td>1734.560</td>
     </tr>
     <tr>
@@ -448,6 +478,7 @@ display(df1)
       <td>True</td>
       <td>False</td>
       <td>1</td>
+      <td>10</td>
       <td>2227.887</td>
     </tr>
     <tr>
@@ -460,6 +491,7 @@ display(df1)
       <td>True</td>
       <td>False</td>
       <td>1</td>
+      <td>20</td>
       <td>2433.714</td>
     </tr>
     <tr>
@@ -472,6 +504,7 @@ display(df1)
       <td>True</td>
       <td>False</td>
       <td>1</td>
+      <td>20</td>
       <td>2858.041</td>
     </tr>
     <tr>
@@ -484,6 +517,7 @@ display(df1)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>30</td>
       <td>3082.843</td>
     </tr>
     <tr>
@@ -496,6 +530,7 @@ display(df1)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>30</td>
       <td>3473.590</td>
     </tr>
     <tr>
@@ -508,6 +543,7 @@ display(df1)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>30</td>
       <td>4017.517</td>
     </tr>
     <tr>
@@ -520,6 +556,7 @@ display(df1)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>40</td>
       <td>4969.924</td>
     </tr>
     <tr>
@@ -532,6 +569,7 @@ display(df1)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>40</td>
       <td>5513.851</td>
     </tr>
     <tr>
@@ -544,6 +582,7 @@ display(df1)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>50</td>
       <td>6057.778</td>
     </tr>
     <tr>
@@ -556,6 +595,7 @@ display(df1)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>60</td>
       <td>6525.115</td>
     </tr>
     <tr>
@@ -568,6 +608,7 @@ display(df1)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>70</td>
       <td>7477.522</td>
     </tr>
     <tr>
@@ -580,6 +621,7 @@ display(df1)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>70</td>
       <td>7702.324</td>
     </tr>
     <tr>
@@ -592,6 +634,7 @@ display(df1)
       <td>True</td>
       <td>True</td>
       <td>1</td>
+      <td>70</td>
       <td>8093.071</td>
     </tr>
   </tbody>
@@ -605,7 +648,7 @@ plot_potency(df1)
 ```
 
 
-![png](output_13_0.png)
+![png](output_12_0.png)
 
 
 ## Opener 3
@@ -634,8 +677,8 @@ df2, average_potency, pps = sam.parse_rotation(actions)
 display(df2)
 ```
 
-    average potency per GCD = 410.969301579
-    average potency per second = 189.157382025
+    average potency per GCD = 409.232789474
+    average potency per second = 188.35811531
     
 
 
@@ -652,6 +695,7 @@ display(df2)
       <th>Shifu</th>
       <th>Yukikaze</th>
       <th>Higanbana</th>
+      <th>Kenki</th>
       <th>Total Potency</th>
     </tr>
   </thead>
@@ -661,228 +705,247 @@ display(df2)
       <td>0.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.00000</td>
+      <td>150.000</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>150.00000</td>
+      <td>0</td>
+      <td>150.000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2.40</td>
       <td>Shifu</td>
       <td></td>
-      <td>280.00000</td>
+      <td>280.000</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>430.00000</td>
+      <td>0</td>
+      <td>430.000</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.56</td>
       <td>Kasha</td>
       <td>Meikyo Shisui</td>
-      <td>400.00000</td>
+      <td>400.000</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>830.00000</td>
+      <td>0</td>
+      <td>830.000</td>
     </tr>
     <tr>
       <th>3</th>
       <td>6.72</td>
       <td>Jinpu</td>
       <td></td>
-      <td>280.00000</td>
+      <td>280.000</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>1110.00000</td>
+      <td>10</td>
+      <td>1110.000</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8.88</td>
       <td>Gekko</td>
       <td></td>
-      <td>460.00000</td>
+      <td>460.000</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>1570.00000</td>
+      <td>10</td>
+      <td>1570.000</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.04</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>391.00000</td>
+      <td>391.000</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>1961.00000</td>
+      <td>20</td>
+      <td>1961.000</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>919.08000</td>
+      <td>919.080</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>2880.08000</td>
+      <td>30</td>
+      <td>2880.080</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Hakaze</td>
       <td></td>
-      <td>191.47500</td>
+      <td>191.475</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>3071.55500</td>
+      <td>30</td>
+      <td>3071.555</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>434.01000</td>
+      <td>434.010</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>3505.56500</td>
+      <td>30</td>
+      <td>3505.565</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Higanbana</td>
       <td></td>
-      <td>306.36000</td>
+      <td>306.360</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>3811.92500</td>
+      <td>40</td>
+      <td>3811.925</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>4040.39297</td>
+      <td>40</td>
+      <td>4036.727</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Shifu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>4434.80594</td>
+      <td>40</td>
+      <td>4427.474</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>4982.39891</td>
+      <td>40</td>
+      <td>4971.401</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5210.86688</td>
+      <td>50</td>
+      <td>5196.203</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Jinpu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5605.27985</td>
+      <td>50</td>
+      <td>5586.950</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>6152.87282</td>
+      <td>50</td>
+      <td>6130.877</td>
     </tr>
     <tr>
       <th>16</th>
       <td>34.80</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>6381.34079</td>
+      <td>60</td>
+      <td>6355.679</td>
     </tr>
     <tr>
       <th>17</th>
       <td>36.96</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>6852.34376</td>
+      <td>60</td>
+      <td>6823.016</td>
     </tr>
     <tr>
       <th>18</th>
       <td>39.12</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>7808.41673</td>
+      <td>70</td>
+      <td>7775.423</td>
     </tr>
   </tbody>
 </table>
@@ -895,7 +958,7 @@ plot_potency(df2)
 ```
 
 
-![png](output_17_0.png)
+![png](output_16_0.png)
 
 
 ## Opener 4
@@ -924,8 +987,8 @@ df3, average_potency, pps = sam.parse_rotation(actions)
 display(df3)
 ```
 
-    average potency per GCD = 405.97778
-    average potency per second = 186.85992781
+    average potency per GCD = 404.820105263
+    average potency per second = 186.327083333
     
 
 
@@ -942,6 +1005,7 @@ display(df3)
       <th>Shifu</th>
       <th>Yukikaze</th>
       <th>Higanbana</th>
+      <th>Kenki</th>
       <th>Total Potency</th>
     </tr>
   </thead>
@@ -951,228 +1015,247 @@ display(df3)
       <td>0.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.00000</td>
+      <td>150.000</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>150.00000</td>
+      <td>0</td>
+      <td>150.000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2.40</td>
       <td>Shifu</td>
       <td></td>
-      <td>280.00000</td>
+      <td>280.000</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>430.00000</td>
+      <td>0</td>
+      <td>430.000</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.56</td>
       <td>Kasha</td>
       <td></td>
-      <td>400.00000</td>
+      <td>400.000</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>830.00000</td>
+      <td>0</td>
+      <td>830.000</td>
     </tr>
     <tr>
       <th>3</th>
       <td>6.72</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.00000</td>
+      <td>150.000</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>980.00000</td>
+      <td>10</td>
+      <td>980.000</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8.88</td>
       <td>Jinpu</td>
       <td></td>
-      <td>280.00000</td>
+      <td>280.000</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>1260.00000</td>
+      <td>10</td>
+      <td>1260.000</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.04</td>
       <td>Gekko</td>
       <td></td>
-      <td>460.00000</td>
+      <td>460.000</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>1720.00000</td>
+      <td>10</td>
+      <td>1720.000</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Hakaze</td>
       <td></td>
-      <td>172.50000</td>
+      <td>172.500</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>1892.50000</td>
+      <td>20</td>
+      <td>1892.500</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>391.00000</td>
+      <td>391.000</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>2283.50000</td>
+      <td>20</td>
+      <td>2283.500</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>919.08000</td>
+      <td>919.080</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>3202.58000</td>
+      <td>30</td>
+      <td>3202.580</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Hakaze</td>
       <td></td>
-      <td>191.47500</td>
+      <td>191.475</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>3394.05500</td>
+      <td>30</td>
+      <td>3394.055</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Shifu</td>
       <td></td>
-      <td>357.42000</td>
+      <td>357.420</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>3751.47500</td>
+      <td>30</td>
+      <td>3751.475</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Kasha</td>
       <td></td>
-      <td>510.60000</td>
+      <td>510.600</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>4262.07500</td>
+      <td>30</td>
+      <td>4262.075</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Higanbana</td>
       <td>Meikyo Shisui</td>
-      <td>306.36000</td>
+      <td>306.360</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>4568.43500</td>
+      <td>40</td>
+      <td>4568.435</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5116.02797</td>
+      <td>40</td>
+      <td>5112.362</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5663.62094</td>
+      <td>50</td>
+      <td>5656.289</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>6134.62391</td>
+      <td>60</td>
+      <td>6123.626</td>
     </tr>
     <tr>
       <th>16</th>
       <td>34.80</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>7090.69688</td>
+      <td>70</td>
+      <td>7076.033</td>
     </tr>
     <tr>
       <th>17</th>
       <td>36.96</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>7319.16485</td>
+      <td>70</td>
+      <td>7300.835</td>
     </tr>
     <tr>
       <th>18</th>
       <td>39.12</td>
       <td>Jinpu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>7713.57782</td>
+      <td>70</td>
+      <td>7691.582</td>
     </tr>
   </tbody>
 </table>
@@ -1185,7 +1268,7 @@ plot_potency(df3)
 ```
 
 
-![png](output_21_0.png)
+![png](output_20_0.png)
 
 
 ## Opener 5
@@ -1210,8 +1293,8 @@ df4, average_potency, pps = sam.parse_rotation(actions)
 display(df4)
 ```
 
-    average potency per GCD = 428.845663158
-    average potency per second = 194.001609524
+    average potency per GCD = 426.216315789
+    average potency per second = 192.812142857
     
 
 
@@ -1228,6 +1311,7 @@ display(df4)
       <th>Shifu</th>
       <th>Yukikaze</th>
       <th>Higanbana</th>
+      <th>Kenki</th>
       <th>Total Potency</th>
     </tr>
   </thead>
@@ -1237,228 +1321,247 @@ display(df4)
       <td>0.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.0000</td>
+      <td>150.000</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>150.0000</td>
+      <td>0</td>
+      <td>150.000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2.40</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>340.0000</td>
+      <td>340.000</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>490.0000</td>
+      <td>0</td>
+      <td>490.000</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.80</td>
       <td>Higanbana</td>
       <td></td>
-      <td>266.4000</td>
+      <td>266.400</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>0</td>
-      <td>756.4000</td>
+      <td>10</td>
+      <td>756.400</td>
     </tr>
     <tr>
       <th>3</th>
       <td>7.20</td>
       <td>Hakaze</td>
       <td></td>
-      <td>197.5800</td>
+      <td>194.500</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>1</td>
-      <td>953.9800</td>
+      <td>10</td>
+      <td>950.900</td>
     </tr>
     <tr>
       <th>4</th>
       <td>9.60</td>
       <td>Shifu</td>
       <td></td>
-      <td>341.8800</td>
+      <td>338.800</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>1</td>
-      <td>1295.8600</td>
+      <td>10</td>
+      <td>1289.700</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.76</td>
       <td>Kasha</td>
       <td></td>
-      <td>471.9720</td>
+      <td>469.200</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>1767.8320</td>
+      <td>10</td>
+      <td>1758.900</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.92</td>
       <td>Hakaze</td>
       <td></td>
-      <td>194.4720</td>
+      <td>191.700</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>1962.3040</td>
+      <td>20</td>
+      <td>1950.600</td>
     </tr>
     <tr>
       <th>7</th>
       <td>16.08</td>
       <td>Jinpu</td>
       <td></td>
-      <td>342.9678</td>
+      <td>339.780</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>2305.2718</td>
+      <td>20</td>
+      <td>2290.380</td>
     </tr>
     <tr>
       <th>8</th>
       <td>18.24</td>
       <td>Gekko</td>
       <td></td>
-      <td>542.7678</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>2848.0396</td>
+      <td>20</td>
+      <td>2829.960</td>
     </tr>
     <tr>
       <th>9</th>
       <td>20.40</td>
       <td>Hakaze</td>
       <td></td>
-      <td>223.6428</td>
+      <td>220.455</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>3071.6824</td>
+      <td>30</td>
+      <td>3050.415</td>
     </tr>
     <tr>
       <th>10</th>
       <td>22.56</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>466.1778</td>
+      <td>462.990</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>3537.8602</td>
+      <td>30</td>
+      <td>3513.405</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.72</td>
       <td>Midare Setsugekka</td>
       <td>Meikyo Shisui</td>
-      <td>951.2478</td>
+      <td>948.060</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>4489.1080</td>
+      <td>40</td>
+      <td>4461.465</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.88</td>
       <td>Kasha</td>
       <td></td>
-      <td>542.7678</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5031.8758</td>
+      <td>40</td>
+      <td>5001.045</td>
     </tr>
     <tr>
       <th>13</th>
       <td>29.04</td>
       <td>Gekko</td>
       <td></td>
-      <td>542.7678</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5574.6436</td>
+      <td>50</td>
+      <td>5540.625</td>
     </tr>
     <tr>
       <th>14</th>
       <td>31.20</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>466.1778</td>
+      <td>462.990</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>6040.8214</td>
+      <td>60</td>
+      <td>6003.615</td>
     </tr>
     <tr>
       <th>15</th>
       <td>33.36</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>951.2478</td>
+      <td>948.060</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>6992.0692</td>
+      <td>70</td>
+      <td>6951.675</td>
     </tr>
     <tr>
       <th>16</th>
       <td>35.52</td>
       <td>Hakaze</td>
       <td></td>
-      <td>223.6428</td>
+      <td>220.455</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>7215.7120</td>
+      <td>70</td>
+      <td>7172.130</td>
     </tr>
     <tr>
       <th>17</th>
       <td>37.68</td>
       <td>Shifu</td>
       <td></td>
-      <td>389.5878</td>
+      <td>386.400</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>7605.2998</td>
+      <td>70</td>
+      <td>7558.530</td>
     </tr>
     <tr>
       <th>18</th>
       <td>39.84</td>
       <td>Kasha</td>
       <td></td>
-      <td>542.7678</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>8148.0676</td>
+      <td>70</td>
+      <td>8098.110</td>
     </tr>
   </tbody>
 </table>
@@ -1471,7 +1574,7 @@ plot_potency(df4)
 ```
 
 
-![png](output_25_0.png)
+![png](output_24_0.png)
 
 
 
@@ -1482,7 +1585,7 @@ compare_n_potencies(dfs, labels)
 ```
 
 
-![png](output_26_0.png)
+![png](output_25_0.png)
 
 
 The time horizon was selected so that each opener had at least two Midare Setsugekka.
@@ -1504,7 +1607,7 @@ fig.tight_layout(pad=3)
 ```
 
 
-![png](output_29_0.png)
+![png](output_28_0.png)
 
 
 ### Priority: Shifu > Jinpu > Yukikaze and Higanbana > Midare Setsugekka
@@ -1552,8 +1655,8 @@ df4_ext, average_potency, pps = sam.parse_rotation(actions)
 display(df4_ext)
 ```
 
-    average potency per GCD = 443.035088125
-    average potency per second = 203.694293391
+    average potency per GCD = 439.923421875
+    average potency per second = 202.263642241
     
 
 
@@ -1570,6 +1673,7 @@ display(df4_ext)
       <th>Shifu</th>
       <th>Yukikaze</th>
       <th>Higanbana</th>
+      <th>Kenki</th>
       <th>Total Potency</th>
     </tr>
   </thead>
@@ -1579,768 +1683,832 @@ display(df4_ext)
       <td>0.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.00000</td>
+      <td>150.000</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>150.00000</td>
+      <td>0</td>
+      <td>150.000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2.40</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>340.00000</td>
+      <td>340.000</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>490.00000</td>
+      <td>0</td>
+      <td>490.000</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.80</td>
       <td>Higanbana</td>
       <td></td>
-      <td>266.40000</td>
+      <td>266.400</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>0</td>
-      <td>756.40000</td>
+      <td>10</td>
+      <td>756.400</td>
     </tr>
     <tr>
       <th>3</th>
       <td>7.20</td>
       <td>Hakaze</td>
       <td></td>
-      <td>197.58000</td>
+      <td>194.500</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>1</td>
-      <td>953.98000</td>
+      <td>10</td>
+      <td>950.900</td>
     </tr>
     <tr>
       <th>4</th>
       <td>9.60</td>
       <td>Shifu</td>
       <td></td>
-      <td>341.88000</td>
+      <td>338.800</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>1</td>
-      <td>1295.86000</td>
+      <td>10</td>
+      <td>1289.700</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.76</td>
       <td>Kasha</td>
       <td></td>
-      <td>471.97200</td>
+      <td>469.200</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>1767.83200</td>
+      <td>10</td>
+      <td>1758.900</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.92</td>
       <td>Hakaze</td>
       <td></td>
-      <td>194.47200</td>
+      <td>191.700</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>1962.30400</td>
+      <td>20</td>
+      <td>1950.600</td>
     </tr>
     <tr>
       <th>7</th>
       <td>16.08</td>
       <td>Jinpu</td>
       <td></td>
-      <td>342.96780</td>
+      <td>339.780</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>2305.27180</td>
+      <td>20</td>
+      <td>2290.380</td>
     </tr>
     <tr>
       <th>8</th>
       <td>18.24</td>
       <td>Gekko</td>
       <td></td>
-      <td>542.76780</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>2848.03960</td>
+      <td>20</td>
+      <td>2829.960</td>
     </tr>
     <tr>
       <th>9</th>
       <td>20.40</td>
       <td>Hakaze</td>
       <td></td>
-      <td>223.64280</td>
+      <td>220.455</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>3071.68240</td>
+      <td>30</td>
+      <td>3050.415</td>
     </tr>
     <tr>
       <th>10</th>
       <td>22.56</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>466.17780</td>
+      <td>462.990</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>3537.86020</td>
+      <td>30</td>
+      <td>3513.405</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.72</td>
       <td>Midare Setsugekka</td>
       <td>Meikyo Shisui</td>
-      <td>951.24780</td>
+      <td>948.060</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>4489.10800</td>
+      <td>40</td>
+      <td>4461.465</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.88</td>
       <td>Kasha</td>
       <td></td>
-      <td>542.76780</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5031.87580</td>
+      <td>40</td>
+      <td>5001.045</td>
     </tr>
     <tr>
       <th>13</th>
       <td>29.04</td>
       <td>Gekko</td>
       <td></td>
-      <td>542.76780</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5574.64360</td>
+      <td>50</td>
+      <td>5540.625</td>
     </tr>
     <tr>
       <th>14</th>
       <td>31.20</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>466.17780</td>
+      <td>462.990</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>6040.82140</td>
+      <td>60</td>
+      <td>6003.615</td>
     </tr>
     <tr>
       <th>15</th>
       <td>33.36</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>951.24780</td>
+      <td>948.060</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>6992.06920</td>
+      <td>70</td>
+      <td>6951.675</td>
     </tr>
     <tr>
       <th>16</th>
       <td>35.52</td>
       <td>Hakaze</td>
       <td></td>
-      <td>223.64280</td>
+      <td>220.455</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>7215.71200</td>
+      <td>70</td>
+      <td>7172.130</td>
     </tr>
     <tr>
       <th>17</th>
       <td>37.68</td>
       <td>Shifu</td>
       <td></td>
-      <td>389.58780</td>
+      <td>386.400</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>7605.29980</td>
+      <td>70</td>
+      <td>7558.530</td>
     </tr>
     <tr>
       <th>18</th>
       <td>39.84</td>
       <td>Kasha</td>
       <td></td>
-      <td>542.76780</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>8148.06760</td>
+      <td>70</td>
+      <td>8098.110</td>
     </tr>
     <tr>
       <th>19</th>
       <td>42.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>223.64280</td>
+      <td>220.455</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>8371.71040</td>
+      <td>80</td>
+      <td>8318.565</td>
     </tr>
     <tr>
       <th>20</th>
       <td>44.16</td>
       <td>Jinpu</td>
       <td></td>
-      <td>389.58780</td>
+      <td>386.400</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>8761.29820</td>
+      <td>80</td>
+      <td>8704.965</td>
     </tr>
     <tr>
       <th>21</th>
       <td>46.32</td>
       <td>Gekko</td>
       <td></td>
-      <td>542.76780</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>9304.06600</td>
+      <td>80</td>
+      <td>9244.545</td>
     </tr>
     <tr>
       <th>22</th>
       <td>48.48</td>
       <td>Hakaze</td>
       <td></td>
-      <td>223.64280</td>
+      <td>220.455</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>9527.70880</td>
+      <td>90</td>
+      <td>9465.000</td>
     </tr>
     <tr>
       <th>23</th>
       <td>50.64</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>466.17780</td>
+      <td>462.990</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>9993.88660</td>
+      <td>90</td>
+      <td>9927.990</td>
     </tr>
     <tr>
       <th>24</th>
       <td>52.80</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>951.24780</td>
+      <td>948.060</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>10945.13440</td>
+      <td>100</td>
+      <td>10876.050</td>
     </tr>
     <tr>
       <th>25</th>
       <td>54.96</td>
       <td>Hakaze</td>
       <td></td>
-      <td>223.64280</td>
+      <td>220.455</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>11168.77720</td>
+      <td>100</td>
+      <td>11096.505</td>
     </tr>
     <tr>
       <th>26</th>
       <td>57.12</td>
       <td>Shifu</td>
       <td></td>
-      <td>389.58780</td>
+      <td>386.400</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>11558.36500</td>
+      <td>100</td>
+      <td>11482.905</td>
     </tr>
     <tr>
       <th>27</th>
       <td>59.28</td>
       <td>Kasha</td>
       <td></td>
-      <td>542.76780</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>12101.13280</td>
+      <td>100</td>
+      <td>12022.485</td>
     </tr>
     <tr>
       <th>28</th>
       <td>61.44</td>
       <td>Higanbana</td>
       <td></td>
-      <td>338.52780</td>
+      <td>335.340</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>12439.66060</td>
+      <td>100</td>
+      <td>12357.825</td>
     </tr>
     <tr>
       <th>29</th>
       <td>63.60</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>12668.12857</td>
+      <td>100</td>
+      <td>12582.627</td>
     </tr>
     <tr>
       <th>30</th>
       <td>65.76</td>
       <td>Jinpu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>13062.54154</td>
+      <td>100</td>
+      <td>12973.374</td>
     </tr>
     <tr>
       <th>31</th>
       <td>67.92</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>13610.13451</td>
+      <td>100</td>
+      <td>13517.301</td>
     </tr>
     <tr>
       <th>32</th>
       <td>70.08</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>13838.60248</td>
+      <td>100</td>
+      <td>13742.103</td>
     </tr>
     <tr>
       <th>33</th>
       <td>72.24</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>14309.60545</td>
+      <td>100</td>
+      <td>14209.440</td>
     </tr>
     <tr>
       <th>34</th>
       <td>74.40</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>14538.07342</td>
+      <td>100</td>
+      <td>14434.242</td>
     </tr>
     <tr>
       <th>35</th>
       <td>76.56</td>
       <td>Shifu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>14932.48639</td>
+      <td>100</td>
+      <td>14824.989</td>
     </tr>
     <tr>
       <th>36</th>
       <td>78.72</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>15480.07936</td>
+      <td>100</td>
+      <td>15368.916</td>
     </tr>
     <tr>
       <th>37</th>
       <td>80.88</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>16436.15233</td>
+      <td>100</td>
+      <td>16321.323</td>
     </tr>
     <tr>
       <th>38</th>
       <td>83.04</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>16664.62030</td>
+      <td>100</td>
+      <td>16546.125</td>
     </tr>
     <tr>
       <th>39</th>
       <td>85.20</td>
       <td>Jinpu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>17059.03327</td>
+      <td>100</td>
+      <td>16936.872</td>
     </tr>
     <tr>
       <th>40</th>
       <td>87.36</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>17606.62624</td>
+      <td>100</td>
+      <td>17480.799</td>
     </tr>
     <tr>
       <th>41</th>
       <td>89.52</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>17835.09421</td>
+      <td>100</td>
+      <td>17705.601</td>
     </tr>
     <tr>
       <th>42</th>
       <td>91.68</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>18306.09718</td>
+      <td>100</td>
+      <td>18172.938</td>
     </tr>
     <tr>
       <th>43</th>
       <td>93.84</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>18534.56515</td>
+      <td>100</td>
+      <td>18397.740</td>
     </tr>
     <tr>
       <th>44</th>
       <td>96.00</td>
       <td>Shifu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>18928.97812</td>
+      <td>100</td>
+      <td>18788.487</td>
     </tr>
     <tr>
       <th>45</th>
       <td>98.16</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>19476.57109</td>
+      <td>100</td>
+      <td>19332.414</td>
     </tr>
     <tr>
       <th>46</th>
       <td>100.32</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>20432.64406</td>
+      <td>100</td>
+      <td>20284.821</td>
     </tr>
     <tr>
       <th>47</th>
       <td>102.48</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>20661.11203</td>
+      <td>100</td>
+      <td>20509.623</td>
     </tr>
     <tr>
       <th>48</th>
       <td>104.64</td>
       <td>Jinpu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>21055.52500</td>
+      <td>100</td>
+      <td>20900.370</td>
     </tr>
     <tr>
       <th>49</th>
       <td>106.80</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>21603.11797</td>
+      <td>100</td>
+      <td>21444.297</td>
     </tr>
     <tr>
       <th>50</th>
       <td>108.96</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>21831.58594</td>
+      <td>100</td>
+      <td>21669.099</td>
     </tr>
     <tr>
       <th>51</th>
       <td>111.12</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>22302.58891</td>
+      <td>100</td>
+      <td>22136.436</td>
     </tr>
     <tr>
       <th>52</th>
       <td>113.28</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>22531.05688</td>
+      <td>100</td>
+      <td>22361.238</td>
     </tr>
     <tr>
       <th>53</th>
       <td>115.44</td>
       <td>Shifu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>22925.46985</td>
+      <td>100</td>
+      <td>22751.985</td>
     </tr>
     <tr>
       <th>54</th>
       <td>117.60</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>23473.06282</td>
+      <td>100</td>
+      <td>23295.912</td>
     </tr>
     <tr>
       <th>55</th>
       <td>119.76</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>24429.13579</td>
+      <td>100</td>
+      <td>24248.319</td>
     </tr>
     <tr>
       <th>56</th>
       <td>121.92</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>24657.60376</td>
+      <td>100</td>
+      <td>24473.121</td>
     </tr>
     <tr>
       <th>57</th>
       <td>124.08</td>
       <td>Jinpu</td>
       <td></td>
-      <td>357.42000</td>
+      <td>357.420</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>25015.02376</td>
+      <td>100</td>
+      <td>24830.541</td>
     </tr>
     <tr>
       <th>58</th>
       <td>126.24</td>
       <td>Gekko</td>
       <td></td>
-      <td>510.60000</td>
+      <td>510.600</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>25525.62376</td>
+      <td>100</td>
+      <td>25341.141</td>
     </tr>
     <tr>
       <th>59</th>
       <td>128.40</td>
       <td>Higanbana</td>
       <td>Meikyo Shisui</td>
-      <td>306.36000</td>
+      <td>306.360</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>25831.98376</td>
+      <td>100</td>
+      <td>25647.501</td>
     </tr>
     <tr>
       <th>60</th>
       <td>130.56</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>26302.98673</td>
+      <td>100</td>
+      <td>26114.838</td>
     </tr>
     <tr>
       <th>61</th>
       <td>132.72</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>26850.57970</td>
+      <td>100</td>
+      <td>26658.765</td>
     </tr>
     <tr>
       <th>62</th>
       <td>134.88</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>27398.17267</td>
+      <td>100</td>
+      <td>27202.692</td>
     </tr>
     <tr>
       <th>63</th>
       <td>137.04</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>28354.24564</td>
+      <td>100</td>
+      <td>28155.099</td>
     </tr>
   </tbody>
 </table>
@@ -2353,7 +2521,7 @@ plot_potency(df4_ext, truncate_actions=True)
 ```
 
 
-![png](output_36_0.png)
+![png](output_35_0.png)
 
 
 Interestingly enough, the average potency this long into the encounter is actually higher than after the opener. This can be attributed to the lack of stacking damage buffs that we can blow into the opener. 
@@ -2395,8 +2563,8 @@ df2_ext, average_potency, pps = sam.parse_rotation(actions)
 display(df2_ext)
 ```
 
-    average potency per GCD = 439.991960317
-    average potency per second = 203.3413549
+    average potency per GCD = 437.082460317
+    average potency per second = 201.996735622
     
 
 
@@ -2413,6 +2581,7 @@ display(df2_ext)
       <th>Shifu</th>
       <th>Yukikaze</th>
       <th>Higanbana</th>
+      <th>Kenki</th>
       <th>Total Potency</th>
     </tr>
   </thead>
@@ -2422,756 +2591,819 @@ display(df2_ext)
       <td>0.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.00000</td>
+      <td>150.000</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>150.00000</td>
+      <td>0</td>
+      <td>150.000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2.40</td>
       <td>Shifu</td>
       <td></td>
-      <td>280.00000</td>
+      <td>280.000</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>430.00000</td>
+      <td>0</td>
+      <td>430.000</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.56</td>
       <td>Kasha</td>
       <td>Meikyo Shisui</td>
-      <td>400.00000</td>
+      <td>400.000</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>830.00000</td>
+      <td>0</td>
+      <td>830.000</td>
     </tr>
     <tr>
       <th>3</th>
       <td>6.72</td>
       <td>Jinpu</td>
       <td></td>
-      <td>280.00000</td>
+      <td>280.000</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>1110.00000</td>
+      <td>10</td>
+      <td>1110.000</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8.88</td>
       <td>Gekko</td>
       <td></td>
-      <td>460.00000</td>
+      <td>460.000</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>1570.00000</td>
+      <td>10</td>
+      <td>1570.000</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.04</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>391.00000</td>
+      <td>391.000</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>1961.00000</td>
+      <td>20</td>
+      <td>1961.000</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>919.08000</td>
+      <td>919.080</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>2880.08000</td>
+      <td>30</td>
+      <td>2880.080</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Hakaze</td>
       <td></td>
-      <td>191.47500</td>
+      <td>191.475</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>3071.55500</td>
+      <td>30</td>
+      <td>3071.555</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>434.01000</td>
+      <td>434.010</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>3505.56500</td>
+      <td>30</td>
+      <td>3505.565</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Higanbana</td>
       <td></td>
-      <td>306.36000</td>
+      <td>306.360</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>3811.92500</td>
+      <td>40</td>
+      <td>3811.925</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>4040.39297</td>
+      <td>40</td>
+      <td>4036.727</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Shifu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>4434.80594</td>
+      <td>40</td>
+      <td>4427.474</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>4982.39891</td>
+      <td>40</td>
+      <td>4971.401</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5210.86688</td>
+      <td>50</td>
+      <td>5196.203</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Jinpu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5605.27985</td>
+      <td>50</td>
+      <td>5586.950</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>6152.87282</td>
+      <td>50</td>
+      <td>6130.877</td>
     </tr>
     <tr>
       <th>16</th>
       <td>34.80</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>6381.34079</td>
+      <td>60</td>
+      <td>6355.679</td>
     </tr>
     <tr>
       <th>17</th>
       <td>36.96</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>6852.34376</td>
+      <td>60</td>
+      <td>6823.016</td>
     </tr>
     <tr>
       <th>18</th>
       <td>39.12</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>7808.41673</td>
+      <td>70</td>
+      <td>7775.423</td>
     </tr>
     <tr>
       <th>19</th>
       <td>41.28</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>8036.88470</td>
+      <td>70</td>
+      <td>8000.225</td>
     </tr>
     <tr>
       <th>20</th>
       <td>43.44</td>
       <td>Shifu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>8431.29767</td>
+      <td>70</td>
+      <td>8390.972</td>
     </tr>
     <tr>
       <th>21</th>
       <td>45.60</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>8978.89064</td>
+      <td>70</td>
+      <td>8934.899</td>
     </tr>
     <tr>
       <th>22</th>
       <td>47.76</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>9207.35861</td>
+      <td>80</td>
+      <td>9159.701</td>
     </tr>
     <tr>
       <th>23</th>
       <td>49.92</td>
       <td>Jinpu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>9601.77158</td>
+      <td>80</td>
+      <td>9550.448</td>
     </tr>
     <tr>
       <th>24</th>
       <td>52.08</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>10149.36455</td>
+      <td>80</td>
+      <td>10094.375</td>
     </tr>
     <tr>
       <th>25</th>
       <td>54.24</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>10377.83252</td>
+      <td>90</td>
+      <td>10319.177</td>
     </tr>
     <tr>
       <th>26</th>
       <td>56.40</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>10848.83549</td>
+      <td>90</td>
+      <td>10786.514</td>
     </tr>
     <tr>
       <th>27</th>
       <td>58.56</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>11804.90846</td>
+      <td>100</td>
+      <td>11738.921</td>
     </tr>
     <tr>
       <th>28</th>
       <td>60.72</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>12033.37643</td>
+      <td>100</td>
+      <td>11963.723</td>
     </tr>
     <tr>
       <th>29</th>
       <td>62.88</td>
       <td>Shifu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>12427.78940</td>
+      <td>100</td>
+      <td>12354.470</td>
     </tr>
     <tr>
       <th>30</th>
       <td>65.04</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>12975.38237</td>
+      <td>100</td>
+      <td>12898.397</td>
     </tr>
     <tr>
       <th>31</th>
       <td>67.20</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>13203.85034</td>
+      <td>100</td>
+      <td>13123.199</td>
     </tr>
     <tr>
       <th>32</th>
       <td>69.36</td>
       <td>Jinpu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>13598.26331</td>
+      <td>100</td>
+      <td>13513.946</td>
     </tr>
     <tr>
       <th>33</th>
       <td>71.52</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>14145.85628</td>
+      <td>100</td>
+      <td>14057.873</td>
     </tr>
     <tr>
       <th>34</th>
       <td>73.68</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>14374.32425</td>
+      <td>100</td>
+      <td>14282.675</td>
     </tr>
     <tr>
       <th>35</th>
       <td>75.84</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>14845.32722</td>
+      <td>100</td>
+      <td>14750.012</td>
     </tr>
     <tr>
       <th>36</th>
       <td>78.00</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>15801.40019</td>
+      <td>100</td>
+      <td>15702.419</td>
     </tr>
     <tr>
       <th>37</th>
       <td>80.16</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>16029.86816</td>
+      <td>100</td>
+      <td>15927.221</td>
     </tr>
     <tr>
       <th>38</th>
       <td>82.32</td>
       <td>Shifu</td>
       <td></td>
-      <td>357.42000</td>
+      <td>357.420</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>16387.28816</td>
+      <td>100</td>
+      <td>16284.641</td>
     </tr>
     <tr>
       <th>39</th>
       <td>84.48</td>
       <td>Kasha</td>
       <td></td>
-      <td>510.60000</td>
+      <td>510.600</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>16897.88816</td>
+      <td>100</td>
+      <td>16795.241</td>
     </tr>
     <tr>
       <th>40</th>
       <td>86.64</td>
       <td>Higanbana</td>
       <td>Meikyo Shisui</td>
-      <td>306.36000</td>
+      <td>306.360</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>17204.24816</td>
+      <td>100</td>
+      <td>17101.601</td>
     </tr>
     <tr>
       <th>41</th>
       <td>88.80</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>17751.84113</td>
+      <td>100</td>
+      <td>17645.528</td>
     </tr>
     <tr>
       <th>42</th>
       <td>90.96</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>18222.84410</td>
+      <td>100</td>
+      <td>18112.865</td>
     </tr>
     <tr>
       <th>43</th>
       <td>93.12</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>18770.43707</td>
+      <td>100</td>
+      <td>18656.792</td>
     </tr>
     <tr>
       <th>44</th>
       <td>95.28</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>19726.51004</td>
+      <td>100</td>
+      <td>19609.199</td>
     </tr>
     <tr>
       <th>45</th>
       <td>97.44</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>19954.97801</td>
+      <td>100</td>
+      <td>19834.001</td>
     </tr>
     <tr>
       <th>46</th>
       <td>99.60</td>
       <td>Jinpu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>20349.39098</td>
+      <td>100</td>
+      <td>20224.748</td>
     </tr>
     <tr>
       <th>47</th>
       <td>101.76</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>20896.98395</td>
+      <td>100</td>
+      <td>20768.675</td>
     </tr>
     <tr>
       <th>48</th>
       <td>103.92</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>21125.45192</td>
+      <td>100</td>
+      <td>20993.477</td>
     </tr>
     <tr>
       <th>49</th>
       <td>106.08</td>
       <td>Shifu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>21519.86489</td>
+      <td>100</td>
+      <td>21384.224</td>
     </tr>
     <tr>
       <th>50</th>
       <td>108.24</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>22067.45786</td>
+      <td>100</td>
+      <td>21928.151</td>
     </tr>
     <tr>
       <th>51</th>
       <td>110.40</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>22295.92583</td>
+      <td>100</td>
+      <td>22152.953</td>
     </tr>
     <tr>
       <th>52</th>
       <td>112.56</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>22766.92880</td>
+      <td>100</td>
+      <td>22620.290</td>
     </tr>
     <tr>
       <th>53</th>
       <td>114.72</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>23723.00177</td>
+      <td>100</td>
+      <td>23572.697</td>
     </tr>
     <tr>
       <th>54</th>
       <td>116.88</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>23951.46974</td>
+      <td>100</td>
+      <td>23797.499</td>
     </tr>
     <tr>
       <th>55</th>
       <td>119.04</td>
       <td>Jinpu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>24345.88271</td>
+      <td>100</td>
+      <td>24188.246</td>
     </tr>
     <tr>
       <th>56</th>
       <td>121.20</td>
       <td>Gekko</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>24893.47568</td>
+      <td>100</td>
+      <td>24732.173</td>
     </tr>
     <tr>
       <th>57</th>
       <td>123.36</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>25121.94365</td>
+      <td>100</td>
+      <td>24956.975</td>
     </tr>
     <tr>
       <th>58</th>
       <td>125.52</td>
       <td>Shifu</td>
       <td></td>
-      <td>394.41297</td>
+      <td>390.747</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>25516.35662</td>
+      <td>100</td>
+      <td>25347.722</td>
     </tr>
     <tr>
       <th>59</th>
       <td>127.68</td>
       <td>Kasha</td>
       <td></td>
-      <td>547.59297</td>
+      <td>543.927</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>26063.94959</td>
+      <td>100</td>
+      <td>25891.649</td>
     </tr>
     <tr>
       <th>60</th>
       <td>129.84</td>
       <td>Hakaze</td>
       <td></td>
-      <td>228.46797</td>
+      <td>224.802</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>26292.41756</td>
+      <td>100</td>
+      <td>26116.451</td>
     </tr>
     <tr>
       <th>61</th>
       <td>132.00</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>471.00297</td>
+      <td>467.337</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>26763.42053</td>
+      <td>100</td>
+      <td>26583.788</td>
     </tr>
     <tr>
       <th>62</th>
       <td>134.16</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>956.07297</td>
+      <td>952.407</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>27719.49350</td>
+      <td>100</td>
+      <td>27536.195</td>
     </tr>
   </tbody>
 </table>
@@ -3186,7 +3418,7 @@ compare_potencies([df4_ext, df2_ext], labels=['With Opener 5', 'With Opener 3'])
 ```
 
 
-![png](output_42_0.png)
+![png](output_41_0.png)
 
 
 Ultimately, with only weaponskills to play with, one buff, and one DoT, there is a limited degree of complexity in the single target rotation at level 50. Following the described priority system for weaponskills, using Iaijutsu intelligently, and keeping the GCD moving, you will be close to optimal output.
