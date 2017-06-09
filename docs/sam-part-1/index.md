@@ -2,7 +2,6 @@
 <a id="header"></a>
 # Part 1: levels 1-49
 
-### Other parts
 [Return home](../)
 
 
