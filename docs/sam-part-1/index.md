@@ -3,13 +3,7 @@
 # Part 1: levels 1-49
 
 ### Other parts
-[Part 1: levels 1-49](../sam-part-1/)
-
-[Part 2: levels 50-51](../sam-part-2/)
-
-[Part 3: levels 52-61]()
-
-[Part 4: levels 62-70]()
+[Return home](../)
 
 
 ```python
@@ -655,7 +649,7 @@ fig.suptitle('Average Potency per second over %s GCDs' % len(actions))
 
 
 
-    <matplotlib.text.Text at 0xcbf44a8>
+    <matplotlib.text.Text at 0xcb01ef0>
 
 
 
@@ -1619,7 +1613,7 @@ fig.suptitle('Average Potency per second over %s GCDs' % len(actions))
 
 
 
-    <matplotlib.text.Text at 0xe537b38>
+    <matplotlib.text.Text at 0x10442f60>
 
 
 
@@ -3965,7 +3959,7 @@ fig.suptitle('Average Potency per second')
 
 
 
-    <matplotlib.text.Text at 0xdf0dc88>
+    <matplotlib.text.Text at 0xddd1ac8>
 
 
 

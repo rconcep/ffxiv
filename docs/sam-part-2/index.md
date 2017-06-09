@@ -2,14 +2,7 @@
 <a id="header"></a>
 # Part 2: levels 50-51
 
-### Other parts
-[Part 1: levels 1-49](../sam-part-1/)
-
-[Part 2: levels 50-51](../sam-part-2/)
-
-[Part 3: levels 52-61]()
-
-[Part 4: levels 62-70]()
+[Return home](../)
 
 
 ```python

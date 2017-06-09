@@ -13,11 +13,13 @@ plt.rc('ytick', labelsize=SMALL_SIZE)  # fontsize of the tick labels
 plt.rc('legend', fontsize=SMALL_SIZE)  # legend fontsize
 plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
+
 def plot_potency(df, truncate_actions=False):
     """
-    Bar graph depicting cumulative potency of a rotation over time.
+    Plot depicting cumulative potency of a rotation over time.
     
     :param df: A Pandas DataFrame, output from Samurai.parse_rotation()
+    :param truncate_actions: If True, x-axis labeled as time instead of actions
     """
 
     fig, ax = plt.subplots(figsize=(12, 4))
@@ -32,7 +34,7 @@ def plot_potency(df, truncate_actions=False):
         ax.set_xticklabels(df['Weaponskill']+'\n'+df['Ability'])
         ax.set_xlabel('Actions')
     else:
-        ax.set_xlabel('Time (GCD)')
+        ax.set_xlabel('Time')
     
     ax.set_ylabel('Cumulative Potency')
     ax.yaxis.grid(True)
@@ -52,8 +54,6 @@ def compare_potencies(dfs, labels):
 
     fig, ax = plt.subplots(figsize=(12, 4))
 
-    bar_width = 0.2
-
     xlocs = dfs[0]['Time']
     ax.plot(xlocs, dfs[0]['Total Potency'], '-s', label=labels[0])
 
@@ -62,13 +62,13 @@ def compare_potencies(dfs, labels):
 
     plt.xticks(rotation=70)
     ax.set_xticks(xlocs)
-    #ax.set_xticklabels(dfs[-1]['Weaponskill']+'\n'+dfs[-1]['Ability'])
     ax.set_xlabel('Time')
     ax.set_ylabel('Cumulative Potency')
     ax.yaxis.grid(True)
     ax.legend(loc='best')
 
     fig.tight_layout(pad=2)
+
 
 def compare_n_potencies(dfs, labels):
     """
@@ -87,7 +87,6 @@ def compare_n_potencies(dfs, labels):
 
     plt.xticks(rotation=70)
     ax.set_xticks(xlocs)
-    #ax.set_xticklabels(dfs[-1]['Weaponskill']+'\n'+dfs[-1]['Ability'])
     ax.set_xlabel('Time')
     ax.set_ylabel('Cumulative Potency')
     ax.yaxis.grid(True)

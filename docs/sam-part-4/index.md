@@ -2768,7 +2768,7 @@ fig.suptitle('Total Potency per Kenki')
 
 
 
-    <matplotlib.text.Text at 0xe111198>
+    <matplotlib.text.Text at 0xdf63978>
 
 
 

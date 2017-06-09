@@ -2,14 +2,7 @@
 <a id="header"></a>
 # Part 3: levels 52-61
 
-### Other parts
-[Part 1: levels 1-49](../sam-part-1/)
-
-[Part 2: levels 50-51](../sam-part-2/)
-
-[Part 3: levels 52-61]()
-
-[Part 4: levels 62-70]()
+[Return home](../)
 
 
 ```python
@@ -34,7 +27,7 @@ Level 52 introduces your second buff and first Kenki spender, Hissatsu: Kaiten. 
 
 Level 54 introduces the gap-closer ability, Hissatsu: Gyoten, with a Kenki cost of 10. Level 56 gives the backstep disengage, Hissatsu: Yaten. While not part of an optimal dummy rotation, these mobility skills are useful in practice. Furthermore, Hissatsu: Yaten also procs Enhanced Enbi which increases the potency of the ranged weaponskill, Enbi, to 300. These two actions together allow you to disengage from point blank range and grant a GCD to move back into range at a net zero cost of Kenki (Enbi regenerates the Kenki cost of Hissatsu: Yaten.) The penalty paid is the delay in generating Sen and continuing combo actions.
 
-At level 58, you learn Merciful Eyes, a self-heal linked to the Third Eye ability. At level 60, you obtain the Meditate ability. This ability, with a relatively short recast time of 60s, increases the Kenki gauge while channeled in battle for up to 15s. Using Meditate during extended periods of forced downtime. This opens possibilities for starting encounters with non-zero Kenki.
+At level 58, you learn Merciful Eyes, a self-heal linked to the Third Eye ability. At level 60, you obtain the Meditate ability. This ability, with a relatively short recast time of 60s, increases the Kenki gauge while channeled in battle for up to 15s. Using Meditate during extended periods of forced downtime. This opens possibilities for starting encounters with non-zero Kenki. At this point, you will want to make sure you don't cap Kenki while using it, so dump Kenki into Hissatsu: Kaiten Kasha or Gekko appropriately.
 
 Assuming Kenki Mastery I grants Kenki only for combo finisher positionals, the accrual rate of Kenki is quite low, about 30 Kenki every 8 GCDs (going through all three Sen combos). If we prioritize spending Kenki on Hissatsu: Kaiten for Midare Setsugekka, we'll have a net surplus of Kenki over time, assuming we don't spend Kenki on other utility. This permits the use of Hissatsu: Kaiten on combo finishers (Kasha and Gekko) as excess Kenki accumulates, for a gain of 200 potency (unadjusted for buffs) at the cost of 25 Kenki.
 
@@ -882,7 +875,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>100</td>
+      <td>80</td>
       <td>30323.168</td>
     </tr>
     <tr>
@@ -895,7 +888,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>100</td>
+      <td>80</td>
       <td>30514.643</td>
     </tr>
     <tr>
@@ -908,7 +901,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>100</td>
+      <td>80</td>
       <td>30872.063</td>
     </tr>
     <tr>
@@ -921,7 +914,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>100</td>
+      <td>80</td>
       <td>31382.663</td>
     </tr>
     <tr>
@@ -934,7 +927,7 @@ display(df0)
       <td>True</td>
       <td>True</td>
       <td>0</td>
-      <td>100</td>
+      <td>90</td>
       <td>31689.023</td>
     </tr>
   </tbody>
