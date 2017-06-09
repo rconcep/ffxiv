@@ -266,12 +266,14 @@ class Samurai():
     def inc_kenki_gauge(self, inc_amt):
         """Changes the Kenki gauge amount by inc_amt."""
         if type(inc_amt) == int:
-            self._kenki_gauge += inc_amt
+            self.kenki_gauge += inc_amt
 
-        if self._kenki_gauge < 0:
-            self.kenki_gauge = 0
-        elif self._kenki_gauge > 100:
-            self.kenki_gauge = 100
+            if self.kenki_gauge < 0:
+                self.kenki_gauge = 0
+            elif self.kenki_gauge > 100:
+                self.kenki_gauge = 100
+        else:
+            raise TypeError('Must provide int to change Kenki gauge by!')
 
     @property
     def has_jinpu(self):
@@ -480,7 +482,6 @@ class Samurai():
 
         **Additional Effect**: Increases Kenki Gauge by 5
         """
-
         potency = 150
 
         self.combo_act_yukikaze = True
@@ -508,7 +509,6 @@ class Samurai():
 
         **Combo Bonus**: Increases Kenki Gauge by 5
         """
-
         if self.combo_act_jinpu:
             potency = 280
             self.has_jinpu = True
@@ -539,7 +539,6 @@ class Samurai():
 
         **Combo Bonus**: Grants Getsu
         """
-
         if self.combo_act_gekko:
             potency = 400
             self.has_getsu = True
@@ -568,7 +567,6 @@ class Samurai():
 
         **Combo Bonus**: Increases Kenki Gauge by 5
         """
-
         if self.combo_act_shifu:
             potency = 280
             self.has_shifu = True
@@ -599,7 +597,6 @@ class Samurai():
 
         **Combo Bonus**: Grants Ka
         """
-
         if self.combo_act_kasha:
             potency = 400
             self.has_ka = True
@@ -629,7 +626,6 @@ class Samurai():
 
         **Combo Bonus**: Grants Setsu
         """
-
         if self.combo_act_yukikaze:
             potency = 340
             self.applied_yukikaze = True
@@ -655,7 +651,6 @@ class Samurai():
 
         **Additional Effect**: Increases Kenki Gauge by 5
         """
-
         potency = 100
 
         self.combo_act_mangetsu = True
@@ -681,20 +676,21 @@ class Samurai():
 
         **Combo Bonus**: Grants Ka
         """
+        base_potency = 200
 
         if self.combo_act_oka:
             if n_targets > 5:
-                potency = 200*(1 + 0.9 + 0.8 + 0.7 + 0.6 + 0.5*(n_targets-5))
+                potency = base_potency*(1 + 0.9 + 0.8 + 0.7 + 0.6 + 0.5*(n_targets-5))
             elif n_targets > 4:
-                potency = 200 * (1 + 0.9 + 0.8 + 0.7 + 0.6)
+                potency = base_potency * (1 + 0.9 + 0.8 + 0.7 + 0.6)
             elif n_targets > 3:
-                potency = 200 * (1 + 0.9 + 0.8 + 0.7)
+                potency = base_potency * (1 + 0.9 + 0.8 + 0.7)
             elif n_targets > 2:
-                potency = 200 * (1 + 0.9 + 0.8)
+                potency = base_potency * (1 + 0.9 + 0.8)
             elif n_targets > 1:
-                potency = 200 * (1 + 0.9)
+                potency = base_potency * (1 + 0.9)
             else:
-                potency = 200
+                potency = base_potency
 
             self.has_ka = True
             self.inc_kenki_gauge(10)
@@ -720,20 +716,21 @@ class Samurai():
 
         **Combo Bonus**: Grants Getsu
         """
+        base_potency = 200
 
         if self.combo_act_mangetsu:
             if n_targets > 5:
-                potency = 200*(1 + 0.9 + 0.8 + 0.7 + 0.6 + 0.5*(n_targets-5))
+                potency = base_potency*(1 + 0.9 + 0.8 + 0.7 + 0.6 + 0.5*(n_targets-5))
             elif n_targets > 4:
-                potency = 200 * (1 + 0.9 + 0.8 + 0.7 + 0.6)
+                potency = base_potency * (1 + 0.9 + 0.8 + 0.7 + 0.6)
             elif n_targets > 3:
-                potency = 200 * (1 + 0.9 + 0.8 + 0.7)
+                potency = base_potency * (1 + 0.9 + 0.8 + 0.7)
             elif n_targets > 2:
-                potency = 200 * (1 + 0.9 + 0.8)
+                potency = base_potency * (1 + 0.9 + 0.8)
             elif n_targets > 1:
-                potency = 200 * (1 + 0.9)
+                potency = base_potency * (1 + 0.9)
             else:
-                potency = 200
+                potency = base_potency
 
             self.has_getsu = True
             self.inc_kenki_gauge(10)
@@ -754,7 +751,6 @@ class Samurai():
 
         **Additional Effect**: Increases Kenki Gauge by 10
         """
-
         if self.enhanced_enbi:
             potency = 300
         else:
@@ -806,20 +802,21 @@ class Samurai():
         Delivers an attack to all nearby enemies with a potency of 360 for the first enemy, 10% less for the second,
         20% less for the third, 30% less for the fourth, 40% less for the fifth, and 50% less for all remaining enemies.
         """
+        base_potency = 360
 
         if sum([self.has_getsu, self.has_setsu, self.has_ka]) == 2:
             if n_targets > 5:
-                potency = 360*(1 + 0.9 + 0.8 + 0.7 + 0.6 + 0.5*(n_targets-5))
+                potency = base_potency*(1 + 0.9 + 0.8 + 0.7 + 0.6 + 0.5*(n_targets-5))
             elif n_targets > 4:
-                potency = 360 * (1 + 0.9 + 0.8 + 0.7 + 0.6)
+                potency = base_potency * (1 + 0.9 + 0.8 + 0.7 + 0.6)
             elif n_targets > 3:
-                potency = 360 * (1 + 0.9 + 0.8 + 0.7)
+                potency = base_potency * (1 + 0.9 + 0.8 + 0.7)
             elif n_targets > 2:
-                potency = 360 * (1 + 0.9 + 0.8)
+                potency = base_potency * (1 + 0.9 + 0.8)
             elif n_targets > 1:
-                potency = 360 * (1 + 0.9)
+                potency = base_potency * (1 + 0.9)
             else:
-                potency = 360
+                potency = base_potency
         else:
             raise ValueError('Not enough Sen opened!')
 
@@ -829,7 +826,6 @@ class Samurai():
         """
         Delivers an attack with a potency of 720.
         """
-
         if sum([self.has_getsu, self.has_setsu, self.has_ka]) == 3:
             potency = 720
         else:
@@ -949,7 +945,6 @@ class Samurai():
         Converts Setsu, Getsu, and Ka into Kenki. Each Sen converted increases your Kenki Gauge by 20. Can only be
         executed if under the effect of at least one of the three statuses.
         """
-
         sen_total = sum([self.has_setsu + self.has_getsu + self.has_ka])
 
         if sen_total > 0:
@@ -974,7 +969,6 @@ class Samurai():
 
         **Kenki Gauge Cost**: 20
         """
-
         kenki_cost = 20
 
         if self.kenki_gauge >= kenki_cost:
@@ -996,7 +990,6 @@ class Samurai():
 
         Cannot be executed while bound.
         """
-
         potency = 100
         kenki_cost = 10
 
@@ -1022,7 +1015,6 @@ class Samurai():
 
         Cannot be executed while bound.
         """
-
         potency = 100
         kenki_cost = 10
 
@@ -1043,7 +1035,6 @@ class Samurai():
 
         **Kenki Gauge Cost**: 25
         """
-
         potency = 300
         kenki_cost = 25
 
@@ -1063,7 +1054,6 @@ class Samurai():
 
         **Kenki Gauge Cost**: 25
         """
-
         potency = n_targets*150
         kenki_cost = 25
 
@@ -1085,16 +1075,18 @@ class Samurai():
 
         **Kenki Gauge Cost**: 50
         """
+        base_potency = 800
+        kenki_cost = 50
 
         if self.kenki_gauge >= kenki_cost:
             self.inc_kenki_gauge(-kenki_cost)
 
             if n_targets > 2:
-                potency = 800*(1+0.75+0.50*(n_targets-2))
+                potency = base_potency*(1+0.75+0.50*(n_targets-2))
             elif n_targets > 1:
-                potency = 800*(1+0.75)
+                potency = base_potency*(1+0.75)
             else:
-                potency = 800
+                potency = base_potency
 
             return potency * self.potency_mod
         else:
