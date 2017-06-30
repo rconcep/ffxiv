@@ -81,7 +81,11 @@ class Samurai():
         higanbana_timer = 0
         shifu_timer = 0
         jinpu_timer = 0
-        yukikaze_timer = 0
+        
+        if not self.applied_yukikaze:
+            yukikaze_timer = 0
+        else:
+            yukikaze_timer = 30
 
         current_time = 0
         
@@ -1020,7 +1024,7 @@ class Samurai():
 
         **Additional Effect**: 10-yalm backstep
 
-        **Additional Effect**: Grants Enhanced Enbi
+        **Additional Effect**: Grants Enhanced Enpi
 
         **Kenki Gauge Cost**: 10
 
