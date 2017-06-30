@@ -974,7 +974,7 @@ class Samurai():
 
         **Recast**: 5s
 
-        Increases potency of next weaponskill by 150%.
+        Increases potency of next weaponskill by 50%.
 
         **Duration**: 10s
 
