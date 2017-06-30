@@ -10,7 +10,13 @@ KAITEN_MOD = 1.5
 
 class Samurai():
     """
-    SAM
+    Far across the rolling waves, towards the rising sun, there lies the island nation of Hingashi.
+    
+    In the distant past, the realm's great lords vied for supremacy over its sea-girt confines in a long and bloody conflict. And taking to battle in their lieges' names were noble swordsmen whose art was forged in the crucible of war: the samurai.
+    
+    Eventually, the nation was unified under one banner, and these warriors came to wield their katana not upon fields as part of an army, but upon streets as protectors of the peace.
+    
+    But as a neglected blade grows dull with rust, so too do men forget their purpose. Amidst waning memories of the old ways, a determined few hold fast to their convictions, hands by katana grips, awaiting the moment for steel to sing.
     """
 
     def __init__(self, base_gcd=2.40, kenki_mastery=False, kenki_gauge=0):
@@ -47,7 +53,7 @@ class Samurai():
         self._combo_act_oka = False
         self._combo_act_yukikaze = False
 
-        self._enhanced_enbi = False
+        self._enhanced_enpi = False
         self._open_eyes = False
 
     def parse_rotation(self, rotation, n_targets=1):
@@ -78,6 +84,9 @@ class Samurai():
         yukikaze_timer = 0
 
         current_time = 0
+        
+        # string translator for text parsing
+        translator = str.maketrans(' ', '_', string.punctuation)
 
         for k in range(len(rotation)):
             gcd = rotation[k]
@@ -90,7 +99,7 @@ class Samurai():
                 ability = gcd[1]
 
             # convert input text to lowercase, replace punctuation, and replace spaces with underscores
-            parsed_ws = weaponskill.lower().translate(None, string.punctuation).replace(' ', '_')
+            parsed_ws = weaponskill.lower().translate(translator)
 
             # record buff status at beginning of GCD
             buff_status = (self.has_jinpu, self.has_shifu, self.applied_yukikaze,
@@ -111,7 +120,7 @@ class Samurai():
                                    + buff_status)
             else:
                 # convert input text to lowercase, replace punctuation, and replace spaces with underscores
-                parsed_ability = ability.lower().translate(None, string.punctuation).replace(' ', '_')
+                parsed_ability = ability.lower().translate(translator)
 
                 parsed_gcds.append((current_time, weaponskill, ability, ws_potency
                                     + getattr(self, parsed_ability)(n_targets)
@@ -143,7 +152,9 @@ class Samurai():
                     self.applied_higanbana = n_targets
 
             # update counters
-            meikyo_shisui_counter -= 1  # expended one Meikyo Shisui charge
+            if parsed_ws not in set(['higanbana', 'tenka goken', 'midare setsugekka']):
+                # Iaijutsu does not consume a Meikyo Shisui charge
+                meikyo_shisui_counter -= 1  # expended one Meikyo Shisui charge
 
             if meikyo_shisui_counter <= 0:
                 # deactivate Meikyo Shisui if all charges expended
@@ -151,8 +162,8 @@ class Samurai():
 
             if parsed_ws == 'higanbana':
                 # start Higanbana DoT timer
-                # accounts for cast time; scaling derived from leaked tooltip
-                higanbana_timer = 60 + 1.73/2.41*self.current_gcd
+                # accounts for cast time
+                higanbana_timer = 60 + 1.8/2.5*self.current_gcd
 
             if parsed_ws == 'shifu':
                 # start Shifu buff timer
@@ -455,12 +466,12 @@ class Samurai():
             self._combo_act_yukikaze = value
 
     @property
-    def enhanced_enbi(self):
-        """If the Enhanced Enbi status is active."""
+    def enhanced_enpi(self):
+        """If the Enhanced Enpi status is active."""
         return self._enhanced_enbi
 
-    @enhanced_enbi.setter
-    def enhanced_enbi(self, value):
+    @enhanced_enpi.setter
+    def enhanced_enpi(self, value):
         if type(value) == bool:
             self._enhanced_enbi = value
 
@@ -741,7 +752,7 @@ class Samurai():
 
         return self.potency_mod*potency
 
-    def enbi(self, n_targets=1):
+    def enpi(self, n_targets=1):
         """
         lvl 15
 
@@ -833,13 +844,13 @@ class Samurai():
 
         return self.potency_mod*potency
 
-    def starry_eyes(self, n_targets=1):
+    def hissatsu_seigan(self, n_targets=1):
         """
         lvl 66
 
         Delivers an attack with a potency of 200.
 
-        **Kenki Gauge Cost**: 25
+        **Kenki Gauge Cost**: 15
 
         Can only be executed while under the effect of Open Eyes.
 
