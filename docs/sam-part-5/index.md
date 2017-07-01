@@ -17,6 +17,8 @@ from IPython.display import display
 pd.options.display.max_rows = None
 ```
 
+[Return home](../)
+
 ## Table of contents
 - <a href="#buff-priority">On buff priority</a>
 - <a href="#meikyo-shisui">On Meikyo Shisui</a>
