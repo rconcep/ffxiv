@@ -12,9 +12,12 @@ An analytical investigation into playing Samurai optimally in any scenario. This
 
 [Part 4: levels 62-70](sam-part-4/)
 
+[Part 5: miscellaneous topics](sam-part-5/)
+
 View the code documentation [here](https://rconcep.github.io/ffxiv-docs/html/).
 
 ### Revision history
+- 07/01/2017: First edition of part 5, advanced/miscellaneous topics.
 - 06/30/2017: First revision since 4.0. Changed Enbi to Enpi. Changed Starry Eyes to Hissatsu: Seigan. Updated behavior for Meikyo Shisui (charge does not get consumed by Iaijutsu).
 - 06/07/2017: Added up to part 3.
 - 06/07/2017: Added Sphinx documentation for the Python code.
