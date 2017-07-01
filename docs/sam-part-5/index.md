@@ -1483,13 +1483,13 @@ Here I made the assumption that the slashing resistance down debuff was already 
 ## On Meikyo Shisui
 Some of the initial questions of Meikyo Shisui were if Iaijutsu would consume charges of it and if combo actions initiated during it would continue after the buff expired. Testing on the live server showed:
 
-- Iaijutsu * does not * consume charges
-- Combo actions * do not * continue after the buff expires
+- Iaijutsu does not consume charges
+- Combo actions do not continue after the buff expires
 
 The first revelation increases the flexibility of Meikyo Shisui. With the buff's 10s duration, it is possible to spend your three charges while using an Iaijutsu sometime in between. The implications of that are immense:
 
 1) High, raw damage in 3-4 GCDs
-    * e.g., with Setsu already open, do Kasha, Gekko+Hissatsu: Kaiten, Midare Setsugekka, Kasha. That's 1200+1080=2280 potency in 4 GCDs plus 30 Kenki.
+    - e.g., with Setsu already open, do Kasha, Gekko+Hissatsu: Kaiten, Midare Setsugekka, Kasha. That's 1200+1080=2280 potency in 4 GCDs plus 30 Kenki.
 
 2) Up to 30 Kenki generated in 3-4 GCDs
 
@@ -2280,7 +2280,7 @@ Throughout the leveling process, we gain a number of Kenki spenders. We examine 
 ### For single target situations:
 
 1) Hissatsu: Guren (16 ppK)
-    * Although at a lower ppK than 2), its potency is from the ability and not a weaponskill. It does not directly compete with Midare Setsugekka; it only competes via Hagakure usage.
+    - Although at a lower ppK than 2), its potency is from the ability and not a weaponskill. It does not directly compete with Midare Setsugekka; it only competes via Hagakure usage.
     
 2) Hissatsu: Kaiten on Midare Setsugekka (18 ppK)
 
@@ -2299,7 +2299,7 @@ Throughout the leveling process, we gain a number of Kenki spenders. We examine 
 2) Hissatsu: Kaiten on Tenka Goken (>9 ppK)
 
 3) Hissatsu: Kyuten (6*n* ppK, where *n* is the number of targets)
-    * We examined the tradeoff between 2) and 3) in Part 4. In short, always have Kenki to use on Hissatsu: Kaiten for Tenka Goken. Excess Kenki goes to Hissatsu: Kyuten. With the Fuga, Oka, Fuga, Mangetsu combo generating 30 Kenki total, this should always be possible.
+    - We examined the tradeoff between 2) and 3) in Part 4. In short, always have Kenki to use on Hissatsu: Kaiten for Tenka Goken. Excess Kenki goes to Hissatsu: Kyuten. With the Fuga, Oka, Fuga, Mangetsu combo generating 30 Kenki total, this should always be possible.
 
 ### Wasted Kenki
 Kenki capping is a risk especially when using Hagakure to convert three Sen. The penalty for doing so may be determined via the ppK values above. Since Kenki is quantized in units of 5, the potency losses are not insignificant. These losses are, however, only realized if they would have been spendable in the first place. For example, if you overflowed Kenki by 5 but ended the encounter with 0 Kenki, then you haven't lost anything because that 5 Kenki could not have been spent anyway. However, if you instead ended with 5 Kenki, it is a loss of 100 potency because you could have spent the 10 Kenki on Hissatsu: Gyoten / Yaten.
