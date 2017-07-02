@@ -19,7 +19,7 @@ class Samurai():
     But as a neglected blade grows dull with rust, so too do men forget their purpose. Amidst waning memories of the old ways, a determined few hold fast to their convictions, hands by katana grips, awaiting the moment for steel to sing.
     """
 
-    def __init__(self, base_gcd=2.40, kenki_mastery=False, kenki_gauge=0):
+    def __init__(self, base_gcd=2.40, kenki_mastery=0, kenki_gauge=0):
         """
         Constructor for an instance of the Samurai class.
         """
@@ -243,7 +243,7 @@ class Samurai():
 
     @property
     def kenki_mastery(self):
-        """Kenki Mastery II trait is active if True; False if Kenki Mastery I only."""
+        """Kenki Mastery trait. 0 if none, 1 if I, 2 if II."""
         return self._kenki_mastery
 
     @kenki_mastery.setter
@@ -503,7 +503,7 @@ class Samurai():
         self.combo_act_shifu = True
         self.combo_act_jinpu = True
 
-        if self.kenki_mastery:
+        if self.kenki_mastery == 2:
             self.inc_kenki_gauge(5)
 
         return self.potency_mod*potency
@@ -528,7 +528,7 @@ class Samurai():
             potency = 280
             self.has_jinpu = True
             self.combo_act_gekko = True
-            if self.kenki_mastery:
+            if self.kenki_mastery == 2:
                 self.inc_kenki_gauge(5)
         else:
             potency = 100
@@ -557,7 +557,10 @@ class Samurai():
         if self.combo_act_gekko:
             potency = 400
             self.has_getsu = True
-            self.inc_kenki_gauge(10)
+            if self.kenki_mastery > 0:
+                self.inc_kenki_gauge(5)
+            if self.kenki_mastery > 1:
+                self.inc_kenki_gauge(5)
         else:
             potency = 100
 
@@ -586,7 +589,7 @@ class Samurai():
             potency = 280
             self.has_shifu = True
             self.combo_act_kasha = True
-            if self.kenki_mastery:
+            if self.kenki_mastery == 2:
                 self.inc_kenki_gauge(5)
         else:
             potency = 100
@@ -615,7 +618,10 @@ class Samurai():
         if self.combo_act_kasha:
             potency = 400
             self.has_ka = True
-            self.inc_kenki_gauge(10)
+            if self.kenki_mastery > 0:
+                self.inc_kenki_gauge(5)
+            if self.kenki_mastery > 1:
+                self.inc_kenki_gauge(5)
         else:
             potency = 100
 
@@ -645,14 +651,16 @@ class Samurai():
             potency = 340
             self.applied_yukikaze = True
             self.has_setsu = True
-            self.inc_kenki_gauge(10)
+            if self.kenki_mastery > 0:
+                self.inc_kenki_gauge(5)
+            if self.kenki_mastery > 1:
+                self.inc_kenki_gauge(5)
         else:
             potency = 100
 
         potency = self.potency_mod*potency # don't want updated potency before effect is applied
 
         self.combo_act_yukikaze = False
-        # add status to target?
 
         self.potency_mod_update()
 
@@ -671,7 +679,7 @@ class Samurai():
         self.combo_act_mangetsu = True
         self.combo_act_oka = True
 
-        if self.kenki_mastery:
+        if self.kenki_mastery == 2:
             self.inc_kenki_gauge(5)
 
         return self.potency_mod*potency*n_targets
@@ -708,7 +716,10 @@ class Samurai():
                 potency = base_potency
 
             self.has_ka = True
-            self.inc_kenki_gauge(10)
+            if self.kenki_mastery > 0:
+                self.inc_kenki_gauge(5)
+            if self.kenki_mastery > 1:
+                self.inc_kenki_gauge(5)
         else:
             potency = 100
 
@@ -748,7 +759,10 @@ class Samurai():
                 potency = base_potency
 
             self.has_getsu = True
-            self.inc_kenki_gauge(10)
+            if self.kenki_mastery > 0:
+                self.inc_kenki_gauge(5)
+            if self.kenki_mastery > 1:
+                self.inc_kenki_gauge(5)
         else:
             potency = 100
 
@@ -766,15 +780,17 @@ class Samurai():
 
         **Additional Effect**: Increases Kenki Gauge by 10
         """
-        if self.enhanced_enbi:
+        if self.enhanced_enpi:
             potency = 300
         else:
             potency = 100
 
-        self.enhanced_enbi = False
+        self.enhanced_enpi = False
 
-        if self.kenki_mastery:
-            self.inc_kenki_gauge(10)
+        if self.kenki_mastery > 0:
+            self.inc_kenki_gauge(5)
+        if self.kenki_mastery > 1:
+            self.inc_kenki_gauge(5)
 
         return self.potency_mod*potency
 
@@ -804,11 +820,8 @@ class Samurai():
         DoT component of Higanbana.
         """
         avg_mod = self.current_gcd/3.0  # this averages the DoT potency per GCD (3 second ticks)
-
-        if self.has_jinpu:
-            potency = JINPU_MOD*35*avg_mod
-        else:
-            potency = 35*avg_mod
+        
+        potency = 35*avg_mod
 
         return potency
 
@@ -898,6 +911,9 @@ class Samurai():
 
         Cancels auto-attack upon execution.
         """
+        
+        self.inc_kenki_gauge(50)
+        
         return 0
 
     def merciful_eyes(self):
@@ -1106,4 +1122,3 @@ class Samurai():
             return potency * self.potency_mod
         else:
             raise ValueError('Not enough Kenki available!')
-

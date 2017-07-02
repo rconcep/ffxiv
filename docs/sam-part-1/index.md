@@ -41,6 +41,19 @@ display(df0)
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -169,7 +182,7 @@ display(df0)
 
 ## lvl 4-17
 
-At level 4, you gain the use of Jinpu, which combos from Hakaze and gives you your damage up buff. You'll definitely want to keep this buff up at all times and it should be simple enough with its 30s duration. The next weaponskill you obtain is Enbi, a ranged attack with a niche use. Level 6 grants you the defensive buff, Third Eye, and level 10 grants you the ability Ageha, an execution ability. Use it whenever available.
+At level 4, you gain the use of Jinpu, which combos from Hakaze and gives you your damage up buff. You'll definitely want to keep this buff up at all times and it should be simple enough with its 30s duration. The next weaponskill you obtain is Enpi, a ranged attack with a niche use. Level 6 grants you the defensive buff, Third Eye, and level 10 grants you the ability Ageha, an execution ability. Use it whenever available.
 
 
 ```python
@@ -191,6 +204,19 @@ display(df1)
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -330,7 +356,7 @@ compare_potencies([df0, df1], ['Hakaze only', 'Jinpu combo'])
 
 ## lvl 18-29
 
-Level 18 sees the introduction of your haste buff, Shifu. When executed as a combo, Shifu grants you this buff for a duration of 30s in addition to the additional combo potency. At these levels, it's fairly close as to which buff takes priority, Shifu or Jinpu. However, with the introduction of Sen, you will definitely want to prioritize Shifu so that you may open your Sen more often to execute the powerful Iaijutsu more often.
+Level 18 sees the introduction of your haste buff, Shifu. When executed as a combo, Shifu grants you this buff for a duration of 30s in addition to the additional combo potency. At these levels, it's fairly close as to which buff takes priority, Shifu or Jinpu.
 
 
 ```python
@@ -352,6 +378,19 @@ display(df2)
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -648,7 +687,7 @@ fig.suptitle('Average Potency per second over %s GCDs' % len(actions))
 
 
 
-    <matplotlib.text.Text at 0xcb01ef0>
+    <matplotlib.text.Text at 0x19c86b15fd0>
 
 
 
@@ -716,12 +755,25 @@ df3, average_potency, pps = sam.parse_rotation(actions)
 display(df3)
 ```
 
-    average potency per GCD = 304.722571429
-    average potency per second = 139.964435696
+    average potency per GCD = 302.23857142857145
+    average potency per second = 138.823490814
     
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -744,182 +796,182 @@ display(df3)
       <td>0.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.000</td>
+      <td>150.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>150.000</td>
+      <td>150.00</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2.40</td>
       <td>Shifu</td>
       <td></td>
-      <td>280.000</td>
+      <td>280.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>430.000</td>
+      <td>430.00</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.56</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.000</td>
+      <td>150.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>580.000</td>
+      <td>580.00</td>
     </tr>
     <tr>
       <th>3</th>
       <td>6.72</td>
       <td>Jinpu</td>
       <td></td>
-      <td>280.000</td>
+      <td>280.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>860.000</td>
+      <td>860.00</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8.88</td>
       <td>Gekko</td>
       <td></td>
-      <td>460.000</td>
+      <td>460.00</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>1320.000</td>
+      <td>1320.00</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.04</td>
       <td>Higanbana</td>
       <td></td>
-      <td>276.000</td>
+      <td>276.00</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
-      <td>1596.000</td>
+      <td>0</td>
+      <td>1596.00</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Hakaze</td>
       <td></td>
-      <td>205.827</td>
+      <td>201.48</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>1801.827</td>
+      <td>0</td>
+      <td>1797.48</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Jinpu</td>
       <td></td>
-      <td>355.327</td>
+      <td>350.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>2157.154</td>
+      <td>0</td>
+      <td>2148.46</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Gekko</td>
       <td></td>
-      <td>493.327</td>
+      <td>488.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>2650.481</td>
+      <td>0</td>
+      <td>2637.44</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Hakaze</td>
       <td></td>
-      <td>205.827</td>
+      <td>201.48</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>2856.308</td>
+      <td>0</td>
+      <td>2838.92</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Jinpu</td>
       <td></td>
-      <td>355.327</td>
+      <td>350.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>3211.635</td>
+      <td>0</td>
+      <td>3189.90</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Gekko</td>
       <td></td>
-      <td>493.327</td>
+      <td>488.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>3704.962</td>
+      <td>0</td>
+      <td>3678.88</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Hakaze</td>
       <td></td>
-      <td>205.827</td>
+      <td>201.48</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>3910.789</td>
+      <td>0</td>
+      <td>3880.36</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Shifu</td>
       <td></td>
-      <td>355.327</td>
+      <td>350.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>4266.116</td>
+      <td>0</td>
+      <td>4231.34</td>
     </tr>
   </tbody>
 </table>
@@ -939,7 +991,7 @@ plot_potency(df3)
 ![png](output_37_0.png)
 
 
-At this point, the average potency of the Gekko combo is $400+280+150=830/3=~276.66$ before buffs. The average potency of the Shifu combo is $150+280=430/2=215$ before buffs. Therefore, Higanbana is more optimal than the Gekko combo after two DoT ticks. Since it takes approximately 3-4 GCDs to reapply Higanbana (Gekko combo plus cast time of Higanbana), Higanbana may be optimal to clip in single target situations. Depending on the GCD and server tick, this may be close. Additionally, in small mob groups, applying Higanbana to each target may also be optimal.
+At this point, the average potency of the Gekko combo is 400+280+150=830/3=~276.66 before buffs. The average potency of the Shifu combo is 150+280=430/2=215 before buffs. Therefore, Higanbana is more optimal than the Gekko combo after two DoT ticks. Since it takes approximately 3-4 GCDs to reapply Higanbana (Gekko combo plus cast time of Higanbana), Higanbana may be optimal to clip in single target situations. Depending on the GCD and server tick, this may be close. Additionally, in small mob groups, applying Higanbana to each target may also be optimal.
 
 
 ```python
@@ -957,12 +1009,25 @@ df3_clip, average_potency, pps = sam.parse_rotation(actions)
 display(df3_clip)
 ```
 
-    average potency per GCD = 305.298125
-    average potency per second = 140.366954023
+    average potency per GCD = 302.58124999999995
+    average potency per second = 139.117816092
     
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -985,208 +1050,208 @@ display(df3_clip)
       <td>0.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.000</td>
+      <td>150.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>150.000</td>
+      <td>150.00</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2.40</td>
       <td>Shifu</td>
       <td></td>
-      <td>280.000</td>
+      <td>280.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>430.000</td>
+      <td>430.00</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.56</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.000</td>
+      <td>150.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>580.000</td>
+      <td>580.00</td>
     </tr>
     <tr>
       <th>3</th>
       <td>6.72</td>
       <td>Jinpu</td>
       <td></td>
-      <td>280.000</td>
+      <td>280.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>860.000</td>
+      <td>860.00</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8.88</td>
       <td>Gekko</td>
       <td></td>
-      <td>460.000</td>
+      <td>460.00</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>1320.000</td>
+      <td>1320.00</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.04</td>
       <td>Higanbana</td>
       <td></td>
-      <td>276.000</td>
+      <td>276.00</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
-      <td>1596.000</td>
+      <td>0</td>
+      <td>1596.00</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Hakaze</td>
       <td></td>
-      <td>205.827</td>
+      <td>201.48</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>1801.827</td>
+      <td>0</td>
+      <td>1797.48</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Jinpu</td>
       <td></td>
-      <td>355.327</td>
+      <td>350.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>2157.154</td>
+      <td>0</td>
+      <td>2148.46</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Gekko</td>
       <td></td>
-      <td>493.327</td>
+      <td>488.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>2650.481</td>
+      <td>0</td>
+      <td>2637.44</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Higanbana</td>
       <td></td>
-      <td>309.327</td>
+      <td>304.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>2959.808</td>
+      <td>0</td>
+      <td>2942.42</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Hakaze</td>
       <td></td>
-      <td>205.827</td>
+      <td>201.48</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>3165.635</td>
+      <td>0</td>
+      <td>3143.90</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Jinpu</td>
       <td></td>
-      <td>355.327</td>
+      <td>350.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>3520.962</td>
+      <td>0</td>
+      <td>3494.88</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Gekko</td>
       <td></td>
-      <td>493.327</td>
+      <td>488.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>4014.289</td>
+      <td>0</td>
+      <td>3983.86</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Higanbana</td>
       <td></td>
-      <td>309.327</td>
+      <td>304.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>4323.616</td>
+      <td>0</td>
+      <td>4288.84</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Hakaze</td>
       <td></td>
-      <td>205.827</td>
+      <td>201.48</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>4529.443</td>
+      <td>0</td>
+      <td>4490.32</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Shifu</td>
       <td></td>
-      <td>355.327</td>
+      <td>350.98</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>4884.770</td>
+      <td>0</td>
+      <td>4841.30</td>
     </tr>
   </tbody>
 </table>
@@ -1213,12 +1278,25 @@ df3_noclip, average_potency, pps = sam.parse_rotation(actions)
 display(df3_noclip)
 ```
 
-    average potency per GCD = 301.704375
-    average potency per second = 138.714655172
+    average potency per GCD = 298.98749999999995
+    average potency per second = 137.465517241
     
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1241,208 +1319,208 @@ display(df3_noclip)
       <td>0.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.000</td>
+      <td>150.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>150.000</td>
+      <td>150.00</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2.40</td>
       <td>Shifu</td>
       <td></td>
-      <td>280.000</td>
+      <td>280.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>430.000</td>
+      <td>430.00</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.56</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.000</td>
+      <td>150.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>580.000</td>
+      <td>580.00</td>
     </tr>
     <tr>
       <th>3</th>
       <td>6.72</td>
       <td>Jinpu</td>
       <td></td>
-      <td>280.000</td>
+      <td>280.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>860.000</td>
+      <td>860.00</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8.88</td>
       <td>Gekko</td>
       <td></td>
-      <td>460.000</td>
+      <td>460.00</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>1320.000</td>
+      <td>1320.00</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.04</td>
       <td>Higanbana</td>
       <td></td>
-      <td>276.000</td>
+      <td>276.00</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
-      <td>1596.000</td>
+      <td>0</td>
+      <td>1596.00</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Hakaze</td>
       <td></td>
-      <td>205.827</td>
+      <td>201.48</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>1801.827</td>
+      <td>0</td>
+      <td>1797.48</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Jinpu</td>
       <td></td>
-      <td>355.327</td>
+      <td>350.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>2157.154</td>
+      <td>0</td>
+      <td>2148.46</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Gekko</td>
       <td></td>
-      <td>493.327</td>
+      <td>488.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>2650.481</td>
+      <td>0</td>
+      <td>2637.44</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Hakaze</td>
       <td></td>
-      <td>205.827</td>
+      <td>201.48</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>2856.308</td>
+      <td>0</td>
+      <td>2838.92</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Jinpu</td>
       <td></td>
-      <td>355.327</td>
+      <td>350.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>3211.635</td>
+      <td>0</td>
+      <td>3189.90</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Gekko</td>
       <td></td>
-      <td>493.327</td>
+      <td>488.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>3704.962</td>
+      <td>0</td>
+      <td>3678.88</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Hakaze</td>
       <td></td>
-      <td>205.827</td>
+      <td>201.48</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>3910.789</td>
+      <td>0</td>
+      <td>3880.36</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Shifu</td>
       <td></td>
-      <td>355.327</td>
+      <td>350.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>4266.116</td>
+      <td>0</td>
+      <td>4231.34</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Hakaze</td>
       <td></td>
-      <td>205.827</td>
+      <td>201.48</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>4471.943</td>
+      <td>0</td>
+      <td>4432.82</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Jinpu</td>
       <td></td>
-      <td>355.327</td>
+      <td>350.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>4827.270</td>
+      <td>0</td>
+      <td>4783.80</td>
     </tr>
   </tbody>
 </table>
@@ -1488,32 +1566,32 @@ for n_targets in n_target_range:
 ```
 
     number of targets = 2
-    average potency per GCD = 303.714285714
+    average potency per GCD = 303.7142857142857
     average potency per second = 126.547619048
     
     
     number of targets = 3
-    average potency per GCD = 408.571428571
+    average potency per GCD = 408.57142857142856
     average potency per second = 170.238095238
     
     
     number of targets = 4
-    average potency per GCD = 506.285714286
+    average potency per GCD = 506.2857142857143
     average potency per second = 210.952380952
     
     
     number of targets = 5
-    average potency per GCD = 584.857142857
+    average potency per GCD = 584.8571428571429
     average potency per second = 243.69047619
     
     
     number of targets = 6
-    average potency per GCD = 656.285714286
+    average potency per GCD = 656.2857142857143
     average potency per second = 273.452380952
     
     
     number of targets = 7
-    average potency per GCD = 727.714285714
+    average potency per GCD = 727.7142857142857
     average potency per second = 303.214285714
     
     
@@ -1612,7 +1690,7 @@ fig.suptitle('Average Potency per second over %s GCDs' % len(actions))
 
 
 
-    <matplotlib.text.Text at 0x10442f60>
+    <matplotlib.text.Text at 0x19c874ec198>
 
 
 
@@ -1675,6 +1753,19 @@ display(df4_buff)
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1780,7 +1871,7 @@ display(df4_buff)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
+      <td>0</td>
       <td>2171.0</td>
     </tr>
     <tr>
@@ -1793,7 +1884,7 @@ display(df4_buff)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
+      <td>0</td>
       <td>2792.0</td>
     </tr>
     <tr>
@@ -1806,7 +1897,7 @@ display(df4_buff)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>3137.0</td>
     </tr>
     <tr>
@@ -1819,7 +1910,7 @@ display(df4_buff)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>3758.0</td>
     </tr>
     <tr>
@@ -1832,7 +1923,7 @@ display(df4_buff)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>30</td>
+      <td>0</td>
       <td>4103.0</td>
     </tr>
     <tr>
@@ -1845,7 +1936,7 @@ display(df4_buff)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>30</td>
+      <td>0</td>
       <td>4724.0</td>
     </tr>
     <tr>
@@ -1858,7 +1949,7 @@ display(df4_buff)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>40</td>
+      <td>0</td>
       <td>5069.0</td>
     </tr>
     <tr>
@@ -1871,7 +1962,7 @@ display(df4_buff)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>40</td>
+      <td>0</td>
       <td>5690.0</td>
     </tr>
     <tr>
@@ -1884,7 +1975,7 @@ display(df4_buff)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>50</td>
+      <td>0</td>
       <td>6035.0</td>
     </tr>
     <tr>
@@ -1897,7 +1988,7 @@ display(df4_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>50</td>
+      <td>0</td>
       <td>6656.0</td>
     </tr>
   </tbody>
@@ -1929,6 +2020,19 @@ display(df4_no_buff)
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1982,7 +2086,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
+      <td>0</td>
       <td>1140.0</td>
     </tr>
     <tr>
@@ -1995,7 +2099,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
+      <td>0</td>
       <td>1680.0</td>
     </tr>
     <tr>
@@ -2008,7 +2112,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>1980.0</td>
     </tr>
     <tr>
@@ -2021,7 +2125,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>2520.0</td>
     </tr>
     <tr>
@@ -2034,7 +2138,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>30</td>
+      <td>0</td>
       <td>2820.0</td>
     </tr>
     <tr>
@@ -2047,7 +2151,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>30</td>
+      <td>0</td>
       <td>3360.0</td>
     </tr>
     <tr>
@@ -2060,7 +2164,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>40</td>
+      <td>0</td>
       <td>3660.0</td>
     </tr>
     <tr>
@@ -2073,7 +2177,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>40</td>
+      <td>0</td>
       <td>4200.0</td>
     </tr>
     <tr>
@@ -2086,7 +2190,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>50</td>
+      <td>0</td>
       <td>4500.0</td>
     </tr>
     <tr>
@@ -2099,7 +2203,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>50</td>
+      <td>0</td>
       <td>5040.0</td>
     </tr>
     <tr>
@@ -2112,7 +2216,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>60</td>
+      <td>0</td>
       <td>5340.0</td>
     </tr>
     <tr>
@@ -2125,7 +2229,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>60</td>
+      <td>0</td>
       <td>5880.0</td>
     </tr>
     <tr>
@@ -2138,7 +2242,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>70</td>
+      <td>0</td>
       <td>6180.0</td>
     </tr>
     <tr>
@@ -2151,7 +2255,7 @@ display(df4_no_buff)
       <td>False</td>
       <td>False</td>
       <td>0</td>
-      <td>70</td>
+      <td>0</td>
       <td>6720.0</td>
     </tr>
   </tbody>
@@ -2176,7 +2280,7 @@ If the pull is long enough, you should buff first. Ideally, you would shift to a
 
 ## lvl 40-49
 
-Level 40 introduces the Kasha combo finisher (combo from Shifu). Equal in potency to the Gekko finisher, this weaponskill opens the Ka Sen. This leads to a maximum of two Sen open and also unlocks the use of the Iaijutsu Tenka Goken. This powerful, AoE weaponskill scales its potency depending on the number of targets from 180 potency up to a maximum of 360 potency for the first target hit. In AoE situations, this is likely Iaijutsu of choice due to its instantaneous damage. Unfortunately, you do not get the AoE weaponskill to open Ka until level 45. For single target, do we still want to try our shiny new Iaijutsu?
+Level 40 introduces the Kasha combo finisher (combo from Shifu). Equal in potency to the Gekko finisher, this weaponskill opens the Ka Sen. This leads to a maximum of two Sen open and also unlocks the use of the Iaijutsu Tenka Goken. This powerful, AoE weaponskill scales its potency depending on the number of targets from 180 potency up to a maximum of 360 potency for the first target hit. In AoE situations, this is likely the Iaijutsu of choice due to its instantaneous damage. Unfortunately, you do not get the AoE weaponskill to open Ka until level 45. For single target, do we still want to try our shiny new Iaijutsu?
 
 
 ```python
@@ -2197,12 +2301,319 @@ df5_tenka, average_potency, pps = sam.parse_rotation(actions, n_targets=n_target
 display(df5_tenka)
 ```
 
-    average potency per GCD = 336.302222222
-    average potency per second = 154.740286299
+    average potency per GCD = 333.57222222222214
+    average potency per second = 153.484151329
     
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Time</th>
+      <th>Weaponskill</th>
+      <th>Ability</th>
+      <th>Potency</th>
+      <th>Jinpu</th>
+      <th>Shifu</th>
+      <th>Yukikaze</th>
+      <th>Higanbana</th>
+      <th>Kenki</th>
+      <th>Total Potency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.00</td>
+      <td>Hakaze</td>
+      <td></td>
+      <td>150.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>0</td>
+      <td>0</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.40</td>
+      <td>Shifu</td>
+      <td></td>
+      <td>280.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>0</td>
+      <td>0</td>
+      <td>430.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.56</td>
+      <td>Kasha</td>
+      <td></td>
+      <td>400.0</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>0</td>
+      <td>0</td>
+      <td>830.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6.72</td>
+      <td>Higanbana</td>
+      <td></td>
+      <td>240.0</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1070.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8.88</td>
+      <td>Hakaze</td>
+      <td></td>
+      <td>175.2</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1245.2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>11.04</td>
+      <td>Jinpu</td>
+      <td></td>
+      <td>305.2</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1550.4</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>13.20</td>
+      <td>Gekko</td>
+      <td></td>
+      <td>485.2</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2035.6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>15.36</td>
+      <td>Hakaze</td>
+      <td></td>
+      <td>197.7</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2233.3</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>17.52</td>
+      <td>Shifu</td>
+      <td></td>
+      <td>347.2</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2580.5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>19.68</td>
+      <td>Kasha</td>
+      <td></td>
+      <td>485.2</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3065.7</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>21.84</td>
+      <td>Tenka Goken</td>
+      <td></td>
+      <td>439.2</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3504.9</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>24.00</td>
+      <td>Hakaze</td>
+      <td></td>
+      <td>197.7</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3702.6</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>26.16</td>
+      <td>Jinpu</td>
+      <td></td>
+      <td>347.2</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4049.8</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>28.32</td>
+      <td>Gekko</td>
+      <td></td>
+      <td>485.2</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4535.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>30.48</td>
+      <td>Hakaze</td>
+      <td></td>
+      <td>197.7</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4732.7</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>32.64</td>
+      <td>Shifu</td>
+      <td></td>
+      <td>347.2</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5079.9</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>34.80</td>
+      <td>Kasha</td>
+      <td></td>
+      <td>485.2</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5565.1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>36.96</td>
+      <td>Tenka Goken</td>
+      <td></td>
+      <td>439.2</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6004.3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+```python
+sam = Samurai()
+
+n_targets = 1
+
+actions = [('Hakaze'), ('Shifu'), ('Kasha'), ('Higanbana'),
+           ('Hakaze'), ('Jinpu'), ('Gekko'), ('Higanbana'),
+           ('Hakaze'), ('Shifu'), ('Kasha'), ('Higanbana'),
+           ('Hakaze'), ('Jinpu'), ('Gekko'), ('Higanbana'),
+           ('Hakaze'), ('Shifu')]
+```
+
+
+```python
+df5_no_tenka, average_potency, pps = sam.parse_rotation(actions, n_targets=n_targets)
+display(df5_no_tenka)
+```
+
+    average potency per GCD = 310.11666666666656
+    average potency per second = 142.691717791
+    
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2269,7 +2680,7 @@ display(df5_tenka)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
+      <td>0</td>
       <td>1070.00</td>
     </tr>
     <tr>
@@ -2282,7 +2693,7 @@ display(df5_tenka)
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
+      <td>0</td>
       <td>1245.20</td>
     </tr>
     <tr>
@@ -2290,30 +2701,43 @@ display(df5_tenka)
       <td>11.04</td>
       <td>Jinpu</td>
       <td></td>
-      <td>308.98</td>
+      <td>305.20</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>1554.18</td>
+      <td>0</td>
+      <td>1550.40</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Gekko</td>
       <td></td>
-      <td>488.98</td>
+      <td>485.20</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>2043.16</td>
+      <td>0</td>
+      <td>2035.60</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
+      <td>Higanbana</td>
+      <td></td>
+      <td>301.20</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2336.80</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>17.52</td>
       <td>Hakaze</td>
       <td></td>
       <td>201.48</td>
@@ -2321,12 +2745,12 @@ display(df5_tenka)
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>2244.64</td>
+      <td>0</td>
+      <td>2538.28</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>17.52</td>
+      <th>9</th>
+      <td>19.68</td>
       <td>Shifu</td>
       <td></td>
       <td>350.98</td>
@@ -2334,12 +2758,12 @@ display(df5_tenka)
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>2595.62</td>
+      <td>0</td>
+      <td>2889.26</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>19.68</td>
+      <th>10</th>
+      <td>21.84</td>
       <td>Kasha</td>
       <td></td>
       <td>488.98</td>
@@ -2347,25 +2771,25 @@ display(df5_tenka)
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>3084.60</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>21.84</td>
-      <td>Tenka Goken</td>
-      <td></td>
-      <td>442.98</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>30</td>
-      <td>3527.58</td>
+      <td>0</td>
+      <td>3378.24</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
+      <td>Higanbana</td>
+      <td></td>
+      <td>304.98</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3683.22</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>26.16</td>
       <td>Hakaze</td>
       <td></td>
       <td>201.48</td>
@@ -2373,12 +2797,12 @@ display(df5_tenka)
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>3729.06</td>
+      <td>0</td>
+      <td>3884.70</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>26.16</td>
+      <th>13</th>
+      <td>28.32</td>
       <td>Jinpu</td>
       <td></td>
       <td>350.98</td>
@@ -2386,12 +2810,12 @@ display(df5_tenka)
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>4080.04</td>
+      <td>0</td>
+      <td>4235.68</td>
     </tr>
     <tr>
-      <th>13</th>
-      <td>28.32</td>
+      <th>14</th>
+      <td>30.48</td>
       <td>Gekko</td>
       <td></td>
       <td>488.98</td>
@@ -2399,12 +2823,25 @@ display(df5_tenka)
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>4569.02</td>
+      <td>0</td>
+      <td>4724.66</td>
     </tr>
     <tr>
-      <th>14</th>
-      <td>30.48</td>
+      <th>15</th>
+      <td>32.64</td>
+      <td>Higanbana</td>
+      <td></td>
+      <td>304.98</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5029.64</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>34.80</td>
       <td>Hakaze</td>
       <td></td>
       <td>201.48</td>
@@ -2412,12 +2849,12 @@ display(df5_tenka)
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>40</td>
-      <td>4770.50</td>
+      <td>0</td>
+      <td>5231.12</td>
     </tr>
     <tr>
-      <th>15</th>
-      <td>32.64</td>
+      <th>17</th>
+      <td>36.96</td>
       <td>Shifu</td>
       <td></td>
       <td>350.98</td>
@@ -2425,34 +2862,8 @@ display(df5_tenka)
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>40</td>
-      <td>5121.48</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>34.80</td>
-      <td>Kasha</td>
-      <td></td>
-      <td>488.98</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>40</td>
-      <td>5610.46</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>36.96</td>
-      <td>Tenka Goken</td>
-      <td></td>
-      <td>442.98</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>50</td>
-      <td>6053.44</td>
+      <td>0</td>
+      <td>5582.10</td>
     </tr>
   </tbody>
 </table>
@@ -2461,288 +2872,7 @@ display(df5_tenka)
 
 
 ```python
-sam = Samurai()
-
-n_targets = 1
-
-actions = [('Hakaze'), ('Shifu'), ('Kasha'), ('Higanbana'),
-           ('Hakaze'), ('Jinpu'), ('Gekko'), ('Higanbana'),
-           ('Hakaze'), ('Shifu'), ('Kasha'), ('Higanbana'),
-           ('Hakaze'), ('Jinpu'), ('Gekko'), ('Higanbana'),
-           ('Hakaze'), ('Shifu')]
-```
-
-
-```python
-df5_no_tenka, average_potency, pps = sam.parse_rotation(actions, n_targets=n_targets)
-display(df5_no_tenka)
-```
-
-    average potency per GCD = 313.161666667
-    average potency per second = 144.092791411
-    
-
-
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Time</th>
-      <th>Weaponskill</th>
-      <th>Ability</th>
-      <th>Potency</th>
-      <th>Jinpu</th>
-      <th>Shifu</th>
-      <th>Yukikaze</th>
-      <th>Higanbana</th>
-      <th>Kenki</th>
-      <th>Total Potency</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.00</td>
-      <td>Hakaze</td>
-      <td></td>
-      <td>150.000</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>0</td>
-      <td>0</td>
-      <td>150.000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2.40</td>
-      <td>Shifu</td>
-      <td></td>
-      <td>280.000</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>0</td>
-      <td>0</td>
-      <td>430.000</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4.56</td>
-      <td>Kasha</td>
-      <td></td>
-      <td>400.000</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>0</td>
-      <td>0</td>
-      <td>830.000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>6.72</td>
-      <td>Higanbana</td>
-      <td></td>
-      <td>240.000</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>0</td>
-      <td>10</td>
-      <td>1070.000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>8.88</td>
-      <td>Hakaze</td>
-      <td></td>
-      <td>175.200</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>10</td>
-      <td>1245.200</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>11.04</td>
-      <td>Jinpu</td>
-      <td></td>
-      <td>308.980</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>10</td>
-      <td>1554.180</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>13.20</td>
-      <td>Gekko</td>
-      <td></td>
-      <td>488.980</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>10</td>
-      <td>2043.160</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>15.36</td>
-      <td>Higanbana</td>
-      <td></td>
-      <td>304.980</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>20</td>
-      <td>2348.140</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>17.52</td>
-      <td>Hakaze</td>
-      <td></td>
-      <td>205.827</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>20</td>
-      <td>2553.967</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>19.68</td>
-      <td>Shifu</td>
-      <td></td>
-      <td>355.327</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>20</td>
-      <td>2909.294</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>21.84</td>
-      <td>Kasha</td>
-      <td></td>
-      <td>493.327</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>20</td>
-      <td>3402.621</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>24.00</td>
-      <td>Higanbana</td>
-      <td></td>
-      <td>309.327</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>30</td>
-      <td>3711.948</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>26.16</td>
-      <td>Hakaze</td>
-      <td></td>
-      <td>205.827</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>30</td>
-      <td>3917.775</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>28.32</td>
-      <td>Jinpu</td>
-      <td></td>
-      <td>355.327</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>30</td>
-      <td>4273.102</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>30.48</td>
-      <td>Gekko</td>
-      <td></td>
-      <td>493.327</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>30</td>
-      <td>4766.429</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>32.64</td>
-      <td>Higanbana</td>
-      <td></td>
-      <td>309.327</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>40</td>
-      <td>5075.756</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>34.80</td>
-      <td>Hakaze</td>
-      <td></td>
-      <td>205.827</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>40</td>
-      <td>5281.583</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>36.96</td>
-      <td>Shifu</td>
-      <td></td>
-      <td>355.327</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>40</td>
-      <td>5636.910</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-```python
-compare_potencies([df5_no_tenka, df5_tenka], ['No Tenka Goken', 'With Tenka Goken'])
+compare_potencies([df5_no_tenka, df5_tenka], ['Higanbana only', 'With Tenka Goken'])
 ```
 
 
@@ -2771,12 +2901,25 @@ df6_higanbana, average_potency, pps = sam.parse_rotation(actions, n_targets=n_ta
 display(df6_higanbana)
 ```
 
-    average potency per GCD = 387.405933333
-    average potency per second = 178.035814951
+    average potency per GCD = 382.85733333333326
+    average potency per second = 175.945465686
     
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2799,195 +2942,195 @@ display(df6_higanbana)
       <td>0.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.000</td>
+      <td>150.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>150.000</td>
+      <td>150.00</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2.40</td>
       <td>Shifu</td>
       <td></td>
-      <td>280.000</td>
+      <td>280.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>430.000</td>
+      <td>430.00</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.56</td>
       <td>Kasha</td>
       <td></td>
-      <td>400.000</td>
+      <td>400.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>830.000</td>
+      <td>830.00</td>
     </tr>
     <tr>
       <th>3</th>
       <td>6.72</td>
       <td>Higanbana</td>
       <td></td>
-      <td>240.000</td>
+      <td>240.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
-      <td>1070.000</td>
+      <td>0</td>
+      <td>1070.00</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8.88</td>
       <td>Hakaze</td>
       <td></td>
-      <td>175.200</td>
+      <td>175.20</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>1245.200</td>
+      <td>0</td>
+      <td>1245.20</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.04</td>
       <td>Jinpu</td>
       <td></td>
-      <td>308.980</td>
+      <td>305.20</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>1554.180</td>
+      <td>0</td>
+      <td>1550.40</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Gekko</td>
       <td></td>
-      <td>488.980</td>
+      <td>485.20</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>2043.160</td>
+      <td>0</td>
+      <td>2035.60</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Higanbana</td>
       <td></td>
-      <td>304.980</td>
+      <td>301.20</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>2348.140</td>
+      <td>0</td>
+      <td>2336.80</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Hakaze</td>
       <td></td>
-      <td>234.807</td>
+      <td>226.68</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>20</td>
-      <td>2582.947</td>
+      <td>0</td>
+      <td>2563.48</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Shifu</td>
       <td></td>
-      <td>384.307</td>
+      <td>376.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>20</td>
-      <td>2967.254</td>
+      <td>0</td>
+      <td>2939.66</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Kasha</td>
       <td></td>
-      <td>522.307</td>
+      <td>514.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>20</td>
-      <td>3489.561</td>
+      <td>0</td>
+      <td>3453.84</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>234.807</td>
+      <td>226.68</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>30</td>
-      <td>3724.368</td>
+      <td>0</td>
+      <td>3680.52</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Jinpu</td>
       <td></td>
-      <td>384.307</td>
+      <td>376.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>30</td>
-      <td>4108.675</td>
+      <td>0</td>
+      <td>4056.70</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Gekko</td>
       <td></td>
-      <td>522.307</td>
+      <td>514.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>30</td>
-      <td>4630.982</td>
+      <td>0</td>
+      <td>4570.88</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Tenka Goken</td>
       <td></td>
-      <td>1180.107</td>
+      <td>1171.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>40</td>
-      <td>5811.089</td>
+      <td>0</td>
+      <td>5742.86</td>
     </tr>
   </tbody>
 </table>
@@ -3012,12 +3155,25 @@ df6_tenka_only, average_potency, pps = sam.parse_rotation(actions, n_targets=n_t
 display(df6_tenka_only)
 ```
 
-    average potency per GCD = 402.473333333
+    average potency per GCD = 402.47333333333336
     average potency per second = 184.960171569
     
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3084,7 +3240,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
+      <td>0</td>
       <td>980.0</td>
     </tr>
     <tr>
@@ -3097,7 +3253,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
+      <td>0</td>
       <td>1260.0</td>
     </tr>
     <tr>
@@ -3110,7 +3266,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
+      <td>0</td>
       <td>1720.0</td>
     </tr>
     <tr>
@@ -3123,7 +3279,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>2837.8</td>
     </tr>
     <tr>
@@ -3136,7 +3292,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>3010.3</td>
     </tr>
     <tr>
@@ -3149,7 +3305,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>3332.3</td>
     </tr>
     <tr>
@@ -3162,7 +3318,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>3792.3</td>
     </tr>
     <tr>
@@ -3175,7 +3331,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>30</td>
+      <td>0</td>
       <td>3964.8</td>
     </tr>
     <tr>
@@ -3188,7 +3344,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>30</td>
+      <td>0</td>
       <td>4286.8</td>
     </tr>
     <tr>
@@ -3201,7 +3357,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>30</td>
+      <td>0</td>
       <td>4746.8</td>
     </tr>
     <tr>
@@ -3214,7 +3370,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>40</td>
+      <td>0</td>
       <td>5864.6</td>
     </tr>
     <tr>
@@ -3227,7 +3383,7 @@ display(df6_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>40</td>
+      <td>0</td>
       <td>6037.1</td>
     </tr>
   </tbody>
@@ -3241,7 +3397,7 @@ compare_potencies([df6_tenka_only, df6_higanbana], ['Tenka Goken only', 'Higanba
 ```
 
 
-![png](output_75_0.png)
+![png](output_74_0.png)
 
 
 Although close, both of these rotation potencies are inferior compared to the previous AoE rotations, even they were without Tenka Goken. However, we can open Getsu using the Mangetsu combo and open Ka using the Kasha combo. Maybe that works better?
@@ -3265,12 +3421,25 @@ df6_aoe_higanbana2, average_potency, pps = sam.parse_rotation(actions, n_targets
 display(df6_aoe_higanbana2)
 ```
 
-    average potency per GCD = 458.21485
-    average potency per second = 210.964479742
+    average potency per GCD = 453.178
+    average potency per second = 208.645488029
     
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3293,260 +3462,260 @@ display(df6_aoe_higanbana2)
       <td>0.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.000</td>
+      <td>150.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>150.000</td>
+      <td>150.00</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2.40</td>
       <td>Shifu</td>
       <td></td>
-      <td>280.000</td>
+      <td>280.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>430.000</td>
+      <td>430.00</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.56</td>
       <td>Kasha</td>
       <td></td>
-      <td>400.000</td>
+      <td>400.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>830.000</td>
+      <td>830.00</td>
     </tr>
     <tr>
       <th>3</th>
       <td>6.72</td>
       <td>Higanbana</td>
       <td></td>
-      <td>240.000</td>
+      <td>240.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
-      <td>1070.000</td>
+      <td>0</td>
+      <td>1070.00</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8.88</td>
       <td>Hakaze</td>
       <td></td>
-      <td>175.200</td>
+      <td>175.20</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>1245.200</td>
+      <td>0</td>
+      <td>1245.20</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.04</td>
       <td>Jinpu</td>
       <td></td>
-      <td>308.980</td>
+      <td>305.20</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>1554.180</td>
+      <td>0</td>
+      <td>1550.40</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Gekko</td>
       <td></td>
-      <td>488.980</td>
+      <td>485.20</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>2043.160</td>
+      <td>0</td>
+      <td>2035.60</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Higanbana</td>
       <td></td>
-      <td>304.980</td>
+      <td>301.20</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>2348.140</td>
+      <td>0</td>
+      <td>2336.80</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Hakaze</td>
       <td></td>
-      <td>234.807</td>
+      <td>226.68</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>20</td>
-      <td>2582.947</td>
+      <td>0</td>
+      <td>2563.48</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Shifu</td>
       <td></td>
-      <td>384.307</td>
+      <td>376.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>20</td>
-      <td>2967.254</td>
+      <td>0</td>
+      <td>2939.66</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Kasha</td>
       <td></td>
-      <td>522.307</td>
+      <td>514.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>20</td>
-      <td>3489.561</td>
+      <td>0</td>
+      <td>3453.84</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Fuga</td>
       <td></td>
-      <td>407.307</td>
+      <td>399.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>30</td>
-      <td>3896.868</td>
+      <td>0</td>
+      <td>3853.02</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Mangetsu</td>
       <td></td>
-      <td>683.307</td>
+      <td>675.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>30</td>
-      <td>4580.175</td>
+      <td>0</td>
+      <td>4528.20</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Tenka Goken</td>
       <td></td>
-      <td>1180.107</td>
+      <td>1171.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>40</td>
-      <td>5760.282</td>
+      <td>0</td>
+      <td>5700.18</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Fuga</td>
       <td></td>
-      <td>407.307</td>
+      <td>399.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>40</td>
-      <td>6167.589</td>
+      <td>0</td>
+      <td>6099.36</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Mangetsu</td>
       <td></td>
-      <td>683.307</td>
+      <td>675.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>40</td>
-      <td>6850.896</td>
+      <td>0</td>
+      <td>6774.54</td>
     </tr>
     <tr>
       <th>16</th>
       <td>34.80</td>
       <td>Hakaze</td>
       <td></td>
-      <td>234.807</td>
+      <td>226.68</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>50</td>
-      <td>7085.703</td>
+      <td>0</td>
+      <td>7001.22</td>
     </tr>
     <tr>
       <th>17</th>
       <td>36.96</td>
       <td>Shifu</td>
       <td></td>
-      <td>384.307</td>
+      <td>376.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>50</td>
-      <td>7470.010</td>
+      <td>0</td>
+      <td>7377.40</td>
     </tr>
     <tr>
       <th>18</th>
       <td>39.12</td>
       <td>Kasha</td>
       <td></td>
-      <td>522.307</td>
+      <td>514.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>50</td>
-      <td>7992.317</td>
+      <td>0</td>
+      <td>7891.58</td>
     </tr>
     <tr>
       <th>19</th>
       <td>41.28</td>
       <td>Tenka Goken</td>
       <td></td>
-      <td>1171.980</td>
+      <td>1171.98</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>60</td>
-      <td>9164.297</td>
+      <td>0</td>
+      <td>9063.56</td>
     </tr>
   </tbody>
 </table>
@@ -3572,12 +3741,25 @@ df6_aoe_tenka_only, average_potency, pps = sam.parse_rotation(actions, n_targets
 display(df6_aoe_tenka_only)
 ```
 
-    average potency per GCD = 454.345
+    average potency per GCD = 454.34499999999997
     average potency per second = 209.182780847
     
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3644,7 +3826,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
+      <td>0</td>
       <td>980.0</td>
     </tr>
     <tr>
@@ -3657,7 +3839,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
+      <td>0</td>
       <td>1260.0</td>
     </tr>
     <tr>
@@ -3670,7 +3852,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
+      <td>0</td>
       <td>1720.0</td>
     </tr>
     <tr>
@@ -3683,7 +3865,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>2837.8</td>
     </tr>
     <tr>
@@ -3696,7 +3878,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>3010.3</td>
     </tr>
     <tr>
@@ -3709,7 +3891,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>3332.3</td>
     </tr>
     <tr>
@@ -3722,7 +3904,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>20</td>
+      <td>0</td>
       <td>3792.3</td>
     </tr>
     <tr>
@@ -3735,7 +3917,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>30</td>
+      <td>0</td>
       <td>4137.3</td>
     </tr>
     <tr>
@@ -3748,7 +3930,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>30</td>
+      <td>0</td>
       <td>4758.3</td>
     </tr>
     <tr>
@@ -3761,7 +3943,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>40</td>
+      <td>0</td>
       <td>5876.1</td>
     </tr>
     <tr>
@@ -3774,7 +3956,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>40</td>
+      <td>0</td>
       <td>6048.6</td>
     </tr>
     <tr>
@@ -3787,7 +3969,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>40</td>
+      <td>0</td>
       <td>6370.6</td>
     </tr>
     <tr>
@@ -3800,7 +3982,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>40</td>
+      <td>0</td>
       <td>6830.6</td>
     </tr>
     <tr>
@@ -3813,7 +3995,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>50</td>
+      <td>0</td>
       <td>7175.6</td>
     </tr>
     <tr>
@@ -3826,7 +4008,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>50</td>
+      <td>0</td>
       <td>7796.6</td>
     </tr>
     <tr>
@@ -3839,7 +4021,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>60</td>
+      <td>0</td>
       <td>8914.4</td>
     </tr>
     <tr>
@@ -3852,7 +4034,7 @@ display(df6_aoe_tenka_only)
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>60</td>
+      <td>0</td>
       <td>9086.9</td>
     </tr>
   </tbody>
@@ -3866,7 +4048,7 @@ compare_potencies([df6_aoe_tenka_only, df6_aoe_higanbana2], ['Tenka Goken only',
 ```
 
 
-![png](output_81_0.png)
+![png](output_80_0.png)
 
 
 They're virtually equal, but applying Higanbana twice takes more time to pay off. Using Tenka Goken only is probably better in most cases. Although the inclusion of the AoE weaponskills will scale better with larger pulls, TP sustainability is a concern. As the number of targets dwindles down to 3, it may be better to favor rotations with single target weaponskills.
@@ -3900,32 +4082,32 @@ for n_targets in n_target_range:
 ```
 
     number of targets = 2
-    average potency per GCD = 396.929411765
+    average potency per GCD = 396.92941176470583
     average potency per second = 182.57034632
     
     
     number of targets = 3
-    average potency per GCD = 525.729411765
+    average potency per GCD = 525.7294117647059
     average potency per second = 241.812770563
     
     
     number of targets = 4
-    average potency per GCD = 641.811764706
+    average potency per GCD = 641.8117647058824
     average potency per second = 295.205627706
     
     
     number of targets = 5
-    average potency per GCD = 745.176470588
+    average potency per GCD = 745.1764705882352
     average potency per second = 342.748917749
     
     
     number of targets = 6
-    average potency per GCD = 835.823529412
+    average potency per GCD = 835.8235294117648
     average potency per second = 384.442640693
     
     
     number of targets = 7
-    average potency per GCD = 926.470588235
+    average potency per GCD = 926.4705882352941
     average potency per second = 426.136363636
     
     
@@ -3937,7 +4119,7 @@ compare_n_potencies(dfs_aoe2, labels)
 ```
 
 
-![png](output_85_0.png)
+![png](output_83_0.png)
 
 
 
@@ -3958,12 +4140,12 @@ fig.suptitle('Average Potency per second')
 
 
 
-    <matplotlib.text.Text at 0xddd1ac8>
+    <matplotlib.text.Text at 0x19c86f4bb38>
 
 
 
 
-![png](output_86_1.png)
+![png](output_84_1.png)
 
 
 At 3 targets, the potency of a full duration Higanbana is comparable to Tenka Goken, so applying Higanbana to some targets has merit (especially due to its 1 Sen cost). However, the AoE-centric rotation scales exceptionally well as pull size passes 3. The ability to open up Getsu and Ka with only four GCDs allowing for more frequent Tenka Goken casts facilitates that.
@@ -3989,12 +4171,25 @@ df7_3, average_potency, pps = sam.parse_rotation(actions, n_targets=n_targets)
 display(df7_3)
 ```
 
-    average potency per GCD = 503.933888889
-    average potency per second = 231.871421268
+    average potency per GCD = 498.78888888888895
+    average potency per second = 229.50408998
     
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -4017,234 +4212,234 @@ display(df7_3)
       <td>0.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>150.000</td>
+      <td>150.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>150.000</td>
+      <td>150.00</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2.40</td>
       <td>Shifu</td>
       <td></td>
-      <td>280.000</td>
+      <td>280.00</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>430.000</td>
+      <td>430.00</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.56</td>
       <td>Kasha</td>
       <td></td>
-      <td>400.000</td>
+      <td>400.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>830.000</td>
+      <td>830.00</td>
     </tr>
     <tr>
       <th>3</th>
       <td>6.72</td>
       <td>Higanbana</td>
       <td></td>
-      <td>240.000</td>
+      <td>240.00</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>10</td>
-      <td>1070.000</td>
+      <td>0</td>
+      <td>1070.00</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8.88</td>
       <td>Hakaze</td>
       <td></td>
-      <td>175.200</td>
+      <td>175.20</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>1245.200</td>
+      <td>0</td>
+      <td>1245.20</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.04</td>
       <td>Jinpu</td>
       <td></td>
-      <td>308.980</td>
+      <td>305.20</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>1554.180</td>
+      <td>0</td>
+      <td>1550.40</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Gekko</td>
       <td></td>
-      <td>488.980</td>
+      <td>485.20</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>10</td>
-      <td>2043.160</td>
+      <td>0</td>
+      <td>2035.60</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Higanbana</td>
       <td></td>
-      <td>304.980</td>
+      <td>301.20</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>20</td>
-      <td>2348.140</td>
+      <td>0</td>
+      <td>2336.80</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Fuga</td>
       <td></td>
-      <td>407.307</td>
+      <td>399.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>20</td>
-      <td>2755.447</td>
+      <td>0</td>
+      <td>2735.98</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Oka</td>
       <td></td>
-      <td>683.307</td>
+      <td>675.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>20</td>
-      <td>3438.754</td>
+      <td>0</td>
+      <td>3411.16</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Fuga</td>
       <td></td>
-      <td>407.307</td>
+      <td>399.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>30</td>
-      <td>3846.061</td>
+      <td>0</td>
+      <td>3810.34</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Mangetsu</td>
       <td></td>
-      <td>683.307</td>
+      <td>675.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>30</td>
-      <td>4529.368</td>
+      <td>0</td>
+      <td>4485.52</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Tenka Goken</td>
       <td></td>
-      <td>1180.107</td>
+      <td>1171.98</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>40</td>
-      <td>5709.475</td>
+      <td>0</td>
+      <td>5657.50</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Fuga</td>
       <td></td>
-      <td>407.307</td>
+      <td>399.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>40</td>
-      <td>6116.782</td>
+      <td>0</td>
+      <td>6056.68</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Mangetsu</td>
       <td></td>
-      <td>683.307</td>
+      <td>675.18</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>2</td>
-      <td>40</td>
-      <td>6800.089</td>
+      <td>0</td>
+      <td>6731.86</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Fuga</td>
       <td></td>
-      <td>407.307</td>
+      <td>399.18</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>2</td>
-      <td>50</td>
-      <td>7207.396</td>
+      <td>0</td>
+      <td>7131.04</td>
     </tr>
     <tr>
       <th>16</th>
       <td>34.80</td>
       <td>Oka</td>
       <td></td>
-      <td>683.307</td>
+      <td>675.18</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>2</td>
-      <td>50</td>
-      <td>7890.703</td>
+      <td>0</td>
+      <td>7806.22</td>
     </tr>
     <tr>
       <th>17</th>
       <td>36.96</td>
       <td>Tenka Goken</td>
       <td></td>
-      <td>1180.107</td>
+      <td>1171.98</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>2</td>
-      <td>60</td>
-      <td>9070.810</td>
+      <td>0</td>
+      <td>8978.20</td>
     </tr>
   </tbody>
 </table>
@@ -4257,7 +4452,7 @@ compare_potencies([df7_3, dfs_aoe2[1]], labels=['Higanbana two first', 'Tenka Go
 ```
 
 
-![png](output_91_0.png)
+![png](output_88_0.png)
 
 
 Once again, Higanbana takes some time to pay off. For pulls reaching the 60 second mark, it may be optimal, especially if we consider that targets start to die, reducing the advantage of Tenka Goken only.
@@ -4266,7 +4461,7 @@ Once again, Higanbana takes some time to pay off. For pulls reaching the 60 seco
 
 ### Filler: Alternate Kasha and Gekko combos to maintain buffs and enable Tenka Goken
 
-### AoE: Buff first Shifu > Jinpu. Mangetsu combo, Oka combo if available, otherwise Kasha combo. For packs of 3, apply Higanbana to 1-2 sturdy targets before building for Tenka Goken if pulls approach 60 seconds in duration. For larger packs, use Tenka Goken only. Shift to single target weaponskills if TP is scarce but prioritize Iaijutsu as described.
+### AoE: Buff first Shifu > Jinpu. Mangetsu combo, Oka combo if available, otherwise Kasha combo. For packs of 3, apply Higanbana to 1-2 sturdy targets before building for Tenka Goken only if pulls approach 60 seconds in duration. For larger packs, use Tenka Goken only. Shift to single target weaponskills if TP is scarce but prioritize Iaijutsu as described.
 
 Up to this point, Samurai has no abilities or offensive cooldowns that are used in its regular rotation, save for Ageha. The main themes are always keeping buffs up and making use of Iaijutsu as regularly as you can. Samurai has strong AoE although it is expensive to use. From level 50 going forward, Samurai picks up all of its abilities and at level 52, the Kenki gauge and Hissatsu abilities start to be introduced. Once you master the weaponskill rotation that is completed at level 50, you will need to start learning to manage Kenki and use the Kenki spenders efficiently to become a good samurai.
 
