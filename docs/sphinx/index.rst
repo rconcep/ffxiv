@@ -14,8 +14,6 @@ Welcome to FFXIV - Analysis's documentation!
    samurai
    plotting
 
-Intro text goes here.
-
 
 
 Indices and tables
