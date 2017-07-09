@@ -88,9 +88,9 @@ The action list provided to the :meth:`parse_rotation()` method consists of tupl
 
 ::
 
-  [(weaponskill_1, ability_1), ..., (weaponskill_N, ability_N)]
+  [(weaponskill_1, ability_1a, ability_1b), ..., (weaponskill_N, ability_N)]
 
-where the weaponskills and abilities are provided as strings. The ability is considered to be used during the GCD of the corresponding weaponskill. An ability does not have to be provided. Here is an example of simulating a scenario with multiple targets:
+where the weaponskills and abilities are provided as strings. The abilities are considered to be used during the GCD of the corresponding weaponskill. An ability does not have to be provided. Here is an example of simulating a scenario with multiple targets:
 
 ::
 

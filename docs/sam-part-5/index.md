@@ -36,7 +36,7 @@ SAM has two self buffs and one target debuff to apply. The slashing resistance d
 
 
 ```python
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 
 actions = [('Hakaze'), ('Shifu'), ('Kasha'),
            ('Higanbana'),
@@ -55,8 +55,8 @@ df_buffs_0, average_potency, pps = sam.parse_rotation(actions)
 display(df_buffs_0)
 ```
 
-    average potency per GCD = 511.8080952380951
-    average potency per second = 235.701096491
+    average potency per GCD = 517.7471428571428
+    average potency per second = 238.436184211
     
 
 
@@ -80,7 +80,7 @@ display(df_buffs_0)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -135,13 +135,13 @@ display(df_buffs_0)
       <td>6.72</td>
       <td>Higanbana</td>
       <td></td>
-      <td>240.000</td>
+      <td>425.200</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>20</td>
-      <td>1070.000</td>
+      <td>1255.200</td>
     </tr>
     <tr>
       <th>4</th>
@@ -154,215 +154,215 @@ display(df_buffs_0)
       <td>False</td>
       <td>1</td>
       <td>20</td>
-      <td>1245.200</td>
+      <td>1430.400</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.04</td>
       <td>Jinpu</td>
       <td></td>
-      <td>308.980</td>
+      <td>305.200</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
       <td>25</td>
-      <td>1554.180</td>
+      <td>1735.600</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Gekko</td>
       <td></td>
-      <td>488.980</td>
+      <td>485.200</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
       <td>30</td>
-      <td>2043.160</td>
+      <td>2220.800</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Hakaze</td>
       <td></td>
-      <td>201.480</td>
+      <td>197.700</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
       <td>40</td>
-      <td>2244.640</td>
+      <td>2418.500</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>419.980</td>
+      <td>416.200</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
       <td>45</td>
-      <td>2664.620</td>
+      <td>2834.700</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>603.405</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>599.625</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>55</td>
-      <td>3268.025</td>
+      <td>3434.325</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Shifu</td>
-      <td>Hissatsu: Shinten</td>
-      <td>769.350</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>765.570</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>35</td>
-      <td>4037.375</td>
+      <td>4199.895</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Kasha</td>
-      <td>Hagakure</td>
-      <td>539.580</td>
+      <td>(Hagakure,)</td>
+      <td>535.800</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>4576.955</td>
+      <td>4735.695</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Guren</td>
-      <td>1241.655</td>
+      <td>(Hissatsu: Guren,)</td>
+      <td>1237.875</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>85</td>
-      <td>5818.610</td>
+      <td>5973.570</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>845.940</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>842.160</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>40</td>
-      <td>6664.550</td>
+      <td>6815.730</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>603.405</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>599.625</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>25</td>
-      <td>7267.955</td>
+      <td>7415.355</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Jinpu</td>
       <td></td>
-      <td>386.400</td>
+      <td>382.620</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>5</td>
-      <td>7654.355</td>
+      <td>7797.975</td>
     </tr>
     <tr>
       <th>16</th>
       <td>34.80</td>
       <td>Gekko</td>
       <td></td>
-      <td>539.580</td>
+      <td>535.800</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>10</td>
-      <td>8193.935</td>
+      <td>8333.775</td>
     </tr>
     <tr>
       <th>17</th>
       <td>36.96</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>216.675</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>20</td>
-      <td>8414.390</td>
+      <td>8550.450</td>
     </tr>
     <tr>
       <th>18</th>
       <td>39.12</td>
       <td>Shifu</td>
       <td></td>
-      <td>386.400</td>
+      <td>382.620</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>25</td>
-      <td>8800.790</td>
+      <td>8933.070</td>
     </tr>
     <tr>
       <th>19</th>
       <td>41.28</td>
       <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>535.800</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>30</td>
-      <td>9340.370</td>
+      <td>9468.870</td>
     </tr>
     <tr>
       <th>20</th>
       <td>43.44</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>1407.600</td>
+      <td>1403.820</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>20</td>
-      <td>10747.970</td>
+      <td>10872.690</td>
     </tr>
   </tbody>
 </table>
@@ -373,7 +373,7 @@ display(df_buffs_0)
 
 
 ```python
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 
 actions = [('Hakaze'), ('Jinpu'), ('Gekko'),
            ('Higanbana'),
@@ -392,8 +392,8 @@ df_buffs_1, average_potency, pps = sam.parse_rotation(actions)
 display(df_buffs_1)
 ```
 
-    average potency per GCD = 523.5026190476191
-    average potency per second = 236.115871993
+    average potency per GCD = 530.2328571428571
+    average potency per second = 239.151417526
     
 
 
@@ -417,7 +417,7 @@ display(df_buffs_1)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -472,234 +472,234 @@ display(df_buffs_1)
       <td>7.20</td>
       <td>Higanbana</td>
       <td></td>
-      <td>276.000</td>
+      <td>492.200</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>0</td>
       <td>20</td>
-      <td>1166.000</td>
+      <td>1382.200</td>
     </tr>
     <tr>
       <th>4</th>
       <td>9.60</td>
       <td>Hakaze</td>
       <td></td>
-      <td>209.530</td>
+      <td>204.700</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>1</td>
       <td>20</td>
-      <td>1375.530</td>
+      <td>1586.900</td>
     </tr>
     <tr>
       <th>5</th>
       <td>12.00</td>
       <td>Shifu</td>
       <td></td>
-      <td>359.030</td>
+      <td>354.200</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>1</td>
       <td>25</td>
-      <td>1734.560</td>
+      <td>1941.100</td>
     </tr>
     <tr>
       <th>6</th>
       <td>14.16</td>
       <td>Kasha</td>
       <td></td>
-      <td>493.327</td>
+      <td>488.980</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
       <td>30</td>
-      <td>2227.887</td>
+      <td>2430.080</td>
     </tr>
     <tr>
       <th>7</th>
       <td>16.32</td>
       <td>Hakaze</td>
       <td></td>
-      <td>205.827</td>
+      <td>201.480</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
       <td>40</td>
-      <td>2433.714</td>
+      <td>2631.560</td>
     </tr>
     <tr>
       <th>8</th>
       <td>18.48</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>424.327</td>
+      <td>419.980</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
       <td>45</td>
-      <td>2858.041</td>
+      <td>3051.540</td>
     </tr>
     <tr>
       <th>9</th>
       <td>20.64</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>607.752</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>603.405</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>55</td>
-      <td>3465.793</td>
+      <td>3654.945</td>
     </tr>
     <tr>
       <th>10</th>
       <td>22.80</td>
       <td>Jinpu</td>
-      <td>Hissatsu: Shinten</td>
-      <td>773.697</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>769.350</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>35</td>
-      <td>4239.490</td>
+      <td>4424.295</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.96</td>
       <td>Gekko</td>
-      <td>Hagakure</td>
-      <td>543.927</td>
+      <td>(Hagakure,)</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>4783.417</td>
+      <td>4963.875</td>
     </tr>
     <tr>
       <th>12</th>
       <td>27.12</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Guren</td>
-      <td>1246.002</td>
+      <td>(Hissatsu: Guren,)</td>
+      <td>1241.655</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>85</td>
-      <td>6029.419</td>
+      <td>6205.530</td>
     </tr>
     <tr>
       <th>13</th>
       <td>29.28</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>850.287</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>845.940</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>40</td>
-      <td>6879.706</td>
+      <td>7051.470</td>
     </tr>
     <tr>
       <th>14</th>
       <td>31.44</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>607.752</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>603.405</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>25</td>
-      <td>7487.458</td>
+      <td>7654.875</td>
     </tr>
     <tr>
       <th>15</th>
       <td>33.60</td>
       <td>Shifu</td>
       <td></td>
-      <td>390.747</td>
+      <td>386.400</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>5</td>
-      <td>7878.205</td>
+      <td>8041.275</td>
     </tr>
     <tr>
       <th>16</th>
       <td>35.76</td>
       <td>Kasha</td>
       <td></td>
-      <td>543.927</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>10</td>
-      <td>8422.132</td>
+      <td>8580.855</td>
     </tr>
     <tr>
       <th>17</th>
       <td>37.92</td>
       <td>Hakaze</td>
       <td></td>
-      <td>224.802</td>
+      <td>220.455</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>20</td>
-      <td>8646.934</td>
+      <td>8801.310</td>
     </tr>
     <tr>
       <th>18</th>
       <td>40.08</td>
       <td>Jinpu</td>
       <td></td>
-      <td>390.747</td>
+      <td>386.400</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>25</td>
-      <td>9037.681</td>
+      <td>9187.710</td>
     </tr>
     <tr>
       <th>19</th>
       <td>42.24</td>
       <td>Gekko</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>543.927</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>539.580</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>30</td>
-      <td>9581.608</td>
+      <td>9727.290</td>
     </tr>
     <tr>
       <th>20</th>
       <td>44.40</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>1411.947</td>
+      <td>1407.600</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>20</td>
-      <td>10993.555</td>
+      <td>11134.890</td>
     </tr>
   </tbody>
 </table>
@@ -710,7 +710,7 @@ display(df_buffs_1)
 
 
 ```python
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 
 actions = [('Hakaze'), ('Yukikaze'),
            ('Higanbana'),
@@ -730,8 +730,8 @@ df_buffs_2, average_potency, pps = sam.parse_rotation(actions)
 display(df_buffs_2)
 ```
 
-    average potency per GCD = 515.7328571428571
-    average potency per second = 230.237882653
+    average potency per GCD = 517.4309523809524
+    average potency per second = 230.995960884
     
 
 
@@ -755,7 +755,7 @@ display(df_buffs_2)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -797,13 +797,13 @@ display(df_buffs_2)
       <td>4.80</td>
       <td>Higanbana</td>
       <td></td>
-      <td>266.400</td>
+      <td>368.000</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>0</td>
       <td>15</td>
-      <td>756.400</td>
+      <td>858.000</td>
     </tr>
     <tr>
       <th>3</th>
@@ -816,228 +816,228 @@ display(df_buffs_2)
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>950.900</td>
+      <td>1052.500</td>
     </tr>
     <tr>
       <th>4</th>
       <td>9.60</td>
       <td>Jinpu</td>
       <td></td>
-      <td>343.000</td>
+      <td>338.800</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>1</td>
       <td>20</td>
-      <td>1293.900</td>
+      <td>1391.300</td>
     </tr>
     <tr>
       <th>5</th>
       <td>12.00</td>
       <td>Gekko</td>
       <td></td>
-      <td>542.800</td>
+      <td>538.600</td>
       <td>True</td>
       <td>False</td>
       <td>True</td>
       <td>1</td>
       <td>25</td>
-      <td>1836.700</td>
+      <td>1929.900</td>
     </tr>
     <tr>
       <th>6</th>
       <td>14.40</td>
       <td>Hakaze</td>
       <td></td>
-      <td>223.675</td>
+      <td>219.475</td>
       <td>True</td>
       <td>False</td>
       <td>True</td>
       <td>1</td>
       <td>35</td>
-      <td>2060.375</td>
+      <td>2149.375</td>
     </tr>
     <tr>
       <th>7</th>
       <td>16.80</td>
       <td>Shifu</td>
       <td></td>
-      <td>389.620</td>
+      <td>385.420</td>
       <td>True</td>
       <td>False</td>
       <td>True</td>
       <td>1</td>
       <td>40</td>
-      <td>2449.995</td>
+      <td>2534.795</td>
     </tr>
     <tr>
       <th>8</th>
       <td>18.96</td>
       <td>Kasha</td>
-      <td>Hissatsu: Shinten</td>
-      <td>922.530</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>918.750</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>45</td>
-      <td>3372.525</td>
+      <td>3453.545</td>
     </tr>
     <tr>
       <th>9</th>
       <td>21.12</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>603.405</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>599.625</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>30</td>
-      <td>3975.930</td>
+      <td>4053.170</td>
     </tr>
     <tr>
       <th>10</th>
       <td>23.28</td>
       <td>Yukikaze</td>
-      <td>Hagakure</td>
-      <td>462.990</td>
+      <td>(Hagakure,)</td>
+      <td>459.210</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>10</td>
-      <td>4438.920</td>
+      <td>4512.380</td>
     </tr>
     <tr>
       <th>11</th>
       <td>25.44</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Guren</td>
-      <td>1241.655</td>
+      <td>(Hissatsu: Guren,)</td>
+      <td>1237.875</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>80</td>
-      <td>5680.575</td>
+      <td>5750.255</td>
     </tr>
     <tr>
       <th>12</th>
       <td>27.60</td>
       <td>Jinpu</td>
-      <td>Hissatsu: Shinten</td>
-      <td>769.350</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>765.570</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>35</td>
-      <td>6449.925</td>
+      <td>6515.825</td>
     </tr>
     <tr>
       <th>13</th>
       <td>29.76</td>
       <td>Gekko</td>
-      <td>Hissatsu: Shinten</td>
-      <td>922.530</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>918.750</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>7372.455</td>
+      <td>7434.575</td>
     </tr>
     <tr>
       <th>14</th>
       <td>31.92</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>216.675</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>0</td>
-      <td>7592.910</td>
+      <td>7651.250</td>
     </tr>
     <tr>
       <th>15</th>
       <td>34.08</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>462.990</td>
+      <td>459.210</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>5</td>
-      <td>8055.900</td>
+      <td>8110.460</td>
     </tr>
     <tr>
       <th>16</th>
       <td>36.24</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>216.675</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>8276.355</td>
+      <td>8327.135</td>
     </tr>
     <tr>
       <th>17</th>
       <td>38.40</td>
       <td>Shifu</td>
       <td></td>
-      <td>386.400</td>
+      <td>382.620</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>20</td>
-      <td>8662.755</td>
+      <td>8709.755</td>
     </tr>
     <tr>
       <th>18</th>
       <td>40.56</td>
       <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>535.800</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>25</td>
-      <td>9202.335</td>
+      <td>9245.555</td>
     </tr>
     <tr>
       <th>19</th>
       <td>42.72</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>1407.600</td>
+      <td>1403.820</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>10609.935</td>
+      <td>10649.375</td>
     </tr>
     <tr>
       <th>20</th>
       <td>44.88</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>216.675</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>10830.390</td>
+      <td>10866.050</td>
     </tr>
   </tbody>
 </table>
@@ -1048,7 +1048,7 @@ display(df_buffs_2)
 
 
 ```python
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 
 actions = [('Hakaze'), ('Yukikaze'),
            ('Higanbana'),
@@ -1068,8 +1068,8 @@ df_buffs_3, average_potency, pps = sam.parse_rotation(actions)
 display(df_buffs_3)
 ```
 
-    average potency per GCD = 508.13214285714287
-    average potency per second = 230.370790155
+    average potency per GCD = 510.450238095238
+    average potency per second = 231.421740069
     
 
 
@@ -1093,7 +1093,7 @@ display(df_buffs_3)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -1135,13 +1135,13 @@ display(df_buffs_3)
       <td>4.80</td>
       <td>Higanbana</td>
       <td></td>
-      <td>266.400</td>
+      <td>368.000</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>0</td>
       <td>15</td>
-      <td>756.400</td>
+      <td>858.000</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1154,7 +1154,7 @@ display(df_buffs_3)
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>950.900</td>
+      <td>1052.500</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1167,7 +1167,7 @@ display(df_buffs_3)
       <td>True</td>
       <td>1</td>
       <td>20</td>
-      <td>1289.700</td>
+      <td>1391.300</td>
     </tr>
     <tr>
       <th>5</th>
@@ -1180,7 +1180,7 @@ display(df_buffs_3)
       <td>True</td>
       <td>1</td>
       <td>25</td>
-      <td>1758.900</td>
+      <td>1860.500</td>
     </tr>
     <tr>
       <th>6</th>
@@ -1193,189 +1193,189 @@ display(df_buffs_3)
       <td>True</td>
       <td>1</td>
       <td>35</td>
-      <td>1950.600</td>
+      <td>2052.200</td>
     </tr>
     <tr>
       <th>7</th>
       <td>16.08</td>
       <td>Jinpu</td>
       <td></td>
-      <td>339.780</td>
+      <td>336.000</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>40</td>
-      <td>2290.380</td>
+      <td>2388.200</td>
     </tr>
     <tr>
       <th>8</th>
       <td>18.24</td>
       <td>Gekko</td>
-      <td>Hissatsu: Shinten</td>
-      <td>922.530</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>918.750</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>45</td>
-      <td>3212.910</td>
+      <td>3306.950</td>
     </tr>
     <tr>
       <th>9</th>
       <td>20.40</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>603.405</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>599.625</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>30</td>
-      <td>3816.315</td>
+      <td>3906.575</td>
     </tr>
     <tr>
       <th>10</th>
       <td>22.56</td>
       <td>Yukikaze</td>
-      <td>Hagakure</td>
-      <td>462.990</td>
+      <td>(Hagakure,)</td>
+      <td>459.210</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>10</td>
-      <td>4279.305</td>
+      <td>4365.785</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.72</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Guren</td>
-      <td>1241.655</td>
+      <td>(Hissatsu: Guren,)</td>
+      <td>1237.875</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>80</td>
-      <td>5520.960</td>
+      <td>5603.660</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.88</td>
       <td>Jinpu</td>
-      <td>Hissatsu: Shinten</td>
-      <td>769.350</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>765.570</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>35</td>
-      <td>6290.310</td>
+      <td>6369.230</td>
     </tr>
     <tr>
       <th>13</th>
       <td>29.04</td>
       <td>Gekko</td>
-      <td>Hissatsu: Shinten</td>
-      <td>922.530</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>918.750</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>7212.840</td>
+      <td>7287.980</td>
     </tr>
     <tr>
       <th>14</th>
       <td>31.20</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>216.675</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>0</td>
-      <td>7433.295</td>
+      <td>7504.655</td>
     </tr>
     <tr>
       <th>15</th>
       <td>33.36</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>462.990</td>
+      <td>459.210</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>5</td>
-      <td>7896.285</td>
+      <td>7963.865</td>
     </tr>
     <tr>
       <th>16</th>
       <td>35.52</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>216.675</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>8116.740</td>
+      <td>8180.540</td>
     </tr>
     <tr>
       <th>17</th>
       <td>37.68</td>
       <td>Shifu</td>
       <td></td>
-      <td>386.400</td>
+      <td>382.620</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>20</td>
-      <td>8503.140</td>
+      <td>8563.160</td>
     </tr>
     <tr>
       <th>18</th>
       <td>39.84</td>
       <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>535.800</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>25</td>
-      <td>9042.720</td>
+      <td>9098.960</td>
     </tr>
     <tr>
       <th>19</th>
       <td>42.00</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>1407.600</td>
+      <td>1403.820</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>10450.320</td>
+      <td>10502.780</td>
     </tr>
     <tr>
       <th>20</th>
       <td>44.16</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>216.675</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>10670.775</td>
+      <td>10719.455</td>
     </tr>
   </tbody>
 </table>
@@ -1391,11 +1391,13 @@ compare_n_potencies([df_buffs_0, df_buffs_1, df_buffs_2, df_buffs_3], ['Shifu, J
 ![png](output_16_0.png)
 
 
-The results are quite close but Jinpu > Shifu > Yukikaze appears to be the highest priority. For total party DPS, contributions due to (~16s) earlier application of the slashing resistance down debuff should be accounted for, assuming no WAR or NIN in the party. How do priorities differ if someone else, e.g., WAR, can applythe debuff instead?
+The results are quite close but Jinpu and Shifu appear to be the highest priority. For total party DPS, contributions due to (~16s) earlier application of the slashing resistance down debuff should be accounted for, assuming no WAR or NIN in the party. How do priorities differ if someone else, e.g., WAR, can apply the debuff instead?
+
+### External force applying slashing resistance down early
 
 
 ```python
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 sam.applied_yukikaze = True
 
 actions = [('Hakaze'), ('Shifu'), ('Kasha'),
@@ -1410,7 +1412,7 @@ actions = [('Hakaze'), ('Shifu'), ('Kasha'),
 
 df_buffs_0_sl, average_potency, pps = sam.parse_rotation(actions)
 
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 sam.applied_yukikaze = True
 
 actions = [('Hakaze'), ('Jinpu'), ('Gekko'),
@@ -1425,7 +1427,7 @@ actions = [('Hakaze'), ('Jinpu'), ('Gekko'),
 
 df_buffs_1_sl, average_potency, pps = sam.parse_rotation(actions)
 
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 sam.applied_yukikaze = True
 
 actions = [('Hakaze'), ('Yukikaze'),
@@ -1441,7 +1443,7 @@ actions = [('Hakaze'), ('Yukikaze'),
 
 df_buffs_2_sl, average_potency, pps = sam.parse_rotation(actions)
 
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 sam.applied_yukikaze = True
 
 actions = [('Hakaze'), ('Yukikaze'),
@@ -1458,14 +1460,14 @@ actions = [('Hakaze'), ('Yukikaze'),
 df_buffs_3_sl, average_potency, pps = sam.parse_rotation(actions)
 ```
 
-    average potency per GCD = 522.7740476190475
-    average potency per second = 240.75120614
-    average potency per GCD = 535.3092857142858
-    average potency per second = 241.441043814
-    average potency per GCD = 515.7328571428571
-    average potency per second = 230.237882653
-    average potency per GCD = 508.13214285714287
-    average potency per second = 230.370790155
+    average potency per GCD = 529.5511904761904
+    average potency per second = 243.872258772
+    average potency per GCD = 543.0033333333333
+    average potency per second = 244.911297251
+    average potency per GCD = 517.4309523809524
+    average potency per second = 230.995960884
+    average potency per GCD = 510.450238095238
+    average potency per second = 231.421740069
     
 
 
@@ -1477,7 +1479,16 @@ compare_n_potencies([df_buffs_0_sl, df_buffs_1_sl, df_buffs_2_sl, df_buffs_3_sl]
 ![png](output_19_0.png)
 
 
-Here I made the assumption that the slashing resistance down debuff was already applied at the beginning of each rotation. We see that the value of deferring Yukikaze increases if someone else can apply the debuff instead. Although the average potency per GCD is much higher when applying Jinpu before Shifu while the delta in pps is much smaller, the results are likely to change as your skill speed changes.
+Here I made the assumption that the slashing resistance down debuff was already applied at the beginning of each rotation. We see that the value of deferring Yukikaze increases if someone else can apply the debuff instead. Although the average potency per GCD is much higher when applying Jinpu before Shifu while the delta in pps is much smaller, the results are likely to change as your skill speed changes. Here are some points to consider:
+
+- Jinpu increases the potency per weaponskill and ability because it is a damage dealt increased buff.
+    - Increases the value of Kenki spenders while Shifu does nothing for them.
+    - Increases the value of Higanbana and its DoT while Shifu directly does not.
+- Shifu provides a haste-type buff. This increases auto attack and weaponskill frequency. This may allow you to fit more actions into a buff window.
+    - This also increases the rate of Kenki and Sen accrual.
+    - This reduced weaponskill recast time may exacerbate GCD clipping when double weaving.
+
+Because the outcome from either priority system is so similar, external factors such as party buffs and encounter duration will be the primary driving force behind which policy you follow. The above points of consideration plus those external factors should play into how you design openers on a case-by-case basis.
 
 <a href="#header">back to the top...</a>
 
@@ -1497,13 +1508,13 @@ The first revelation increases the flexibility of Meikyo Shisui. With the buff's
 
 3) Expedited Sen opening for rapid Iaijutsu and/or Kenki generation via Hagakure
 
-The sheer potency and utility of Kasha, Gekko, and (to a lesser extent) Yukikaze exemplify how powerful Meikyo Shisui is. At 400 potency (340 for Yukikaze) and 10 Kenki generated for each, the opportunity to skip the lower potency and Kenki production of Hakaze, Shifu, and Jinpu is immense. From a damage and potential damage perspective, it is optimal to use Meikyo Shisui to do some combination of Kasha, Gekko, and Yukikaze with an Iaijutsu in between.
+The sheer potency and utility of Kasha, Gekko, and (to a lesser extent) Yukikaze exemplify how powerful Meikyo Shisui is. At 400 potency (340 for Yukikaze) and 10 Kenki generated for each, the opportunity to skip the lower potency and Kenki production of Hakaze, Shifu, and Jinpu is huge. From a damage and potential damage perspective, it is optimal to use Meikyo Shisui to do some combination of Kasha, Gekko, and Yukikaze with an Iaijutsu in between.
 
 ### Example 1: Two of Kasha or Gekko, one of the other
 
 
 ```python
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 
 actions = [('Hakaze'), ('Jinpu'), ('Gekko'),
            ('Hakaze'), ('Shifu'), ('Kasha'),
@@ -1547,7 +1558,7 @@ display(df_ms)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -1653,7 +1664,7 @@ display(df_ms)
       <th>7</th>
       <td>16.08</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Guren</td>
+      <td>(Hissatsu: Guren,)</td>
       <td>1412.200</td>
       <td>True</td>
       <td>True</td>
@@ -1666,7 +1677,7 @@ display(df_ms)
       <th>8</th>
       <td>18.24</td>
       <td>Hakaze</td>
-      <td>Hagakure</td>
+      <td>(Hagakure,)</td>
       <td>191.475</td>
       <td>True</td>
       <td>True</td>
@@ -1679,7 +1690,7 @@ display(df_ms)
       <th>9</th>
       <td>20.40</td>
       <td>Yukikaze</td>
-      <td>Meikyo Shisui</td>
+      <td>(Meikyo Shisui,)</td>
       <td>434.010</td>
       <td>True</td>
       <td>True</td>
@@ -1692,7 +1703,7 @@ display(df_ms)
       <th>10</th>
       <td>22.56</td>
       <td>Gekko</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>893.550</td>
       <td>True</td>
       <td>True</td>
@@ -1705,7 +1716,7 @@ display(df_ms)
       <th>11</th>
       <td>24.72</td>
       <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>510.600</td>
       <td>True</td>
       <td>True</td>
@@ -1731,7 +1742,7 @@ display(df_ms)
       <th>13</th>
       <td>29.04</td>
       <td>Kasha</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>510.600</td>
       <td>True</td>
       <td>True</td>
@@ -1744,7 +1755,7 @@ display(df_ms)
       <th>14</th>
       <td>31.20</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>574.425</td>
       <td>True</td>
       <td>True</td>
@@ -1822,7 +1833,7 @@ display(df_ms)
       <th>20</th>
       <td>44.16</td>
       <td>Shifu</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>357.420</td>
       <td>True</td>
       <td>False</td>
@@ -1848,7 +1859,7 @@ display(df_ms)
       <th>22</th>
       <td>48.48</td>
       <td>Kasha</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>893.550</td>
       <td>True</td>
       <td>True</td>
@@ -1875,11 +1886,11 @@ By using some combination of Kasha and Gekko only for our Meikyo Shisui charges,
 
 The penalty for dropping the Shifu or Jinpu buff is in the neighborhood of 9-15% potency per GCD. For example, dropping Jinpu for 4-5 seconds is about two GCDs plus auto attacks; Hakaze -> Jinpu is 150+280=430 potency plus maybe 2 auto attacks. This puts the raw potency lost due to a dropped buff in the order of 90-100 (auto attacks not accounted for in my modeling). This is larger than the difference between Yukikaze and Kasha or Gekko.
 
-### Example: One Yukikaze, two of Kasha and/or Gekko
+### Example: One Yukikaze, one Kasha, one Gekko
 
 
 ```python
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 
 actions = [('Hakaze'), ('Jinpu'), ('Gekko'),
            ('Hakaze'), ('Shifu'), ('Kasha'),
@@ -1923,7 +1934,7 @@ display(df_ms2)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -2029,7 +2040,7 @@ display(df_ms2)
       <th>7</th>
       <td>16.08</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Guren</td>
+      <td>(Hissatsu: Guren,)</td>
       <td>1412.200</td>
       <td>True</td>
       <td>True</td>
@@ -2042,7 +2053,7 @@ display(df_ms2)
       <th>8</th>
       <td>18.24</td>
       <td>Hakaze</td>
-      <td>Hagakure</td>
+      <td>(Hagakure,)</td>
       <td>191.475</td>
       <td>True</td>
       <td>True</td>
@@ -2068,7 +2079,7 @@ display(df_ms2)
       <th>10</th>
       <td>22.56</td>
       <td>Gekko</td>
-      <td>Meikyo Shisui</td>
+      <td>(Meikyo Shisui,)</td>
       <td>510.600</td>
       <td>True</td>
       <td>True</td>
@@ -2081,7 +2092,7 @@ display(df_ms2)
       <th>11</th>
       <td>24.72</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>816.960</td>
       <td>True</td>
       <td>True</td>
@@ -2094,7 +2105,7 @@ display(df_ms2)
       <th>12</th>
       <td>26.88</td>
       <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>510.600</td>
       <td>True</td>
       <td>True</td>
@@ -2120,7 +2131,7 @@ display(df_ms2)
       <th>14</th>
       <td>31.20</td>
       <td>Gekko</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>893.550</td>
       <td>True</td>
       <td>True</td>
@@ -2133,7 +2144,7 @@ display(df_ms2)
       <th>15</th>
       <td>33.36</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>574.425</td>
       <td>True</td>
       <td>True</td>
@@ -2198,7 +2209,7 @@ display(df_ms2)
       <th>20</th>
       <td>44.16</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>574.425</td>
       <td>True</td>
       <td>True</td>
@@ -2211,7 +2222,7 @@ display(df_ms2)
       <th>21</th>
       <td>46.32</td>
       <td>Jinpu</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>357.420</td>
       <td>True</td>
       <td>True</td>
@@ -2237,7 +2248,7 @@ display(df_ms2)
       <th>23</th>
       <td>50.64</td>
       <td>Gekko</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>893.550</td>
       <td>True</td>
       <td>True</td>
@@ -2282,7 +2293,10 @@ Throughout the leveling process, we gain a number of Kenki spenders. We examine 
 ### For single target situations:
 
 1) Hissatsu: Guren (16 ppK)
-    - Although at a lower ppK than 2), its potency is from the ability and not a weaponskill. It does not directly compete with Midare Setsugekka; it only competes via Hagakure usage.
+
+    1) Although at a lower ppK than Hissatsu: Kaiten on Iaijutsu, its potency is from the ability and not a weaponskill. It does not directly compete with Iaijutsu; it only competes via Hagakure usage.
+
+2) Hissatsu: Kaiten on Higanbana (full duration) (23.5 ppK)
     
 2) Hissatsu: Kaiten on Midare Setsugekka (18 ppK)
 
@@ -2301,7 +2315,8 @@ Throughout the leveling process, we gain a number of Kenki spenders. We examine 
 2) Hissatsu: Kaiten on Tenka Goken (>9 ppK)
 
 3) Hissatsu: Kyuten (6*n* ppK, where *n* is the number of targets)
-    - We examined the tradeoff between 2) and 3) in Part 4. In short, always have Kenki to use on Hissatsu: Kaiten for Tenka Goken. Excess Kenki goes to Hissatsu: Kyuten. With the Fuga, Oka, Fuga, Mangetsu combo generating 30 Kenki total, this should always be possible.
+
+    1) We examined the tradeoff between 2) and 3) in Part 4. In short, always have Kenki to use on Hissatsu: Kaiten for Tenka Goken. Excess Kenki goes to Hissatsu: Kyuten. With the Fuga, Oka, Fuga, Mangetsu combo generating 30 Kenki total, this should always be possible.
 
 ### Wasted Kenki
 Kenki capping is a risk especially when using Hagakure to convert three Sen. The penalty for doing so may be determined via the ppK values above. Since Kenki is quantized in units of 5, the potency losses are not insignificant. These losses are, however, only realized if they would have been spendable in the first place. For example, if you overflowed Kenki by 5 but ended the encounter with 0 Kenki, then you haven't lost anything because that 5 Kenki could not have been spent anyway. However, if you instead ended with 5 Kenki, it is a loss of 100 potency because you could have spent the 10 Kenki on Hissatsu: Gyoten / Yaten.
@@ -2385,7 +2400,7 @@ The value of Hagakure depends on being able to convert the Kenki back into poten
 
 
 ```python
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 
 actions = [('Hakaze'), ('Jinpu'), ('Gekko'),
            ('Hakaze'), ('Shifu'), ('Kasha'),
@@ -2424,7 +2439,7 @@ display(df_hgk1)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -2530,7 +2545,7 @@ display(df_hgk1)
       <th>7</th>
       <td>16.08</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Guren</td>
+      <td>(Hissatsu: Guren,)</td>
       <td>1412.200</td>
       <td>True</td>
       <td>True</td>
@@ -2543,7 +2558,7 @@ display(df_hgk1)
       <th>8</th>
       <td>18.24</td>
       <td>Hakaze</td>
-      <td>Hagakure</td>
+      <td>(Hagakure,)</td>
       <td>191.475</td>
       <td>True</td>
       <td>True</td>
@@ -2556,7 +2571,7 @@ display(df_hgk1)
       <th>9</th>
       <td>20.40</td>
       <td>Jinpu</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>740.370</td>
       <td>True</td>
       <td>True</td>
@@ -2569,7 +2584,7 @@ display(df_hgk1)
       <th>10</th>
       <td>22.56</td>
       <td>Gekko</td>
-      <td>Meikyo Shisui</td>
+      <td>(Meikyo Shisui,)</td>
       <td>510.600</td>
       <td>True</td>
       <td>True</td>
@@ -2582,7 +2597,7 @@ display(df_hgk1)
       <th>11</th>
       <td>24.72</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>816.960</td>
       <td>True</td>
       <td>True</td>
@@ -2595,7 +2610,7 @@ display(df_hgk1)
       <th>12</th>
       <td>26.88</td>
       <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>510.600</td>
       <td>True</td>
       <td>True</td>
@@ -2621,7 +2636,7 @@ display(df_hgk1)
       <th>14</th>
       <td>31.20</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>574.425</td>
       <td>True</td>
       <td>True</td>
@@ -2634,7 +2649,7 @@ display(df_hgk1)
       <th>15</th>
       <td>33.36</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Shinten</td>
+      <td>(Hissatsu: Shinten,)</td>
       <td>816.960</td>
       <td>True</td>
       <td>True</td>
@@ -2650,7 +2665,7 @@ display(df_hgk1)
 
 
 ```python
-sam = Samurai(kenki_mastery=True)
+sam = Samurai(kenki_mastery=2)
 
 actions = [('Hakaze'), ('Jinpu'), ('Gekko'),
            ('Hakaze'), ('Shifu'), ('Kasha'),
@@ -2689,7 +2704,7 @@ display(df_hgk2)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -2795,7 +2810,7 @@ display(df_hgk2)
       <th>7</th>
       <td>16.08</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>391.000</td>
       <td>True</td>
       <td>True</td>
@@ -2847,7 +2862,7 @@ display(df_hgk2)
       <th>11</th>
       <td>24.72</td>
       <td>Gekko</td>
-      <td>Meikyo Shisui</td>
+      <td>(Meikyo Shisui,)</td>
       <td>510.600</td>
       <td>True</td>
       <td>True</td>
@@ -2860,7 +2875,7 @@ display(df_hgk2)
       <th>12</th>
       <td>26.88</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Guren</td>
+      <td>(Hissatsu: Guren,)</td>
       <td>1455.210</td>
       <td>True</td>
       <td>True</td>
@@ -2873,7 +2888,7 @@ display(df_hgk2)
       <th>13</th>
       <td>29.04</td>
       <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>510.600</td>
       <td>True</td>
       <td>True</td>

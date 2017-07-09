@@ -127,9 +127,9 @@ display(kenki_table_df)
 </div>
 
 
-This will net a substantial surplus if we reserve Kenki solely for Hissatsu: Kaiten -> Midare Setsugekka. Level 62 also grants the ability Hissatsu: Shinten, dealing 300 potency off the GCD at a cost of 25 Kenki on a 1s recast. This is significantly more value than spending on Hissatsu: Kaiten on Kasha/Gekko and only ~16.6% less value than spending Hissatsu: Kaiten on Midare Setsugekka (300 potency vs. 360 potency gain per 25 Kenki vs. 20 Kenki, respectively). In terms of potency per Kenki, it's 12 vs. 18 in favor of Hissatsu: Kaiten on Midare Setsugeka. Needless to say, if we're not saving for Hissatsu: Kaiten on Midare Setsugekka or for utility, we spend Kenki on Hissatsu: Shinten. See part 5 for an in-depth discussion on Kenki spenders.
+This will net a substantial surplus if we reserve Kenki solely for Hissatsu: Kaiten on our Iaijutsu. Coincidentally, level 62 also grants the ability Hissatsu: Shinten, dealing 300 potency off the GCD at a cost of 25 Kenki on a 1s recast. This is significantly more value than spending on Hissatsu: Kaiten on Kasha/Gekko and only ~16.6% less value than spending Hissatsu: Kaiten on Higanbana or Midare Setsugekka. See part 5 for an in-depth discussion on Kenki spenders.
 
-Level 66 grants the Hissatsu: Seigan ability. Formerly known as Starry Eyes, this ability is only usable under the Open Eyes status, which is granted by successfully reducing damage received while Third Eye is active. At 200 potency with a coset of 15 Kenki, Hissatsu: Seigan is more efficient in potency per Kenki spent than Hissatsu: Shinten and is worth trying to use as much as possible. See part 5 for an in-depth discussion on Third Eye and Kenki spenders.
+Level 66 grants the Hissatsu: Seigan ability. Formerly known as Starry Eyes, this ability is only usable under the Open Eyes status, which is granted by successfully reducing damage received while Third Eye is active. At 200 potency with a cost of 15 Kenki, Hissatsu: Seigan is more efficient in potency per Kenki spent than Hissatsu: Shinten and is worth trying to use as much as possible. See part 5 for an in-depth discussion on Third Eye and Kenki spenders.
 
 With the massively increased Kenki generation, let's revisit our single target situations.
 
@@ -140,13 +140,13 @@ With the massively increased Kenki generation, let's revisit our single target s
 sam = Samurai(kenki_mastery=2)
 
 actions = [('Hakaze'), ('Shifu'), ('Kasha'), ('Hakaze'),
-           ('Jinpu'), ('Higanbana'), ('Gekko'), ('Hakaze'),
-           ('Yukikaze'), ('Hakaze'), ('Shifu'), ('Kasha', 'Hissatsu: Kaiten'),
-           ('Midare Setsugekka', 'Meikyo Shisui'), ('Gekko'), ('Yukikaze'), ('Kasha', 'Hissatsu: Kaiten'),
+           ('Jinpu', 'Hissatsu: Kaiten'), ('Higanbana'), ('Gekko'), ('Hakaze'),
+           ('Yukikaze'), ('Hakaze'), ('Shifu'), ('Kasha', 'Hissatsu: Kaiten', 'Meikyo Shisui'),
+           ('Midare Setsugekka'), ('Gekko'), ('Yukikaze'), ('Kasha', 'Hissatsu: Kaiten'),
            ('Midare Setsugekka'), ('Hakaze'), ('Jinpu'), ('Gekko'),
            ('Hakaze'), ('Shifu'), ('Kasha'), ('Hakaze'),
            ('Yukikaze', 'Hissatsu: Kaiten'), ('Midare Setsugekka'), ('Hakaze'),
-           ('Jinpu'), ('Gekko'), ('Hakaze'), ('Shifu'),
+           ('Jinpu'), ('Gekko'), ('Hakaze'), ('Shifu', 'Hissatsu: Kaiten'),
            ('Higanbana'), ('Kasha'), ('Hakaze'), ('Yukikaze'),
            ('Hakaze'), ('Jinpu'), ('Gekko', 'Hissatsu: Kaiten'), ('Midare Setsugekka'),
            ]
@@ -158,8 +158,8 @@ df0, average_potency, pps = sam.parse_rotation(actions)
 display(df0)
 ```
 
-    average potency per GCD = 471.7905128205127
-    average potency per second = 217.801017992
+    average potency per GCD = 486.5776923076921
+    average potency per second = 224.627485795
     
 
 
@@ -183,7 +183,7 @@ display(df0)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -250,7 +250,7 @@ display(df0)
       <th>4</th>
       <td>8.88</td>
       <td>Jinpu</td>
-      <td></td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>280.000</td>
       <td>False</td>
       <td>True</td>
@@ -264,463 +264,463 @@ display(df0)
       <td>11.04</td>
       <td>Higanbana</td>
       <td></td>
-      <td>276.000</td>
+      <td>323.470</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>30</td>
-      <td>1536.000</td>
+      <td>10</td>
+      <td>1583.470</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Gekko</td>
       <td></td>
-      <td>488.980</td>
+      <td>503.470</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>2024.980</td>
+      <td>10</td>
+      <td>2086.940</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Hakaze</td>
       <td></td>
-      <td>201.480</td>
+      <td>215.970</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>40</td>
-      <td>2226.460</td>
+      <td>20</td>
+      <td>2302.910</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>419.980</td>
+      <td>434.470</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>45</td>
-      <td>2646.440</td>
+      <td>25</td>
+      <td>2737.380</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>55</td>
-      <td>2866.895</td>
+      <td>35</td>
+      <td>2972.325</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Shifu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>60</td>
-      <td>3253.295</td>
+      <td>40</td>
+      <td>3373.215</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>(Hissatsu: Kaiten, Meikyo Shisui)</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>65</td>
-      <td>3792.875</td>
+      <td>45</td>
+      <td>3927.285</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Midare Setsugekka</td>
-      <td>Meikyo Shisui</td>
-      <td>1407.600</td>
+      <td></td>
+      <td>1422.090</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>55</td>
-      <td>5200.475</td>
+      <td>35</td>
+      <td>5349.375</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Gekko</td>
       <td></td>
-      <td>539.580</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>55</td>
-      <td>5740.055</td>
+      <td>35</td>
+      <td>5903.445</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>462.990</td>
+      <td>477.480</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>65</td>
-      <td>6203.045</td>
+      <td>45</td>
+      <td>6380.925</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>75</td>
-      <td>6742.625</td>
+      <td>55</td>
+      <td>6934.995</td>
     </tr>
     <tr>
       <th>16</th>
       <td>34.80</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>1407.600</td>
+      <td>1422.090</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>65</td>
-      <td>8150.225</td>
+      <td>45</td>
+      <td>8357.085</td>
     </tr>
     <tr>
       <th>17</th>
       <td>36.96</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>65</td>
-      <td>8370.680</td>
+      <td>45</td>
+      <td>8592.030</td>
     </tr>
     <tr>
       <th>18</th>
       <td>39.12</td>
       <td>Jinpu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>70</td>
-      <td>8757.080</td>
+      <td>50</td>
+      <td>8992.920</td>
     </tr>
     <tr>
       <th>19</th>
       <td>41.28</td>
       <td>Gekko</td>
       <td></td>
-      <td>539.580</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>75</td>
-      <td>9296.660</td>
+      <td>55</td>
+      <td>9546.990</td>
     </tr>
     <tr>
       <th>20</th>
       <td>43.44</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>85</td>
-      <td>9517.115</td>
+      <td>65</td>
+      <td>9781.935</td>
     </tr>
     <tr>
       <th>21</th>
       <td>45.60</td>
       <td>Shifu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>90</td>
-      <td>9903.515</td>
+      <td>70</td>
+      <td>10182.825</td>
     </tr>
     <tr>
       <th>22</th>
       <td>47.76</td>
       <td>Kasha</td>
       <td></td>
-      <td>539.580</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>95</td>
-      <td>10443.095</td>
+      <td>75</td>
+      <td>10736.895</td>
     </tr>
     <tr>
       <th>23</th>
       <td>49.92</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>100</td>
-      <td>10663.550</td>
+      <td>85</td>
+      <td>10971.840</td>
     </tr>
     <tr>
       <th>24</th>
       <td>52.08</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>462.990</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>477.480</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>100</td>
-      <td>11126.540</td>
+      <td>90</td>
+      <td>11449.320</td>
     </tr>
     <tr>
       <th>25</th>
       <td>54.24</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>1407.600</td>
+      <td>1422.090</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>80</td>
-      <td>12534.140</td>
+      <td>12871.410</td>
     </tr>
     <tr>
       <th>26</th>
       <td>56.40</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>80</td>
-      <td>12754.595</td>
+      <td>13106.355</td>
     </tr>
     <tr>
       <th>27</th>
       <td>58.56</td>
       <td>Jinpu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>85</td>
-      <td>13140.995</td>
+      <td>13507.245</td>
     </tr>
     <tr>
       <th>28</th>
       <td>60.72</td>
       <td>Gekko</td>
       <td></td>
-      <td>539.580</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>90</td>
-      <td>13680.575</td>
+      <td>14061.315</td>
     </tr>
     <tr>
       <th>29</th>
       <td>62.88</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>100</td>
-      <td>13901.030</td>
+      <td>14296.260</td>
     </tr>
     <tr>
       <th>30</th>
       <td>65.04</td>
       <td>Shifu</td>
-      <td></td>
-      <td>386.400</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>100</td>
-      <td>14287.430</td>
+      <td>14697.150</td>
     </tr>
     <tr>
       <th>31</th>
       <td>67.20</td>
       <td>Higanbana</td>
       <td></td>
-      <td>335.340</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>100</td>
-      <td>14622.770</td>
+      <td>80</td>
+      <td>15098.040</td>
     </tr>
     <tr>
       <th>32</th>
       <td>69.36</td>
       <td>Kasha</td>
       <td></td>
-      <td>539.580</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>100</td>
-      <td>15162.350</td>
+      <td>80</td>
+      <td>15652.110</td>
     </tr>
     <tr>
       <th>33</th>
       <td>71.52</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>100</td>
-      <td>15382.805</td>
+      <td>90</td>
+      <td>15887.055</td>
     </tr>
     <tr>
       <th>34</th>
       <td>73.68</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>462.990</td>
+      <td>477.480</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>100</td>
-      <td>15845.795</td>
+      <td>95</td>
+      <td>16364.535</td>
     </tr>
     <tr>
       <th>35</th>
       <td>75.84</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>100</td>
-      <td>16066.250</td>
+      <td>16599.480</td>
     </tr>
     <tr>
       <th>36</th>
       <td>78.00</td>
       <td>Jinpu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>100</td>
-      <td>16452.650</td>
+      <td>17000.370</td>
     </tr>
     <tr>
       <th>37</th>
       <td>80.16</td>
       <td>Gekko</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>100</td>
-      <td>16992.230</td>
+      <td>17554.440</td>
     </tr>
     <tr>
       <th>38</th>
       <td>82.32</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>1407.600</td>
+      <td>1422.090</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>80</td>
-      <td>18399.830</td>
+      <td>18976.530</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 
-As you can see, we capped Kenki less than a minute into the encounter. Let's add in Hissatsu: Shinten to dump some Kenki.
+As you can see, we capped Kenki about a minute into the encounter. Let's add in Hissatsu: Shinten to dump some Kenki.
 
 
 ```python
 sam = Samurai(kenki_mastery=2)
 
 actions = [('Hakaze'), ('Shifu'), ('Kasha'), ('Hakaze'),
-           ('Jinpu'), ('Higanbana'), ('Gekko'), ('Hakaze'),
-           ('Yukikaze'), ('Hakaze'), ('Shifu'), ('Kasha', 'Hissatsu: Kaiten'),
-           ('Midare Setsugekka', 'Meikyo Shisui'), ('Gekko'), ('Yukikaze'), ('Kasha', 'Hissatsu: Kaiten'),
-           ('Midare Setsugekka'), ('Hakaze'), ('Jinpu'), ('Gekko', 'Hissatsu: Shinten'),
+           ('Jinpu', 'Hissatsu: Kaiten'), ('Higanbana'), ('Gekko'), ('Hakaze'),
+           ('Yukikaze'), ('Hakaze'), ('Shifu'), ('Kasha', 'Hissatsu: Kaiten', 'Meikyo Shisui'),
+           ('Midare Setsugekka'), ('Gekko'), ('Yukikaze'), ('Kasha', 'Hissatsu: Kaiten'),
+           ('Midare Setsugekka'), ('Hakaze'), ('Jinpu'), ('Gekko'),
            ('Hakaze'), ('Shifu'), ('Kasha'), ('Hakaze'),
            ('Yukikaze', 'Hissatsu: Kaiten'), ('Midare Setsugekka'), ('Hakaze'),
-           ('Jinpu'), ('Gekko', 'Hissatsu: Shinten'), ('Hakaze'), ('Shifu'),
-           ('Higanbana'), ('Kasha', 'Hissatsu: Shinten'), ('Hakaze'), ('Yukikaze', 'Hissatsu: Shinten'),
+           ('Jinpu'), ('Gekko', 'Hissatsu: Shinten'), ('Hakaze'), ('Shifu', 'Hissatsu: Kaiten'),
+           ('Higanbana'), ('Kasha'), ('Hakaze'), ('Yukikaze', 'Hissatsu: Shinten'),
            ('Hakaze', 'Hissatsu: Shinten'), ('Jinpu', 'Hissatsu: Shinten'), ('Gekko', 'Hissatsu: Kaiten'), ('Midare Setsugekka'),
            ]
 ```
@@ -731,8 +731,8 @@ df1, average_potency, pps = sam.parse_rotation(actions)
 display(df1)
 ```
 
-    average potency per GCD = 530.7058974358974
-    average potency per second = 244.999171402
+    average potency per GCD = 525.8546153846153
+    average potency per second = 242.759588068
     
 
 
@@ -756,7 +756,7 @@ display(df1)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -823,7 +823,7 @@ display(df1)
       <th>4</th>
       <td>8.88</td>
       <td>Jinpu</td>
-      <td></td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>280.000</td>
       <td>False</td>
       <td>True</td>
@@ -837,462 +837,462 @@ display(df1)
       <td>11.04</td>
       <td>Higanbana</td>
       <td></td>
-      <td>276.000</td>
+      <td>323.470</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
-      <td>30</td>
-      <td>1536.000</td>
+      <td>10</td>
+      <td>1583.470</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
       <td>Gekko</td>
       <td></td>
-      <td>488.980</td>
+      <td>503.470</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>30</td>
-      <td>2024.980</td>
+      <td>10</td>
+      <td>2086.940</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
       <td>Hakaze</td>
       <td></td>
-      <td>201.480</td>
+      <td>215.970</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>40</td>
-      <td>2226.460</td>
+      <td>20</td>
+      <td>2302.910</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>419.980</td>
+      <td>434.470</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>1</td>
-      <td>45</td>
-      <td>2646.440</td>
+      <td>25</td>
+      <td>2737.380</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>55</td>
-      <td>2866.895</td>
+      <td>35</td>
+      <td>2972.325</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Shifu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>60</td>
-      <td>3253.295</td>
+      <td>40</td>
+      <td>3373.215</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
       <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>(Hissatsu: Kaiten, Meikyo Shisui)</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>65</td>
-      <td>3792.875</td>
+      <td>45</td>
+      <td>3927.285</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
       <td>Midare Setsugekka</td>
-      <td>Meikyo Shisui</td>
-      <td>1407.600</td>
+      <td></td>
+      <td>1422.090</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>55</td>
-      <td>5200.475</td>
+      <td>35</td>
+      <td>5349.375</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Gekko</td>
       <td></td>
-      <td>539.580</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>55</td>
-      <td>5740.055</td>
+      <td>35</td>
+      <td>5903.445</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>462.990</td>
+      <td>477.480</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>65</td>
-      <td>6203.045</td>
+      <td>45</td>
+      <td>6380.925</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>75</td>
-      <td>6742.625</td>
+      <td>55</td>
+      <td>6934.995</td>
     </tr>
     <tr>
       <th>16</th>
       <td>34.80</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>1407.600</td>
+      <td>1422.090</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>65</td>
-      <td>8150.225</td>
+      <td>45</td>
+      <td>8357.085</td>
     </tr>
     <tr>
       <th>17</th>
       <td>36.96</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>65</td>
-      <td>8370.680</td>
+      <td>45</td>
+      <td>8592.030</td>
     </tr>
     <tr>
       <th>18</th>
       <td>39.12</td>
       <td>Jinpu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>70</td>
-      <td>8757.080</td>
+      <td>50</td>
+      <td>8992.920</td>
     </tr>
     <tr>
       <th>19</th>
       <td>41.28</td>
       <td>Gekko</td>
-      <td>Hissatsu: Shinten</td>
-      <td>922.530</td>
+      <td></td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>75</td>
-      <td>9679.610</td>
+      <td>55</td>
+      <td>9546.990</td>
     </tr>
     <tr>
       <th>20</th>
       <td>43.44</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>60</td>
-      <td>9900.065</td>
+      <td>65</td>
+      <td>9781.935</td>
     </tr>
     <tr>
       <th>21</th>
       <td>45.60</td>
       <td>Shifu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>65</td>
-      <td>10286.465</td>
+      <td>70</td>
+      <td>10182.825</td>
     </tr>
     <tr>
       <th>22</th>
       <td>47.76</td>
       <td>Kasha</td>
       <td></td>
-      <td>539.580</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>70</td>
-      <td>10826.045</td>
+      <td>75</td>
+      <td>10736.895</td>
     </tr>
     <tr>
       <th>23</th>
       <td>49.92</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>1</td>
-      <td>80</td>
-      <td>11046.500</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>52.08</td>
-      <td>Yukikaze</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>462.990</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>85</td>
-      <td>11509.490</td>
+      <td>10971.840</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>52.08</td>
+      <td>Yukikaze</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>477.480</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1</td>
+      <td>90</td>
+      <td>11449.320</td>
     </tr>
     <tr>
       <th>25</th>
       <td>54.24</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>1407.600</td>
+      <td>1422.090</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>75</td>
-      <td>12917.090</td>
+      <td>80</td>
+      <td>12871.410</td>
     </tr>
     <tr>
       <th>26</th>
       <td>56.40</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>75</td>
-      <td>13137.545</td>
+      <td>80</td>
+      <td>13106.355</td>
     </tr>
     <tr>
       <th>27</th>
       <td>58.56</td>
       <td>Jinpu</td>
       <td></td>
-      <td>386.400</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>1</td>
-      <td>80</td>
-      <td>13523.945</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>60.72</td>
-      <td>Gekko</td>
-      <td>Hissatsu: Shinten</td>
-      <td>922.530</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>85</td>
-      <td>14446.475</td>
+      <td>13507.245</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>60.72</td>
+      <td>Gekko</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>937.020</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1</td>
+      <td>90</td>
+      <td>14444.265</td>
     </tr>
     <tr>
       <th>29</th>
       <td>62.88</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>1</td>
-      <td>70</td>
-      <td>14666.930</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>65.04</td>
-      <td>Shifu</td>
-      <td></td>
-      <td>386.400</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>75</td>
-      <td>15053.330</td>
+      <td>14679.210</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>65.04</td>
+      <td>Shifu</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>400.890</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1</td>
+      <td>80</td>
+      <td>15080.100</td>
     </tr>
     <tr>
       <th>31</th>
       <td>67.20</td>
       <td>Higanbana</td>
       <td></td>
-      <td>335.340</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>80</td>
-      <td>15388.670</td>
+      <td>65</td>
+      <td>15480.990</td>
     </tr>
     <tr>
       <th>32</th>
       <td>69.36</td>
       <td>Kasha</td>
-      <td>Hissatsu: Shinten</td>
-      <td>922.530</td>
+      <td></td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>80</td>
-      <td>16311.200</td>
+      <td>65</td>
+      <td>16035.060</td>
     </tr>
     <tr>
       <th>33</th>
       <td>71.52</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>65</td>
-      <td>16531.655</td>
+      <td>75</td>
+      <td>16270.005</td>
     </tr>
     <tr>
       <th>34</th>
       <td>73.68</td>
       <td>Yukikaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>845.940</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>860.430</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>70</td>
-      <td>17377.595</td>
+      <td>80</td>
+      <td>17130.435</td>
     </tr>
     <tr>
       <th>35</th>
       <td>75.84</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>603.405</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>617.895</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>55</td>
-      <td>17981.000</td>
+      <td>65</td>
+      <td>17748.330</td>
     </tr>
     <tr>
       <th>36</th>
       <td>78.00</td>
       <td>Jinpu</td>
-      <td>Hissatsu: Shinten</td>
-      <td>769.350</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>783.840</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>35</td>
-      <td>18750.350</td>
+      <td>45</td>
+      <td>18532.170</td>
     </tr>
     <tr>
       <th>37</th>
       <td>80.16</td>
       <td>Gekko</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>15</td>
-      <td>19289.930</td>
+      <td>25</td>
+      <td>19086.240</td>
     </tr>
     <tr>
       <th>38</th>
       <td>82.32</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>1407.600</td>
+      <td>1422.090</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5</td>
-      <td>20697.530</td>
+      <td>15</td>
+      <td>20508.330</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 
-I made the conscious effort to try to spend all the Kenki generated by the end. We have the flexibility of spending Kenki whenever with the 1s recast time on Hissatsu: Shinten. We could even use it every GCD for increased burst provided we have enough Kenki. 
+I made the conscious effort to try to spend all the Kenki generated by the end. We have the flexibility of spending Kenki whenever with the 1s recast time on Hissatsu: Shinten. We could even use it every GCD like I did towards the end for increased burst provided we have enough Kenki. 
 
 With the acquisition of Kenki Mastery II and Hissatsu: Shinten at level 62, we net an over 10% increase in potency per second. 
 
 
 ```python
-compare_potencies([df0, df1], ['lvl 52-61 rotation', 'lvl 62-67 rotation'])
+compare_potencies([df0, df1], ['No Hissatsu: Shinten', 'With Hissatsu: Shinten'])
 ```
 
 
 ![png](output_15_0.png)
 
 
-The first 50 seconds or so are identical because I made the decision to not use Hissatsu: Shinten until I nearly capped on Kenki.
+The first 60 seconds or so are identical because I made the decision to not use Hissatsu: Shinten until I nearly capped on Kenki.
 
 ### Example Kenki usage with AoE rotations
 
@@ -1380,7 +1380,7 @@ display(dfs_aoe_kaiten_only[-1])
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -1434,7 +1434,7 @@ display(dfs_aoe_kaiten_only[-1])
       <th>3</th>
       <td>7.2</td>
       <td>Mangetsu</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>1000.0</td>
       <td>False</td>
       <td>False</td>
@@ -1499,7 +1499,7 @@ display(dfs_aoe_kaiten_only[-1])
       <th>8</th>
       <td>19.2</td>
       <td>Oka</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>1000.0</td>
       <td>False</td>
       <td>False</td>
@@ -1564,7 +1564,7 @@ display(dfs_aoe_kaiten_only[-1])
       <th>13</th>
       <td>31.2</td>
       <td>Oka</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>1000.0</td>
       <td>False</td>
       <td>False</td>
@@ -1682,7 +1682,7 @@ display(dfs_aoe_kyuten_only[-1])
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -1736,7 +1736,7 @@ display(dfs_aoe_kyuten_only[-1])
       <th>3</th>
       <td>7.2</td>
       <td>Mangetsu</td>
-      <td>Hissatsu: Kyuten</td>
+      <td>(Hissatsu: Kyuten,)</td>
       <td>2050.0</td>
       <td>False</td>
       <td>False</td>
@@ -1801,7 +1801,7 @@ display(dfs_aoe_kyuten_only[-1])
       <th>8</th>
       <td>19.2</td>
       <td>Oka</td>
-      <td>Hissatsu: Kyuten</td>
+      <td>(Hissatsu: Kyuten,)</td>
       <td>2050.0</td>
       <td>False</td>
       <td>False</td>
@@ -1827,7 +1827,7 @@ display(dfs_aoe_kyuten_only[-1])
       <th>10</th>
       <td>24.0</td>
       <td>Fuga</td>
-      <td>Hissatsu: Kyuten</td>
+      <td>(Hissatsu: Kyuten,)</td>
       <td>1750.0</td>
       <td>False</td>
       <td>False</td>
@@ -1840,7 +1840,7 @@ display(dfs_aoe_kyuten_only[-1])
       <th>11</th>
       <td>26.4</td>
       <td>Mangetsu</td>
-      <td>Hissatsu: Kyuten</td>
+      <td>(Hissatsu: Kyuten,)</td>
       <td>2050.0</td>
       <td>False</td>
       <td>False</td>
@@ -1866,7 +1866,7 @@ display(dfs_aoe_kyuten_only[-1])
       <th>13</th>
       <td>31.2</td>
       <td>Oka</td>
-      <td>Hissatsu: Kyuten</td>
+      <td>(Hissatsu: Kyuten,)</td>
       <td>2050.0</td>
       <td>False</td>
       <td>False</td>
@@ -1986,7 +1986,7 @@ display(dfs_aoe_both[-1])
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -2014,7 +2014,7 @@ display(dfs_aoe_both[-1])
       <th>1</th>
       <td>2.4</td>
       <td>Oka</td>
-      <td>Hissatsu: Kyuten</td>
+      <td>(Hissatsu: Kyuten,)</td>
       <td>2050.0</td>
       <td>False</td>
       <td>False</td>
@@ -2040,7 +2040,7 @@ display(dfs_aoe_both[-1])
       <th>3</th>
       <td>7.2</td>
       <td>Mangetsu</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>1000.0</td>
       <td>False</td>
       <td>False</td>
@@ -2066,7 +2066,7 @@ display(dfs_aoe_both[-1])
       <th>5</th>
       <td>12.0</td>
       <td>Fuga</td>
-      <td>Hissatsu: Kyuten</td>
+      <td>(Hissatsu: Kyuten,)</td>
       <td>1750.0</td>
       <td>False</td>
       <td>False</td>
@@ -2105,7 +2105,7 @@ display(dfs_aoe_both[-1])
       <th>8</th>
       <td>19.2</td>
       <td>Oka</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>1000.0</td>
       <td>False</td>
       <td>False</td>
@@ -2131,7 +2131,7 @@ display(dfs_aoe_both[-1])
       <th>10</th>
       <td>24.0</td>
       <td>Fuga</td>
-      <td>Hissatsu: Kyuten</td>
+      <td>(Hissatsu: Kyuten,)</td>
       <td>1750.0</td>
       <td>False</td>
       <td>False</td>
@@ -2170,7 +2170,7 @@ display(dfs_aoe_both[-1])
       <th>13</th>
       <td>31.2</td>
       <td>Oka</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>1000.0</td>
       <td>False</td>
       <td>False</td>
@@ -2257,7 +2257,7 @@ fig.suptitle('Total Potency per Kenki')
 
 
 
-    <matplotlib.text.Text at 0x23a38feff60>
+    <matplotlib.text.Text at 0x18c24dd33c8>
 
 
 
@@ -2271,7 +2271,7 @@ However, as we saw in the two previous examples, using Kenki exclusively on Hiss
 
 ## Level 68-70
 
-Level 68 is a pivotal shift in how Samurai plays. It grants you Hagakure, an ability on a short 40s cooldown that converts open Sen to Kenki at a 1 to 20 rate. Initially, this came as a headscratcher to many folks: b-but muh Iaijutsu? Samurai post-50 has grown to be driven by Kenki more than Sen. The addition of powerful Kenki spenders like Hissatsu: Shinten and the level 70 capstone Hissatsu: Guren add significant potency to the Samurai rotation off the GCD. Iaijutsu, while powerful in their own right, cost a GCD and delay Kenki generation from the other weaponskills.
+Level 68 is a pivotal shift in how Samurai plays. It grants you Hagakure, an ability on a short 40s cooldown that converts open Sen to Kenki at a 1 to 20 rate. Initially, this came as a headscratcher to many folks: b-but muh Iaijutsu? Samurai post-50 driven by Kenki more than Sen. The addition of powerful Kenki spenders like Hissatsu: Shinten and the level 70 capstone Hissatsu: Guren adds significant potency to the samurai rotation off the GCD. Iaijutsu, while powerful in their own right, cost a GCD and delay Kenki generation from the other weaponskills.
 
 Consider Midare Setsugekka. At the cost of three Sen, it deals 720 potency. If instead of using those three Sen on Iaijutsu, what if we used Hagakure to generate 60 Kenki?
 
@@ -2288,18 +2288,20 @@ Essentially, Hagakure converts damage potential from being on the GCD to being o
 ```python
 sam = Samurai(kenki_mastery=2)
 
-n_targets = 1
-
-actions = [('Hakaze'), ('Shifu'), ('Kasha', 'Meikyo Shisui'), ('Jinpu'),
-           ('Yukikaze', 'Hissatsu: Shinten'), ('Gekko', 'Hagakure'), ('Hakaze', 'Hissatsu: Guren'), ('Shifu', 'Hissatsu: Shinten'),
-           ('Kasha', 'Hissatsu: Shinten'), ('Higanbana'), ('Hakaze'), ('Jinpu'),
-           ('Gekko'), ('Hakaze'), ('Yukikaze'), ('Hakaze'),
-           ('Shifu'), ('Kasha', 'Hissatsu: Kaiten'), ('Midare Setsugekka'), ('Hakaze', 'Hissatsu: Shinten'),
-           ('Jinpu'), ('Gekko'), ('Hakaze', 'Hissatsu: Shinten'), ('Yukikaze'),
-           ('Hakaze', 'Hissatsu: Shinten'), ('Shifu'), ('Kasha', 'Hagakure'), ('Hakaze', 'Hissatsu: Shinten'),
-           ('Jinpu', 'Hissatsu: Shinten'), ('Gekko', 'Hissatsu: Shinten'), ('Hakaze'), ('Yukikaze'),
-           ('Hakaze'), ('Shifu'), ('Kasha', 'Hissatsu: Kaiten'), ('Midare Setsugekka'),
-           ('Hakaze'), ('Jinpu', 'Hissatsu: Shinten'), ('Gekko', 'Hissatsu: Shinten')]
+actions = [('Hakaze'), ('Shifu'), ('Kasha'), 
+           ('Hakaze'), ('Jinpu', 'Hissatsu: Kaiten'), ('Higanbana'), ('Gekko', 'Meikyo Shisui'), 
+           ('Yukikaze'), ('Kasha', 'Hagakure'), ('Gekko', 'Hissatsu: Guren'),
+           ('Hakaze'), ('Shifu'), ('Kasha', 'Hissatsu: Shinten'),
+           ('Hakaze', 'Hissatsu: Shinten'), ('Yukikaze', 'Hissatsu: Shinten'),
+           ('Hakaze'), ('Jinpu'), ('Gekko', 'Hissatsu: Kaiten'), ('Midare Setsugekka'),
+           ('Hakaze'), ('Shifu'), ('Kasha', 'Hissatsu: Shinten'),
+           ('Hakaze'), ('Yukikaze'),
+           ('Hakaze'), ('Jinpu'), ('Gekko', 'Hissatsu: Shinten'),
+           ('Hakaze', 'Hagakure'), ('Shifu', 'Hissatsu: Shinten'), ('Kasha', 'Hissatsu: Shinten'),
+           ('Hakaze'), ('Jinpu', 'Hissatsu: Kaiten'), ('Higanbana'), ('Gekko', 'Hissatsu: Shinten'),
+           ('Hakaze'), ('Yukikaze', 'Hissatsu: Shinten'),
+           ('Hakaze'), ('Shifu'), ('Kasha', 'Hissatsu: Kaiten'), ('Midare Setsugekka')
+           ]
 ```
 
 
@@ -2308,8 +2310,8 @@ df2, average_potency, pps = sam.parse_rotation(actions)
 display(df2)
 ```
 
-    average potency per GCD = 550.5821794871796
-    average potency per second = 254.175011837
+    average potency per GCD = 545.2244999999999
+    average potency per second = 251.719529086
     
 
 
@@ -2333,7 +2335,7 @@ display(df2)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -2374,7 +2376,7 @@ display(df2)
       <th>2</th>
       <td>4.56</td>
       <td>Kasha</td>
-      <td>Meikyo Shisui</td>
+      <td></td>
       <td>400.000</td>
       <td>False</td>
       <td>True</td>
@@ -2386,470 +2388,483 @@ display(df2)
     <tr>
       <th>3</th>
       <td>6.72</td>
-      <td>Jinpu</td>
+      <td>Hakaze</td>
       <td></td>
-      <td>280.000</td>
+      <td>150.000</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>20</td>
-      <td>1110.000</td>
+      <td>980.000</td>
     </tr>
     <tr>
       <th>4</th>
       <td>8.88</td>
-      <td>Yukikaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>773.950</td>
-      <td>True</td>
+      <td>Jinpu</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>280.000</td>
+      <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>25</td>
-      <td>1883.950</td>
+      <td>1260.000</td>
     </tr>
     <tr>
       <th>5</th>
       <td>11.04</td>
-      <td>Gekko</td>
-      <td>Hagakure</td>
-      <td>510.600</td>
+      <td>Higanbana</td>
+      <td></td>
+      <td>323.470</td>
       <td>True</td>
       <td>True</td>
-      <td>True</td>
+      <td>False</td>
       <td>0</td>
       <td>10</td>
-      <td>2394.550</td>
+      <td>1583.470</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
-      <td>Hakaze</td>
-      <td>Hissatsu: Guren</td>
-      <td>1212.675</td>
+      <td>Gekko</td>
+      <td>(Meikyo Shisui,)</td>
+      <td>503.470</td>
       <td>True</td>
       <td>True</td>
-      <td>True</td>
-      <td>0</td>
-      <td>80</td>
-      <td>3607.225</td>
+      <td>False</td>
+      <td>1</td>
+      <td>10</td>
+      <td>2086.940</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
-      <td>Shifu</td>
-      <td>Hissatsu: Shinten</td>
-      <td>740.370</td>
+      <td>Yukikaze</td>
+      <td></td>
+      <td>434.470</td>
       <td>True</td>
       <td>True</td>
-      <td>True</td>
-      <td>0</td>
-      <td>35</td>
-      <td>4347.595</td>
+      <td>False</td>
+      <td>1</td>
+      <td>20</td>
+      <td>2521.410</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
       <td>Kasha</td>
-      <td>Hissatsu: Shinten</td>
-      <td>893.550</td>
+      <td>(Hagakure,)</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
-      <td>0</td>
-      <td>15</td>
-      <td>5241.145</td>
+      <td>1</td>
+      <td>30</td>
+      <td>3075.480</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
-      <td>Higanbana</td>
-      <td></td>
-      <td>306.360</td>
+      <td>Gekko</td>
+      <td>(Hissatsu: Guren,)</td>
+      <td>1575.270</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
-      <td>0</td>
-      <td>0</td>
-      <td>5547.505</td>
+      <td>1</td>
+      <td>100</td>
+      <td>4650.750</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>0</td>
-      <td>5767.960</td>
+      <td>50</td>
+      <td>4885.695</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
-      <td>Jinpu</td>
+      <td>Shifu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5</td>
-      <td>6154.360</td>
+      <td>55</td>
+      <td>5286.585</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
-      <td>Gekko</td>
-      <td></td>
-      <td>539.580</td>
+      <td>Kasha</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>937.020</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>10</td>
-      <td>6693.940</td>
+      <td>60</td>
+      <td>6223.605</td>
     </tr>
     <tr>
       <th>13</th>
       <td>28.32</td>
       <td>Hakaze</td>
-      <td></td>
-      <td>220.455</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>617.895</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>20</td>
-      <td>6914.395</td>
+      <td>45</td>
+      <td>6841.500</td>
     </tr>
     <tr>
       <th>14</th>
       <td>30.48</td>
       <td>Yukikaze</td>
-      <td></td>
-      <td>462.990</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>860.430</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>25</td>
-      <td>7377.385</td>
+      <td>7701.930</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>35</td>
-      <td>7597.840</td>
+      <td>10</td>
+      <td>7936.875</td>
     </tr>
     <tr>
       <th>16</th>
       <td>34.80</td>
-      <td>Shifu</td>
+      <td>Jinpu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>40</td>
-      <td>7984.240</td>
+      <td>15</td>
+      <td>8337.765</td>
     </tr>
     <tr>
       <th>17</th>
       <td>36.96</td>
-      <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>Gekko</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>45</td>
-      <td>8523.820</td>
+      <td>20</td>
+      <td>8891.835</td>
     </tr>
     <tr>
       <th>18</th>
       <td>39.12</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>1407.600</td>
+      <td>1422.090</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>35</td>
-      <td>9931.420</td>
+      <td>10</td>
+      <td>10313.925</td>
     </tr>
     <tr>
       <th>19</th>
       <td>41.28</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>603.405</td>
+      <td></td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>35</td>
-      <td>10534.825</td>
+      <td>10</td>
+      <td>10548.870</td>
     </tr>
     <tr>
       <th>20</th>
       <td>43.44</td>
-      <td>Jinpu</td>
+      <td>Shifu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>10921.225</td>
+      <td>10949.760</td>
     </tr>
     <tr>
       <th>21</th>
       <td>45.60</td>
-      <td>Gekko</td>
-      <td></td>
-      <td>539.580</td>
+      <td>Kasha</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>937.020</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>20</td>
-      <td>11460.805</td>
+      <td>11886.780</td>
     </tr>
     <tr>
       <th>22</th>
       <td>47.76</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>603.405</td>
+      <td></td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>30</td>
-      <td>12064.210</td>
+      <td>5</td>
+      <td>12121.725</td>
     </tr>
     <tr>
       <th>23</th>
       <td>49.92</td>
       <td>Yukikaze</td>
       <td></td>
-      <td>462.990</td>
+      <td>477.480</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>10</td>
-      <td>12527.200</td>
+      <td>12599.205</td>
     </tr>
     <tr>
       <th>24</th>
       <td>52.08</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>603.405</td>
+      <td></td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>20</td>
-      <td>13130.605</td>
+      <td>12834.150</td>
     </tr>
     <tr>
       <th>25</th>
       <td>54.24</td>
-      <td>Shifu</td>
+      <td>Jinpu</td>
       <td></td>
-      <td>386.400</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>0</td>
-      <td>13517.005</td>
+      <td>25</td>
+      <td>13235.040</td>
     </tr>
     <tr>
       <th>26</th>
       <td>56.40</td>
-      <td>Kasha</td>
-      <td>Hagakure</td>
-      <td>539.580</td>
+      <td>Gekko</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>937.020</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>5</td>
-      <td>14056.585</td>
+      <td>30</td>
+      <td>14172.060</td>
     </tr>
     <tr>
       <th>27</th>
       <td>58.56</td>
       <td>Hakaze</td>
-      <td>Hissatsu: Shinten</td>
-      <td>603.405</td>
+      <td>(Hagakure,)</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>75</td>
-      <td>14659.990</td>
+      <td>15</td>
+      <td>14407.005</td>
     </tr>
     <tr>
       <th>28</th>
       <td>60.72</td>
-      <td>Jinpu</td>
-      <td>Hissatsu: Shinten</td>
-      <td>769.350</td>
+      <td>Shifu</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>783.840</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>55</td>
-      <td>15429.340</td>
+      <td>80</td>
+      <td>15190.845</td>
     </tr>
     <tr>
       <th>29</th>
       <td>62.88</td>
-      <td>Gekko</td>
-      <td>Hissatsu: Shinten</td>
-      <td>922.530</td>
+      <td>Kasha</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>937.020</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>35</td>
-      <td>16351.870</td>
+      <td>60</td>
+      <td>16127.865</td>
     </tr>
     <tr>
       <th>30</th>
       <td>65.04</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>1</td>
-      <td>20</td>
-      <td>16572.325</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>67.20</td>
-      <td>Yukikaze</td>
-      <td></td>
-      <td>462.990</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>1</td>
-      <td>25</td>
-      <td>17035.315</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>69.36</td>
-      <td>Hakaze</td>
-      <td></td>
-      <td>220.455</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>1</td>
-      <td>35</td>
-      <td>17255.770</td>
-    </tr>
-    <tr>
-      <th>33</th>
-      <td>71.52</td>
-      <td>Shifu</td>
-      <td></td>
-      <td>386.400</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>1</td>
-      <td>40</td>
-      <td>17642.170</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>73.68</td>
-      <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>45</td>
-      <td>18181.750</td>
+      <td>16362.810</td>
     </tr>
     <tr>
-      <th>35</th>
-      <td>75.84</td>
-      <td>Midare Setsugekka</td>
+      <th>31</th>
+      <td>67.20</td>
+      <td>Jinpu</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>400.890</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1</td>
+      <td>50</td>
+      <td>16763.700</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>69.36</td>
+      <td>Higanbana</td>
       <td></td>
-      <td>1407.600</td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>35</td>
-      <td>19589.350</td>
+      <td>17164.590</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>71.52</td>
+      <td>Gekko</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>937.020</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1</td>
+      <td>35</td>
+      <td>18101.610</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>73.68</td>
+      <td>Hakaze</td>
+      <td></td>
+      <td>234.945</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1</td>
+      <td>20</td>
+      <td>18336.555</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>75.84</td>
+      <td>Yukikaze</td>
+      <td>(Hissatsu: Shinten,)</td>
+      <td>860.430</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1</td>
+      <td>25</td>
+      <td>19196.985</td>
     </tr>
     <tr>
       <th>36</th>
       <td>78.00</td>
       <td>Hakaze</td>
       <td></td>
-      <td>220.455</td>
+      <td>234.945</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>35</td>
-      <td>19809.805</td>
+      <td>10</td>
+      <td>19431.930</td>
     </tr>
     <tr>
       <th>37</th>
       <td>80.16</td>
-      <td>Jinpu</td>
-      <td>Hissatsu: Shinten</td>
-      <td>769.350</td>
+      <td>Shifu</td>
+      <td></td>
+      <td>400.890</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>40</td>
-      <td>20579.155</td>
+      <td>15</td>
+      <td>19832.820</td>
     </tr>
     <tr>
       <th>38</th>
       <td>82.32</td>
-      <td>Gekko</td>
-      <td>Hissatsu: Shinten</td>
-      <td>893.550</td>
+      <td>Kasha</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
-      <td>0</td>
+      <td>1</td>
       <td>20</td>
-      <td>21472.705</td>
+      <td>20386.890</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>84.48</td>
+      <td>Midare Setsugekka</td>
+      <td></td>
+      <td>1422.090</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1</td>
+      <td>10</td>
+      <td>21808.980</td>
     </tr>
   </tbody>
 </table>
@@ -2858,7 +2873,7 @@ display(df2)
 
 
 ```python
-compare_n_potencies([df0, df1, df2], ['lvl 52-61 rotation', 'lvl 62-67 rotation', 'lvl 70 rotation'])
+compare_n_potencies([df0, df1, df2], ['No Hissatsu: Shinten', 'With Hissatsu: Shinten', 'lvl 70'])
 ```
 
 

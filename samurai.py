@@ -75,6 +75,7 @@ class Samurai():
 
         parsed_gcds = []
         snapshot_dot_modifier = 0
+        dot_mod = 1.0
         n_applied_higanbana = 0
         meikyo_shisui_counter = 3
 
@@ -97,10 +98,10 @@ class Samurai():
 
             if type(gcd) != tuple:
                 weaponskill = gcd
-                ability = []
+                abilities = []
             else:
                 weaponskill = gcd[0]
-                ability = gcd[1]
+                abilities = gcd[1:]
 
             # convert input text to lowercase, replace punctuation, and replace spaces with underscores
             parsed_ws = weaponskill.lower().translate(translator)
@@ -110,50 +111,56 @@ class Samurai():
                            self.applied_higanbana, self.kenki_gauge)
 
             # compute potency of weaponskill
-            if self.has_hissatsu_kaiten:
-                # Hissatsu: Kaiten buff is active; apply increased potency
-                ws_potency = KAITEN_MOD*getattr(self, parsed_ws)(n_targets)
-                self.has_hissatsu_kaiten = False
+            ws_mod = 1.0
+            ws_mod = KAITEN_MOD if self.has_hissatsu_kaiten else 1.0
+            
+            if parsed_ws != 'higanbana':
+                ws_potency = ws_mod*getattr(self, parsed_ws)(n_targets)
             else:
-                ws_potency = getattr(self, parsed_ws)(n_targets)
-
-            if not ability:
-                # use empty string to fill the ability value
-                parsed_gcds.append((current_time, weaponskill, '', ws_potency
-                                    + snapshot_dot_modifier*self.higanbana_dot())
-                                   + buff_status)
-            else:
-                # convert input text to lowercase, replace punctuation, and replace spaces with underscores
-                parsed_ability = ability.lower().translate(translator)
-
-                parsed_gcds.append((current_time, weaponskill, ability, ws_potency
-                                    + getattr(self, parsed_ability)(n_targets)
-                                    + snapshot_dot_modifier*self.higanbana_dot())
-                                   + buff_status)
-
-                if parsed_ability == 'meikyo_shisui':
-                    # allocate three weaponskills for Meikyo Shisui buff
-                    meikyo_shisui_counter = 3
-
-            # update Higanbana DoT potency
-            if parsed_ws == 'higanbana':
                 # add a target afflicted by Higanbana DoT
                 n_applied_higanbana += 1
+                
+                # Hissatsu: Kaiten applies to the DoT modifier                
+                dot_mod = ws_mod*JINPU_MOD if self.has_jinpu else ws_mod
 
                 if n_targets >= n_applied_higanbana:
                     # in this case, there are more total targets than those afflicted with Higanbana DoT
                     # snapshot buffs at time of DoT application and add to current DoT tick multiplier
-                    snapshot_dot_modifier += JINPU_MOD if self.has_jinpu else 1.0
+                    snapshot_dot_modifier += dot_mod
 
                     # update the number of targets afflicted by Higanbana DoT
                     self.applied_higanbana = n_applied_higanbana
                 else:
                     # in this case, all targets have been afflicted with Higanbana DoT
-                    # overwrite the DoT modifier due to clipping
-                    snapshot_dot_modifier = JINPU_MOD if self.has_jinpu else 1.0
+                    # overwrite a DoT modifier due to clipping
+                    snapshot_dot_modifier = min(dot_mod*n_targets, # upper limit
+                                                snapshot_dot_modifier+dot_mod-1.0, # overwrite unbuffed DoT
+                                                snapshot_dot_modifier+dot_mod-1.0*JINPU_MOD, # overwrite buffed DoTs
+                                                snapshot_dot_modifier+dot_mod-1.0*JINPU_MOD*KAITEN_MOD)
 
                     # max out the number of afflicted targets
                     self.applied_higanbana = n_targets
+            
+            # remove Hissatsu: Kaiten buff
+            self.has_hissatsu_kaiten = False
+            
+            # parse abilities
+            if not abilities:
+                # no abilities used, use empty string to fill the ability value
+                parsed_gcds.append((current_time, weaponskill, '', ws_potency
+                                    + snapshot_dot_modifier*self.higanbana_dot())
+                                   + buff_status)
+            else:
+                # parse abilities used
+                parsed_gcds.append((current_time, weaponskill, abilities, ws_potency
+                                    + sum([getattr(self, ability.lower().translate(translator))(n_targets)
+                                           for ability in abilities])
+                                    + snapshot_dot_modifier*self.higanbana_dot())
+                                   + buff_status)
+
+                if any([ability == 'Meikyo Shisui' for ability in abilities]):
+                    # allocate three weaponskills for Meikyo Shisui buff
+                    meikyo_shisui_counter = 3
 
             # update counters
             if parsed_ws not in set(['higanbana', 'tenka goken', 'midare setsugekka']):
@@ -209,7 +216,7 @@ class Samurai():
 
         # form output DataFrame and metrics
         df = pd.DataFrame(parsed_gcds,
-                          columns=['Time', 'Weaponskill', 'Ability', 'Potency',
+                          columns=['Time', 'Weaponskill', 'Abilities', 'Potency',
                                    'Jinpu', 'Shifu', 'Yukikaze', 'Higanbana',
                                    'Kenki'])
         df['Total Potency'] = df['Potency'].cumsum(axis=0)

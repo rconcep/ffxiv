@@ -31,7 +31,8 @@ def plot_potency(df, truncate_actions=False):
     if not truncate_actions:
         ax.set_xticks(xlocs)
         plt.xticks(rotation=70)
-        ax.set_xticklabels(df['Weaponskill']+'\n'+df['Ability'])
+        ax.set_xticklabels(df['Weaponskill']+'\n'+
+                           [',\n'.join(abilities) if len(abilities) > 0 else '' for abilities in df['Abilities']])
         ax.set_xlabel('Actions')
     else:
         ax.set_xlabel('Time')

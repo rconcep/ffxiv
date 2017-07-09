@@ -93,13 +93,11 @@ display(kenki_table_df)
 </div>
 
 
-Along with the trait, you acquire the first Kenki spender, Hissatsu: Kaiten. This ability, on a short 5s recast timer, increases the potency of your next weaponskill by 50% at the cost of 20 Kenki. Since it is specifically applied to the potency, it does not affect the "additional effect" aka the DoT of Higanbana. Therefore, it's basically our version of Life Surge or Barrage and we want to use it on Midare Setsugekka or Tenka Goken.
+Along with the trait, you acquire the first Kenki spender, Hissatsu: Kaiten. This ability, on a short 5s recast timer, increases the potency of your next weaponskill by 50% at the cost of 20 Kenki. Note that this increase also applies to the DoT effect of Higanbana. Because our Iaijutsu are our most powerful weaponskills, we would ideally like to use Hissatsu: Kaiten for each of them. The accrual rate of Kenki under Kenki Mastery I is quite low, about 15 Kenki every 8 GCDs (going through all three Sen combos). This is not enough to use Hissatsu: Kaiten very often. The best bang for your buck will be using it for Higanbana, provided that the target will take 16 DoT ticks (to match the potency of Hissatsu: Kaiten + Midare Setsugekka), or approximately 48 seconds.
 
 Level 54 introduces the gap-closer ability, Hissatsu: Gyoten, with a Kenki cost of 10. Level 56 gives the backstep disengage, Hissatsu: Yaten. While not part of an optimal dummy rotation, these mobility skills are useful in practice. See part 5 for in-depth discussion of the Kenki spenders.
 
 At level 58, you learn Merciful Eyes, a self-heal linked to the Third Eye ability. At level 60, you obtain the Meditate ability. This ability, with a relatively short recast time of 60s, increases the Kenki gauge while channeled in battle for up to 15s at a rate of 10 Kenki per server tick up to a total of 50 Kenki. Note that it does nothing outside of combat.
-
-The accrual rate of Kenki under Kenki Mastery I is quite low, about 30 Kenki every 8 GCDs (going through all three Sen combos). If we prioritize spending Kenki on Hissatsu: Kaiten for Midare Setsugekka, we'll have a net surplus of Kenki over time, assuming we don't spend Kenki on the movement utilities. This permits the use of Hissatsu: Kaiten on combo finishers (Kasha and Gekko) as excess Kenki accumulates, for a gain of 200 potency at the cost of 25 Kenki.
 
 ### Example Hissatsu: Kaiten usage
 
@@ -107,11 +105,11 @@ The accrual rate of Kenki under Kenki Mastery I is quite low, about 30 Kenki eve
 ```python
 sam = Samurai(kenki_mastery=1)
 
-actions = [('Hakaze'), ('Shifu'), ('Kasha'), ('Hakaze'),
-           ('Jinpu'), ('Higanbana'), ('Gekko'), ('Hakaze'),
-           ('Yukikaze'), ('Hakaze'), ('Shifu'), ('Kasha', 'Hissatsu: Kaiten'),
-           ('Midare Setsugekka', 'Meikyo Shisui'), ('Gekko'), ('Yukikaze'), ('Kasha'),
-           ('Midare Setsugekka')
+actions = [('Hakaze'), ('Shifu'), ('Kasha'), 
+           ('Hakaze'), ('Jinpu'), ('Gekko'), 
+           ('Hakaze'), ('Yukikaze', 'Meikyo Shisui'), ('Midare Setsugekka'),
+           ('Kasha', 'Hissatsu: Kaiten'), ('Higanbana'), ('Yukikaze'), ('Gekko'),
+           ('Hakaze'), ('Shifu'), ('Kasha'), ('Midare Setsugekka')
            ]
 ```
 
@@ -121,8 +119,8 @@ df0, average_potency, pps = sam.parse_rotation(actions)
 display(df0)
 ```
 
-    average potency per GCD = 452.39323529411763
-    average potency per second = 208.081304113
+    average potency per GCD = 438.30911764705877
+    average potency per second = 201.603219697
     
 
 
@@ -146,7 +144,7 @@ display(df0)
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -225,158 +223,158 @@ display(df0)
     <tr>
       <th>5</th>
       <td>11.04</td>
-      <td>Higanbana</td>
+      <td>Gekko</td>
       <td></td>
-      <td>276.000</td>
+      <td>460.000</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>0</td>
       <td>5</td>
-      <td>1536.000</td>
+      <td>1720.000</td>
     </tr>
     <tr>
       <th>6</th>
       <td>13.20</td>
-      <td>Gekko</td>
+      <td>Hakaze</td>
       <td></td>
-      <td>488.980</td>
+      <td>172.500</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
-      <td>1</td>
-      <td>5</td>
-      <td>2024.980</td>
+      <td>0</td>
+      <td>10</td>
+      <td>1892.500</td>
     </tr>
     <tr>
       <th>7</th>
       <td>15.36</td>
-      <td>Hakaze</td>
-      <td></td>
-      <td>201.480</td>
+      <td>Yukikaze</td>
+      <td>(Meikyo Shisui,)</td>
+      <td>391.000</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
-      <td>1</td>
+      <td>0</td>
       <td>10</td>
-      <td>2226.460</td>
+      <td>2283.500</td>
     </tr>
     <tr>
       <th>8</th>
       <td>17.52</td>
-      <td>Yukikaze</td>
+      <td>Midare Setsugekka</td>
       <td></td>
-      <td>419.980</td>
+      <td>919.080</td>
       <td>True</td>
       <td>True</td>
-      <td>False</td>
-      <td>1</td>
-      <td>10</td>
-      <td>2646.440</td>
+      <td>True</td>
+      <td>0</td>
+      <td>15</td>
+      <td>3202.580</td>
     </tr>
     <tr>
       <th>9</th>
       <td>19.68</td>
-      <td>Hakaze</td>
-      <td></td>
-      <td>220.455</td>
+      <td>Kasha</td>
+      <td>(Hissatsu: Kaiten,)</td>
+      <td>510.600</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
-      <td>1</td>
+      <td>0</td>
       <td>15</td>
-      <td>2866.895</td>
+      <td>3713.180</td>
     </tr>
     <tr>
       <th>10</th>
       <td>21.84</td>
-      <td>Shifu</td>
+      <td>Higanbana</td>
       <td></td>
-      <td>386.400</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
-      <td>1</td>
-      <td>15</td>
-      <td>3253.295</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4267.250</td>
     </tr>
     <tr>
       <th>11</th>
       <td>24.00</td>
-      <td>Kasha</td>
-      <td>Hissatsu: Kaiten</td>
-      <td>539.580</td>
+      <td>Yukikaze</td>
+      <td></td>
+      <td>477.480</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
-      <td>15</td>
-      <td>3792.875</td>
+      <td>0</td>
+      <td>4744.730</td>
     </tr>
     <tr>
       <th>12</th>
       <td>26.16</td>
-      <td>Midare Setsugekka</td>
-      <td>Meikyo Shisui</td>
-      <td>1407.600</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>1</td>
-      <td>0</td>
-      <td>5200.475</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>28.32</td>
       <td>Gekko</td>
       <td></td>
-      <td>539.580</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>1</td>
-      <td>0</td>
-      <td>5740.055</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>30.48</td>
-      <td>Yukikaze</td>
-      <td></td>
-      <td>462.990</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>5</td>
-      <td>6203.045</td>
+      <td>5298.800</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>28.32</td>
+      <td>Hakaze</td>
+      <td></td>
+      <td>234.945</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1</td>
+      <td>10</td>
+      <td>5533.745</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>30.48</td>
+      <td>Shifu</td>
+      <td></td>
+      <td>400.890</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>1</td>
+      <td>10</td>
+      <td>5934.635</td>
     </tr>
     <tr>
       <th>15</th>
       <td>32.64</td>
       <td>Kasha</td>
       <td></td>
-      <td>539.580</td>
+      <td>554.070</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>10</td>
-      <td>6742.625</td>
+      <td>6488.705</td>
     </tr>
     <tr>
       <th>16</th>
       <td>34.80</td>
       <td>Midare Setsugekka</td>
       <td></td>
-      <td>948.060</td>
+      <td>962.550</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>1</td>
       <td>15</td>
-      <td>7690.685</td>
+      <td>7451.255</td>
     </tr>
   </tbody>
 </table>
@@ -475,7 +473,7 @@ display(dfs_aoe[-1])
       <th></th>
       <th>Time</th>
       <th>Weaponskill</th>
-      <th>Ability</th>
+      <th>Abilities</th>
       <th>Potency</th>
       <th>Jinpu</th>
       <th>Shifu</th>
@@ -620,7 +618,7 @@ display(dfs_aoe[-1])
       <th>10</th>
       <td>21.84</td>
       <td>Mangetsu</td>
-      <td>Hissatsu: Kaiten</td>
+      <td>(Hissatsu: Kaiten,)</td>
       <td>1150.0</td>
       <td>True</td>
       <td>True</td>
