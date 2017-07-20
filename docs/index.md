@@ -14,11 +14,12 @@ The parts are broken up into logical partitions where the gameplay changes signi
 
 [Part 4: levels 62-70](sam-part-4/)
 
-[Part 5: miscellaneous topics](sam-part-5/)
+[Part 5: advanced topics](sam-part-5/)
 
 View the code documentation [here](https://rconcep.github.io/ffxiv-docs/html/).
 
 ### Revision history
+- 07/20/2017: Added more discussion on Hagakure in part 5. Added a section in part 5 regarding Higanbana.
 - 07/08/2017: Added support for double+ weaving abilities. Fixed Hissatsu: Kaiten to affect the Higanbana DoT. Content in parts 3-5 changed accordingly. This slightly changes the DoT potency calculations at each GCD.
 - 07/02/2017: Edited parts 1-4 to reflect 4.0 changes.
 - 07/01/2017: First edition of part 5, advanced/miscellaneous topics.
