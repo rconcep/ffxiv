@@ -1401,7 +1401,7 @@ compare_n_potencies([df_buffs_0, df_buffs_1, df_buffs_2, df_buffs_3], ['Shifu, J
 ```
 
 
-![png](sam-by-the-numbers-part-5_files/sam-by-the-numbers-part-5_16_0.png)
+![png](sam-by-the-numbers-part-5_16_0.png)
 
 
 The results are quite close but Jinpu and Shifu appear to be the highest priority. For total party DPS, contributions due to (~16s) earlier application of the slashing resistance down debuff should be accounted for, assuming no WAR or NIN in the party. How do priorities differ if someone else, e.g., WAR, can apply the debuff instead?
@@ -1489,7 +1489,7 @@ compare_n_potencies([df_buffs_0_sl, df_buffs_1_sl, df_buffs_2_sl, df_buffs_3_sl]
 ```
 
 
-![png](sam-by-the-numbers-part-5_files/sam-by-the-numbers-part-5_19_0.png)
+![png](sam-by-the-numbers-part-5_19_0.png)
 
 
 Here I made the assumption that the slashing resistance down debuff was already applied at the beginning of each rotation. We see that the value of deferring Yukikaze increases if someone else can apply the debuff instead. Although the average potency per GCD is much higher when applying Jinpu before Shifu while the delta in pps is much smaller, the results are likely to change as your skill speed changes. Here are some points to consider:
@@ -1895,7 +1895,7 @@ plot_potency(df_ms)
 ```
 
 
-![png](sam-by-the-numbers-part-5_files/sam-by-the-numbers-part-5_24_0.png)
+![png](sam-by-the-numbers-part-5_24_0.png)
 
 
 By using some combination of Kasha and Gekko only for our Meikyo Shisui charges, we end up with the situation where one of our Shifu or Jinpu buffs will fall off. This is due to us avoiding combos that terminate in opening a Sen that has already been opened; in this example, it was the Kasha combo leading to Shifu being dropped for about 4-5 seconds. In this instance, we moved the final Midare Setsugekka to after Hakaze -> Shifu to minimize Shifu downtime.
@@ -2287,7 +2287,7 @@ plot_potency(df_ms2)
 ```
 
 
-![png](sam-by-the-numbers-part-5_files/sam-by-the-numbers-part-5_28_0.png)
+![png](sam-by-the-numbers-part-5_28_0.png)
 
 
 
@@ -2296,7 +2296,7 @@ compare_n_potencies([df_ms, df_ms2], ['Gekko/Kasha only', 'Yukikaze + Gekko/Kash
 ```
 
 
-![png](sam-by-the-numbers-part-5_files/sam-by-the-numbers-part-5_29_0.png)
+![png](sam-by-the-numbers-part-5_29_0.png)
 
 
 The advantage of using Yukikaze in your Meikyo Shisui window ensures you don't need to worry about dropping a buff. The final weaponskill you use on Meikyo Shisui should be the one of Kasha or Gekko corresponding to the buff with the longest remaining duration. For example, if Shifu has more duration than Jinpu, finish the window with Kasha then follow up with the Gekko combo. The auto-attack penalty from dropping a buff isn't accounted for here but regardless, the second policy comes out on top. (Generating extra Kenki for Hissatsu: Shinten doesn't hurt either.)
@@ -2959,7 +2959,7 @@ compare_n_potencies([df_hgk1, df_hgk2], ['Using Hagakure', 'No Hagakure'])
 ```
 
 
-![png](sam-by-the-numbers-part-5_files/sam-by-the-numbers-part-5_37_0.png)
+![png](sam-by-the-numbers-part-5_37_0.png)
 
 
 The two policies diverge in a number of spots:
@@ -3954,7 +3954,7 @@ compare_potencies([df_higanbana_true, df_higanbana_false], ['Higanbana', 'No Hig
 ```
 
 
-![png](sam-by-the-numbers-part-5_files/sam-by-the-numbers-part-5_44_0.png)
+![png](sam-by-the-numbers-part-5_44_0.png)
 
 
 I applied the same policy to each scenario and limited the horizon to the duration of one Higanbana. I did not make a conscious effort to expend all resources (i.e., Sen and Kenki) at the end of this horizon so this is assuming that the encounter continues on. One small adjustment that could be made in each case is using Meikyo Shisui earlier, or even double weaving it with Hagakure if you are comfortable.
@@ -4441,7 +4441,7 @@ compare_n_potencies([df_higanbana_true, df_higanbana_false, df_higanbana_true2],
 ```
 
 
-![png](sam-by-the-numbers-part-5_files/sam-by-the-numbers-part-5_47_0.png)
+![png](sam-by-the-numbers-part-5_47_0.png)
 
 
 That's a nontrivial increase in damage. This is just one of many examples of being cognizant of encounter duration when planning your resource usage.
