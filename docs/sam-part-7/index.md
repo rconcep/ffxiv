@@ -1,6 +1,6 @@
 
 <a id="header"></a>
-# Part 7: encounter-specific tips
+# Part 8: encounter-specific tips
 
 [Return home](../)
 
@@ -26,10 +26,10 @@
     - Arm's Length is not effective here IIRC.
 - Plenty of opportunities here for Third Eye/Hissatsu: Seigan.
 - True North is useful here during sections like Breath Wing when you're hitting it from the front.
-- Hissatsu: Yaten's backstep isn't enough to make you jump off the platform so it's useful for when the inner fireballs explode first. You'll have to move out a little more after the backstep but using Hissatu: Yaten gets you the useful Enhanced Enpi.
+- Hissatsu: Yaten's backstep isn't enough to make you jump off the platform so it's useful for when the inner fireballs explode first. Using Hissatu: Yaten gets you the useful Enhanced Enpi when disengaging.
 - This fight is basically 100% uptime.
 
 ## Deltascape V2.0 (Savage) - Catastrophe
-- True North is great for occasions like stacking in the center for Antilight, Gravitational Manipulation (if your main tank stacks with the group), and when stacking on the fleshy members.
-- You can adjust your combo order so that you don't need it for all of those situations. For example, Catastrophe shouldn't be facing you for too long during Gravitional Manipulation stacking so you can move your Yukikaze up and defer your Gekko/Kashsa combo to when you can hit the positional.
+- True North is great for occasions like stacking in the center for Antilight, Gravitational Manipulation+Fourfold Sacrifice (if your main tank stacks with the group), and when stacking on the fleshy members.
+- You can adjust your combo order so that you don't need it for all of those situations. For example, Catastrophe shouldn't be facing you for too long during Fourfold Sacrifice stacking so you can move your Yukikaze up and defer your Gekko/Kashsa combo to when you can hit the positional.
 - There's a fair amount of momentary forced downtime when placing fleshy members, Unstable Gravity, moving to safe spots, etc. Use Enpi when you can in these situations.
