@@ -2,7 +2,7 @@
 ## by Tzuyu Chou (Cactuar)
 An analytical investigation into playing Samurai in FFXIV optimally in any scenario. This analysis is based on the Python class for Samurai that I've written, located in this repository plus some visualization tools also living in the repository. The format of these pages is of exported Jupyter notebooks that include the code used for analysis. Interested users may clone the code and try out some testing themselves (refer to the [documentation](https://rconcep.github.io/ffxiv-docs/html/).)
 
-The parts are broken up into logical partitions where the gameplay changes significantly. Part 1 covers pre-level 50. Part 2 covers up to the level 50 cap but before Kenki is introduced. Part 3 covers gameplay with Kenki Mastery I. Part 4 covers gameplay with Kenki Mastery II up to the level 70 cap. Part 5 explores advanced, miscellaneous topics for refined optimization points.
+The parts are broken up into logical partitions where the gameplay changes significantly. Part 1 covers pre-level 50. Part 2 covers up to the level 50 cap but before Kenki is introduced. Part 3 covers gameplay with Kenki Mastery I. Part 4 covers gameplay with Kenki Mastery II up to the level 70 cap. Part 5 explores advanced, miscellaneous topics for refined optimization points. Part 7 adds tips for specific trial and raid encounters.
 
 [Official job guide: tool tips and more](http://na.finalfantasyxiv.com/jobguide/samurai/)
 
@@ -16,10 +16,14 @@ The parts are broken up into logical partitions where the gameplay changes signi
 
 [Part 5: advanced topics](sam-part-5/)
 
+Part 6: openers and two-minute drills
+
+[Part 7: encounter-specific tips](sam-part-7/)
+
 View the code documentation [here](https://rconcep.github.io/ffxiv-docs/html/).
 
 ### Revision history
-- 07/20/2017: Added more discussion on Hagakure in part 5. Added a section in part 5 regarding Higanbana.
+- 07/20/2017: Added more discussion on Hagakure in part 5. Added a section in part 5 regarding Higanbana. Added part 7.
 - 07/08/2017: Added support for double+ weaving abilities. Fixed Hissatsu: Kaiten to affect the Higanbana DoT. Content in parts 3-5 changed accordingly. This slightly changes the DoT potency calculations at each GCD.
 - 07/02/2017: Edited parts 1-4 to reflect 4.0 changes.
 - 07/01/2017: First edition of part 5, advanced/miscellaneous topics.
