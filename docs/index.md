@@ -4,7 +4,7 @@ An analytical investigation into playing Samurai in FFXIV optimally in any scena
 
 The parts are broken up into logical partitions where the gameplay changes significantly. Part 1 covers pre-level 50. Part 2 covers up to the level 50 cap but before Kenki is introduced. Part 3 covers gameplay with Kenki Mastery I. Part 4 covers gameplay with Kenki Mastery II up to the level 70 cap. 
 
-Part 5 explores advanced, miscellaneous topics for refined optimization points. Part 7 adds tips for specific trial and raid encounters.
+Part 5 explores advanced, miscellaneous topics for refined optimization points. Part 8 adds tips for specific trial and raid encounters.
 
 [Official job guide: tool tips and more](http://na.finalfantasyxiv.com/jobguide/samurai/)
 
