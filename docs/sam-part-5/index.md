@@ -1,6 +1,6 @@
 
 <a id="header"></a>
-# Part 5: miscellaneous topics
+# Part 5: advanced topics
 
 
 ```python
@@ -58,7 +58,7 @@ display(df_buffs_0)
 
     average potency per GCD = 517.7471428571428
     average potency per second = 238.436184211
-
+    
 
 
 
@@ -398,7 +398,7 @@ display(df_buffs_1)
 
     average potency per GCD = 530.2328571428571
     average potency per second = 239.151417526
-
+    
 
 
 
@@ -739,7 +739,7 @@ display(df_buffs_2)
 
     average potency per GCD = 517.4309523809524
     average potency per second = 230.995960884
-
+    
 
 
 
@@ -1080,7 +1080,7 @@ display(df_buffs_3)
 
     average potency per GCD = 510.450238095238
     average potency per second = 231.421740069
-
+    
 
 
 
@@ -1401,7 +1401,7 @@ compare_n_potencies([df_buffs_0, df_buffs_1, df_buffs_2, df_buffs_3], ['Shifu, J
 ```
 
 
-![png](sam-by-the-numbers-part-5_16_0.png)
+![png](output_16_0.png)
 
 
 The results are quite close but Jinpu and Shifu appear to be the highest priority. For total party DPS, contributions due to (~16s) earlier application of the slashing resistance down debuff should be accounted for, assuming no WAR or NIN in the party. How do priorities differ if someone else, e.g., WAR, can apply the debuff instead?
@@ -1481,7 +1481,7 @@ df_buffs_3_sl, average_potency, pps = sam.parse_rotation(actions)
     average potency per second = 230.995960884
     average potency per GCD = 510.450238095238
     average potency per second = 231.421740069
-
+    
 
 
 ```python
@@ -1489,7 +1489,7 @@ compare_n_potencies([df_buffs_0_sl, df_buffs_1_sl, df_buffs_2_sl, df_buffs_3_sl]
 ```
 
 
-![png](sam-by-the-numbers-part-5_19_0.png)
+![png](output_19_0.png)
 
 
 Here I made the assumption that the slashing resistance down debuff was already applied at the beginning of each rotation. We see that the value of deferring Yukikaze increases if someone else can apply the debuff instead. Although the average potency per GCD is much higher when applying Jinpu before Shifu while the delta in pps is much smaller, the results are likely to change as your skill speed changes. Here are some points to consider:
@@ -1548,7 +1548,7 @@ display(df_ms)
 
     average potency per GCD = 532.045652173913
     average potency per second = 241.647906793
-
+    
 
 
 
@@ -1895,7 +1895,7 @@ plot_potency(df_ms)
 ```
 
 
-![png](sam-by-the-numbers-part-5_24_0.png)
+![png](output_24_0.png)
 
 
 By using some combination of Kasha and Gekko only for our Meikyo Shisui charges, we end up with the situation where one of our Shifu or Jinpu buffs will fall off. This is due to us avoiding combos that terminate in opening a Sen that has already been opened; in this example, it was the Kasha combo leading to Shifu being dropped for about 4-5 seconds. In this instance, we moved the final Midare Setsugekka to after Hakaze -> Shifu to minimize Shifu downtime.
@@ -1927,7 +1927,7 @@ display(df_ms2)
 
     average potency per GCD = 556.6820833333333
     average potency per second = 253.037310606
-
+    
 
 
 
@@ -2287,7 +2287,7 @@ plot_potency(df_ms2)
 ```
 
 
-![png](sam-by-the-numbers-part-5_28_0.png)
+![png](output_28_0.png)
 
 
 
@@ -2296,7 +2296,7 @@ compare_n_potencies([df_ms, df_ms2], ['Gekko/Kasha only', 'Yukikaze + Gekko/Kash
 ```
 
 
-![png](sam-by-the-numbers-part-5_29_0.png)
+![png](output_29_0.png)
 
 
 The advantage of using Yukikaze in your Meikyo Shisui window ensures you don't need to worry about dropping a buff. The final weaponskill you use on Meikyo Shisui should be the one of Kasha or Gekko corresponding to the buff with the longest remaining duration. For example, if Shifu has more duration than Jinpu, finish the window with Kasha then follow up with the Gekko combo. The auto-attack penalty from dropping a buff isn't accounted for here but regardless, the second policy comes out on top. (Generating extra Kenki for Hissatsu: Shinten doesn't hurt either.)
@@ -2435,7 +2435,7 @@ display(df_hgk1)
 
     average potency per GCD = 560.5756250000001
     average potency per second = 252.511542793
-
+    
 
 
 
@@ -2703,7 +2703,7 @@ display(df_hgk2)
 
     average potency per GCD = 543.8215625
     average potency per second = 244.964667793
-
+    
 
 
 
@@ -2959,7 +2959,7 @@ compare_n_potencies([df_hgk1, df_hgk2], ['Using Hagakure', 'No Hagakure'])
 ```
 
 
-![png](sam-by-the-numbers-part-5_37_0.png)
+![png](output_37_0.png)
 
 
 The two policies diverge in a number of spots:
@@ -3029,7 +3029,7 @@ With a perfect mapping of cooldowns throughout an encounter, you can probably de
 ## On Higanbana
 At over effectively 1410 potency in a single GCD, Higanbana's efficiency is unmatched. However, since its payoff occurs over a 60s DoT, if most of the DoT does not tick, then we would have been better off not applying Higanbana. How much is enough?
 
-### Apply Higanbana
+### Applying Higanbana
 We'll initialize with 20 Kenki in the gauge and Jinpu and Shifu already active but no Sen currently open. We'll assume, without loss of generality, that Hagakure, Meikyo Shisui, and Hissatsu: Guren are available.
 
 
@@ -3056,7 +3056,7 @@ display(df_higanbana_true)
 
     average potency per GCD = 536.2691666666665
     average potency per second = 248.272762346
-
+    
 
 
 
@@ -3488,7 +3488,7 @@ display(df_higanbana_true)
 
 
 
-## Ignore Higanbana
+### Ignoring Higanbana
 We'll start with the same initial conditions but this time decide against applying Higanbana.
 
 
@@ -3516,7 +3516,7 @@ display(df_higanbana_false)
 
     average potency per GCD = 536.0723333333334
     average potency per second = 248.181635802
-
+    
 
 
 
@@ -3954,7 +3954,7 @@ compare_potencies([df_higanbana_true, df_higanbana_false], ['Higanbana', 'No Hig
 ```
 
 
-![png](sam-by-the-numbers-part-5_44_0.png)
+![png](output_44_0.png)
 
 
 I applied the same policy to each scenario and limited the horizon to the duration of one Higanbana. I did not make a conscious effort to expend all resources (i.e., Sen and Kenki) at the end of this horizon so this is assuming that the encounter continues on. One small adjustment that could be made in each case is using Meikyo Shisui earlier, or even double weaving it with Hagakure if you are comfortable.
@@ -4003,7 +4003,7 @@ df_higanbana_true2, _, _ = sam.parse_rotation(actions)
 
     average potency per GCD = 565.2031666666666
     average potency per second = 261.668132716
-
+    
 
 
 
@@ -4441,14 +4441,9 @@ compare_n_potencies([df_higanbana_true, df_higanbana_false, df_higanbana_true2],
 ```
 
 
-![png](sam-by-the-numbers-part-5_47_0.png)
+![png](output_47_0.png)
 
 
 That's a nontrivial increase in damage. This is just one of many examples of being cognizant of encounter duration when planning your resource usage.
 
 <a href="#header">back to the top...</a>
-
-
-```python
-
-```
