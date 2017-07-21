@@ -163,13 +163,16 @@ class Samurai():
                     meikyo_shisui_counter = 3
 
             # update counters
-            if parsed_ws not in set(['higanbana', 'tenka goken', 'midare setsugekka']):
+            if parsed_ws not in set(['higanbana', 'tenka_goken', 'midare_setsugekka']):
                 # Iaijutsu does not consume a Meikyo Shisui charge
                 meikyo_shisui_counter -= 1  # expended one Meikyo Shisui charge
 
             if meikyo_shisui_counter <= 0:
                 # deactivate Meikyo Shisui if all charges expended
                 self.has_meikyo_shisui = False
+
+            if self.has_meikyo_shisui:
+                self.meikyo_shisui_active()
 
             if parsed_ws == 'higanbana':
                 # start Higanbana DoT timer
@@ -852,6 +855,10 @@ class Samurai():
                 potency = base_potency * (1 + 0.9)
             else:
                 potency = base_potency
+
+            self.has_getsu = False
+            self.has_setsu = False
+            self.has_ka = False
         else:
             raise ValueError('Not enough Sen opened!')
 
@@ -863,6 +870,10 @@ class Samurai():
         """
         if sum([self.has_getsu, self.has_setsu, self.has_ka]) == 3:
             potency = 720
+
+            self.has_getsu = False
+            self.has_setsu = False
+            self.has_ka = False
         else:
             raise ValueError('Not enough Sen opened!')
 
