@@ -22,12 +22,12 @@ Part 6: openers
 
 Part 7: two-minute drills (optimizing over finite horizons)
 
-[Part 8: encounter-specific tips](sam-part-8/)
+[Encounter-specific tips](sam-es-tips/)
 
 View the code documentation [here](https://rconcep.github.io/ffxiv-docs/html/).
 
 ### Revision history
-- 07/20/2017: Added more discussion on Hagakure in part 5. Added a section in part 5 regarding Higanbana. Added part 8.
+- 07/20/2017: Added more discussion on Hagakure in part 5. Added a section in part 5 regarding Higanbana. Added encounter-specific tips.
 - 07/08/2017: Added support for double+ weaving abilities. Fixed Hissatsu: Kaiten to affect the Higanbana DoT. Content in parts 3-5 changed accordingly. This slightly changes the DoT potency calculations at each GCD.
 - 07/02/2017: Edited parts 1-4 to reflect 4.0 changes.
 - 07/01/2017: First edition of part 5, advanced/miscellaneous topics.
