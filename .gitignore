@@ -1,8 +1,4 @@
-.idea/ffxiv.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/workspace.xml
+**/.idea/
 .ipynb_checkpoints/
 *.pyc
 samurai.pyc
@@ -12,4 +8,8 @@ plotting.pyc
 .docs/sphinx/_build
 .docs/sphinx/_static
 .docs/sphinx/_templates
-.idea/dictionaries/rconcep.xml
+
+**/combat.log
+**/combat_log.csv
+
+**/*.egg-info
