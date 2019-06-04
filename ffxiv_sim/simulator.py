@@ -79,16 +79,17 @@ class Simulator():
         if isinstance(participant, Machinist):
             fields = [
                 'heat_gauge',
-                'overheated',
+                # 'overheated',
                 'battery_gauge',
-                'gauss_round_charges',
+                # 'gauss_round_charges',
                 # 'gauss_round_charge_timer',
-                'ricochet_charges',
+                # 'ricochet_charges',
                 # 'ricochet_charge_timer',
                 # 'hot_shot_cooldown',
                 # 'global_cooldown',
                 # 'global_cooldown_timer',
                 # 'on_global_cooldown',
+                'wildfire_cooldown',
             ]
 
             for field_name in fields:
@@ -132,8 +133,44 @@ class Simulator():
             callback = mch.update_time(time_increment)
 
             while len(callback) > 0:
-                if callback.get('wildfire', False):
-                    # Add Wildfire detonation
+                if callback.get('attack', False):
+                    # Add auto-attack.
+                    self.time += callback['re-update time']
+
+                    mch_record = self.record_combatant(mch)
+                    mch_record['time'] = float('{0:2f}'.format(self.time))
+                    mch_record['ability'] = 'attack'
+                    mch_record['potency'] = callback['attack']
+                    combat_record.append(mch_record)
+                elif callback.get('rook_volley_fire', False):
+                    # Add Rook Volley Fire.
+                    self.time += callback['re-update time']
+
+                    mch_record = self.record_combatant(mch)
+                    mch_record['time'] = float('{0:2f}'.format(self.time))
+                    mch_record['ability'] = 'volley_fire'
+                    mch_record['potency'] = callback['rook_volley_fire']
+                    combat_record.append(mch_record)
+                elif callback.get('queen_arm_punch', False):
+                    # Add Queen Arm Punch.
+                    self.time += callback['re-update time']
+
+                    mch_record = self.record_combatant(mch)
+                    mch_record['time'] = float('{0:2f}'.format(self.time))
+                    mch_record['ability'] = 'arm_punch'
+                    mch_record['potency'] = callback['queen_arm_punch']
+                    combat_record.append(mch_record)
+                elif callback.get('queen_roller_dash', False):
+                    # Add Queen Roller Dash.
+                    self.time += callback['re-update time']
+
+                    mch_record = self.record_combatant(mch)
+                    mch_record['time'] = float('{0:2f}'.format(self.time))
+                    mch_record['ability'] = 'roller_dash'
+                    mch_record['potency'] = callback['queen_roller_dash']
+                    combat_record.append(mch_record)
+                elif callback.get('wildfire', False):
+                    # Add Wildfire detonation.
                     self.time += callback['re-update time']
 
                     mch_record = self.record_combatant(mch)
@@ -141,11 +178,28 @@ class Simulator():
                     mch_record['ability'] = 'wildfire'
                     mch_record['potency'] = 150*callback['wildfire']
                     combat_record.append(mch_record)
+                elif callback.get('rook_overdrive', False):
+                    # Add Rook Overdrive.
+                    self.time += callback['re-update time']
 
-                    mch.total_time_elapsed = self.time
+                    mch_record = self.record_combatant(mch)
+                    mch_record['time'] = float('{0:2f}'.format(self.time))
+                    mch_record['ability'] = 'rook_overload'
+                    mch_record['potency'] = callback['rook_overdrive']
+                    combat_record.append(mch_record)
+                elif callback.get('queen_overdrive', False):
+                    # Add Queen Overdrive.
+                    self.time += callback['re-update time']
 
-                    time_increment -= callback['re-update time']
+                    mch_record = self.record_combatant(mch)
+                    mch_record['time'] = float('{0:2f}'.format(self.time))
+                    mch_record['ability'] = 'pile_bunker'
+                    mch_record['potency'] = callback['queen_overdrive']
+                    combat_record.append(mch_record)
                 
+                # Re-update time with new time increment after interrupting event.
+                mch.total_time_elapsed = self.time
+                time_increment -= callback['re-update time']
                 callback = mch.update_time(time_increment)
 
             self.time += time_increment

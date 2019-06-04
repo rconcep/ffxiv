@@ -1,14 +1,131 @@
 import logging
 
+class Automaton():
+    """An automaton deployed by the Machinist after spending 50 Battery gauge."""
+    def __init__(
+        self, initial_duration, attack_delay, 
+        critical_hit_chance=0.10, critical_hit_multiplier=1.40, 
+        direct_hit_chance=0.10
+        ):
+        # TODO: Remove default arguments for CHC, CHM, DHC when implementing those stats on the Machinist.
+        self._initial_duration = initial_duration
+        self._attack_delay = attack_delay
+        self._critical_hit_chance = critical_hit_chance
+        self._critical_hit_multiplier = critical_hit_multiplier
+        self._direct_hit_chance = direct_hit_chance
+
+        self._remaining_duration = initial_duration
+
+    @property
+    def initial_duration(self):
+        """The duration of deployment in seconds. Scales the damage of Rook Overload and Pile Bunker."""
+        return self._initial_duration
+    
+    @initial_duration.setter
+    def initial_duration(self, value):
+        raise ValueError('Cannot change the value of initial duration deployment.')
+    
+    @property
+    def attack_delay(self):
+        """The amount of time until the next Volley Fire in seconds."""
+        return self._attack_delay
+    
+    @attack_delay.setter
+    def attack_delay(self, value):
+        self._attack_delay = value
+    
+    @property
+    def critical_hit_chance(self):
+        """The chance to deal a critical hit. Inherited from the owner at the time of deployment."""
+        return self._critical_hit_chance
+    
+    @critical_hit_chance.setter
+    def critical_hit_chance(self, value):
+        raise ValueError('Cannot change the value of critical hit chance.')
+    
+    @property
+    def critical_hit_multiplier(self):
+        """The multiplier on potency from critical hits. Inherited from the owner at the time of deployment."""
+        return self._critical_hit_multiplier
+    
+    @critical_hit_multiplier.setter
+    def critical_hit_multiplier(self, value):
+        raise ValueError('Cannot change the value of critical hit multiplier.')
+    
+    @property
+    def direct_hit_chance(self):
+        """The chance to deal a direct hit. Inherited from the owner at the time of deployment."""
+        return self._direct_hit_chance
+    
+    @direct_hit_chance.setter
+    def direct_hit_chance(self, value):
+        raise ValueError('Cannot change the value of direct hit chance.')
+    
+    @property
+    def remaining_duration(self):
+        """The remaining duration on the current deployment."""
+        return self._remaining_duration
+    
+    @remaining_duration.setter
+    def remaining_duration(self, value):
+        self._remaining_duration = max(0, value)
+
+        if self._remaining_duration == 0:
+            logging.info('Automaton has left the battlefield.')
+
+
+class RookAutoturret(Automaton):
+    """A type of automaton deployed by the Machinist who acquires the ability to do so at level 40."""
+    @property
+    def remaining_duration(self):
+        """The remaining duration on the current deployment."""
+        return self._remaining_duration
+    
+    @remaining_duration.setter
+    def remaining_duration(self, value):
+        self._remaining_duration = max(0, value)
+
+        if self._remaining_duration == 0:
+            logging.info('The Rook Autoturret withdraws from the battlefield.')
+
+
+class AutomatonQueen(Automaton):
+    """A type of automaton deployed by the Machinist who acquires the ability to do so at level 80."""
+    @property
+    def remaining_duration(self):
+        """The remaining duration on the current deployment."""
+        return self._remaining_duration
+    
+    @remaining_duration.setter
+    def remaining_duration(self, value):
+        self._remaining_duration = max(0, value)
+
+        if self._remaining_duration == 0:
+            logging.info('The Automaton Queen withdraws from the battlefield.')
+
+
 class Machinist():
     """"""
-    def __init__(self, base_global_cooldown=2.45, weave_delay=1.00):
+    def __init__(self, 
+        base_global_cooldown=2.45, weave_delay=1.00,
+        critical_hit_chance=0.10, critical_hit_multiplier=1.40, 
+        direct_hit_chance=0.10,
+        auto_attack_potency=95.92, auto_attack_delay=2.64,        
+        ):
         self._increased_damage_dealt = 0
+        self._critical_hit_chance = critical_hit_chance
+        self._critical_hit_multiplier = critical_hit_multiplier
+        self._direct_hit_chance = direct_hit_chance
+        self._auto_attack_potency = auto_attack_potency
+        self._auto_attack_delay = auto_attack_delay
+        self._auto_attack_recast_timer = 0
 
         self._base_global_cooldown = base_global_cooldown
         self._on_global_cooldown = False
         self._global_cooldown_timer = 0
         self._global_cooldown = self._base_global_cooldown
+
+        self._automaton = None
 
         self._weave_delay = weave_delay
 
@@ -65,6 +182,60 @@ class Machinist():
         self._increased_damage_dealt = value
     
     @property
+    def critical_hit_chance(self):
+        """The chance to deal a critical hit."""
+        return self._critical_hit_chance
+    
+    @critical_hit_chance.setter
+    def critical_hit_chance(self, value):
+        self._critical_hit_chance = value
+    
+    @property
+    def critical_hit_multiplier(self):
+        """The multiplier on potency from critical hits."""
+        return self._critical_hit_multiplier
+    
+    @critical_hit_multiplier.setter
+    def critical_hit_multiplier(self, value):
+        self._critical_hit_multiplier = value
+    
+    @property
+    def direct_hit_chance(self):
+        """The chance to deal a direct hit."""
+        return self._direct_hit_chance
+    
+    @direct_hit_chance.setter
+    def direct_hit_chance(self, value):
+        self._direct_hit_chance = value
+    
+    @property
+    def auto_attack_potency(self):
+        """The potency of an auto-attack, an intrinsic property of equipped weapon."""
+        return self._auto_attack_potency
+    
+    @auto_attack_potency.setter
+    def auto_attack_potency(self, value):
+        self._auto_attack_potency = value
+    
+    @property
+    def auto_attack_delay(self):
+        """The delay of an auto-attack in seconds, an intrinsic property of equipped weapon."""
+        return self._auto_attack_delay
+    
+    @auto_attack_delay.setter
+    def auto_attack_delay(self, value):
+        self._auto_attack_delay = value
+    
+    @property
+    def auto_attack_recast_timer(self):
+        """The amount of time until the next auto-attack in seconds."""
+        return self._auto_attack_recast_timer
+    
+    @auto_attack_recast_timer.setter
+    def auto_attack_recast_timer(self, value):
+        self._auto_attack_recast_timer = max(0, value)
+    
+    @property
     def base_global_cooldown(self):
         """The base global cooldown length in seconds."""
         return self._base_global_cooldown
@@ -106,6 +277,15 @@ class Machinist():
     @global_cooldown.setter
     def global_cooldown(self, value):
         self._global_cooldown = value
+    
+    @property
+    def automaton(self):
+        """The instance of the summoned Rook Autoturret or Automaton Queen."""
+        return self._automaton
+    
+    @automaton.setter
+    def automaton(self, value):
+        self._automaton = value
     
     @property
     def weave_delay(self):
@@ -186,7 +366,7 @@ class Machinist():
     def wildfire_duration(self, value):
         if value <= 0:
             self.wildfire_applied = False
-            logging.info('{0}: Wildfire has detonated.'.format(self.total_time_elapsed + self._wildfire_duration))
+            logging.info('{0}: Wildfire has detonated.'.format(self.total_time_elapsed))
             self._wildfire_duration = 0
             self.wildfire_weaponskill_counter = 0
         else:
@@ -396,14 +576,67 @@ class Machinist():
     
     def update_time(self, time_increment):
         callback = {}
+        interrupting_events = []
+        interrupting_events.append(('attack', self.auto_attack_recast_timer))
 
-        if self.wildfire_applied and (self.wildfire_duration - time_increment < 0):
-            time_increment = self.wildfire_duration
+        if self.automaton is not None:
+            interrupting_events.append(('automaton.remaining_duration', self.automaton.remaining_duration))
+            interrupting_events.append(('automaton.attack_delay', self.automaton.attack_delay))
+        
+        if self.wildfire_applied:
+            interrupting_events.append(('wildfire_duration', self.wildfire_duration))
 
-            callback['wildfire'] = self.wildfire_weaponskill_counter
-            callback['re-update time'] = time_increment
+        if len(interrupting_events) > 0 and any([x[-1] < time_increment for x in interrupting_events]):
+            # Check if any interrupting event actually occurs during the current time increment.
+            interrupting_events = sorted(interrupting_events, key=lambda event: event[-1])
+            next_interrupting_event = interrupting_events[0]
 
-            self.wildfire_duration = 0
+            if next_interrupting_event[-1] < time_increment:
+                if next_interrupting_event[0] == 'attack':
+                    time_increment = self.auto_attack_recast_timer
+                    self.total_time_elapsed += time_increment
+
+                    callback['attack'] = self.attack()
+                    callback['re-update time'] = time_increment
+                elif next_interrupting_event[0] == 'automaton.attack_delay':
+                    time_increment = self.automaton.attack_delay
+                    self.total_time_elapsed += time_increment
+
+                    if isinstance(self.automaton, RookAutoturret):
+                        callback['rook_volley_fire'] = self.volley_fire()
+                        callback['re-update time'] = time_increment
+                    elif isinstance(self.automaton, AutomatonQueen):
+                        # TODO: Implement Arm Punch and Roller Dash
+
+                        # Automaton Queen opens with Roller Dash to close distance and then prioritizes Arm Punch
+                        if self.automaton.initial_duration - self.automaton.remaining_duration > 5:
+                            # Arm Punch
+                            callback['queen_arm_punch'] = self.arm_punch()
+                            callback['re-update time'] = time_increment
+                        else:
+                            # Roller Dash
+                            callback['queen_roller_dash'] = self.roller_dash()
+                            callback['re-update time'] = time_increment
+                elif next_interrupting_event[0] == 'automaton.remaining_duration':
+                    time_increment = self.automaton.remaining_duration
+                    self.total_time_elapsed += time_increment
+
+                    if isinstance(self.automaton, RookAutoturret):
+                        callback['rook_overdrive'] = self.rook_overdrive()
+                        callback['re-update time'] = time_increment
+                    elif isinstance(self.automaton, AutomatonQueen):
+                        callback['queen_overdrive'] = self.queen_overdrive()
+                        callback['re-update time'] = time_increment
+                elif next_interrupting_event[0] == 'wildfire_duration':
+                    time_increment = self.wildfire_duration
+                    self.total_time_elapsed += time_increment
+
+                    callback['wildfire'] = self.wildfire_weaponskill_counter
+                    callback['re-update time'] = time_increment
+
+                    self.wildfire_duration = 0
+        else:
+            interrupting_events = []
 
         # Decrease timers
         self.gauss_round_charge_timer -= time_increment
@@ -415,17 +648,42 @@ class Machinist():
         self.drill_cooldown -= time_increment
         self.barrel_stabilizer_cooldown -= time_increment
 
+        if len(interrupting_events) > 0 and next_interrupting_event[0] == 'attack':
+            # Do not decrement auto-attack recast timer if an auto-attack was just delivered.
+            pass
+        else:
+            self.auto_attack_recast_timer -= time_increment
+
         if self.wildfire_applied:
             self.wildfire_duration -= time_increment
         
         if self.overheated:
             self.overheat_duration -= time_increment
+        
+        if self.automaton:
+            if self.automaton.remaining_duration > 0:
+                self.automaton.remaining_duration -= time_increment
+
+            if len(interrupting_events) > 0 and next_interrupting_event[0] == 'automaton.attack_delay':
+                # Do not decrement automaton attack timer if the automaton just acted.
+                pass       
+            else:
+                self.automaton.attack_delay -= time_increment       
 
         # Advance global cooldown
         self.global_cooldown_timer -= time_increment
 
         return callback
     
+    def attack(self, target=None):
+        """
+        An auto-attack. Delivers an attack with a potency and delay based on equipped weapon.
+        """
+        potency = self.auto_attack_potency
+        self.auto_attack_recast_timer = self.auto_attack_delay
+
+        return potency
+
     def split_shot(self, target=None):
         """
         lvl 1
@@ -686,8 +944,11 @@ class Machinist():
 
         Recast time: 10s
         """
-        # TODO:
         if self.battery_gauge >= 50:
+            self.automaton = RookAutoturret(
+                initial_duration=10+(self.battery_gauge-50)/10,
+                attack_delay=1,  # TODO: This delay of one second is to model deployment delay.
+                )
             self.battery_gauge = 0
 
             logging.info('{0}: You use Rook Autoturret.'.format(self.time_stamp))
@@ -696,6 +957,26 @@ class Machinist():
             raise ValueError('Rook Autoturret requires a minimum of 50 Battery Gauge to use.')
         
         return 0
+    
+    def volley_fire(self, target=None):
+        """
+        lvl 40
+
+        Rook Autoturret's auto-attack.
+        """
+        if not self.automaton:
+            logging.error('{0}: Rook Autoturret is not currently deployed.')
+            raise ValueError('Rook Autoturret is not currently deployed.')
+        else:
+            potency = 80
+
+            # TODO: What is the rook's auto-attack delay?
+            self.automaton.attack_delay = 3
+
+            logging.info('{0}: Rook Autoturret uses Volley Fire.'.format(self.time_stamp))
+
+        return potency
+
     
     def rook_overdrive(self, target=None):
         """
@@ -711,8 +992,20 @@ class Machinist():
 
         Recast time: 15s
         """
-        # TODO:
-        pass
+        if not self.automaton or not isinstance(self.automaton, RookAutoturret):
+            logging.error('{0}: Rook Autoturret is not currently deployed.')
+            raise ValueError('Rook Autoturret is not currently deployed.')
+        else:
+            # TODO: Potency scales with initial deployment duration (self.automaton.initial_duration)
+            potency = 800
+
+            logging.info('{0}: Rook Autoturret gains the effect of Egi Assault III.'.format(self.time_stamp))
+            logging.info('{0}: Rook Autoturret uses Rook Overload.'.format(self.time_stamp))
+
+            self.automaton.remaining_duration = 0
+            self.automaton = None
+
+        return potency
     
     def wildfire(self, target=None):
         """
@@ -1026,8 +1319,12 @@ class Machinist():
 
         Recast time: 5s
         """
-        #TODO:
         if self.battery_gauge >= 50:
+            # TODO: Determine Battery Gauge to duration function
+            self.automaton = AutomatonQueen(
+                initial_duration=10+(self.battery_gauge-50)/5,
+                attack_delay=5,  # TODO: This delay is to model deployment delay.
+                )
             self.battery_gauge = 0
 
             logging.info('{0}: You use Automaton Queen.'.format(self.time_stamp))
@@ -1043,9 +1340,15 @@ class Machinist():
 
         Recast time: 1.5s
         """
-        potency = 150
+        if not self.automaton:
+            logging.error('{0}: Automaton Queen is not currently deployed.')
+            raise ValueError('Automaton Queen is not currently deployed.')
+        else:
+            potency = 150
 
-        #TODO: Implement recast time
+            self.automaton.attack_delay = 1.5
+
+            logging.info('{0}: Automaton Queen uses Arm Punch.'.format(self.time_stamp))
 
         return potency
     
@@ -1053,11 +1356,17 @@ class Machinist():
         """
         Rushes target and delivers an attack with a potency of 300.
 
-        Recast time: 3s
+        Base recast time: 3s
         """
-        potency = 300
+        if not self.automaton:
+            logging.error('{0}: Automaton Queen is not currently deployed.')
+            raise ValueError('Automaton Queen is not currently deployed.')
+        else:
+            potency = 300
 
-        #TODO: Implement recast time
+            self.automaton.attack_delay = self.base_global_cooldown/2.5*3
+
+            logging.info('{0}: Automaton Queen uses Roller Dash.'.format(self.time_stamp))
 
         return potency
     
@@ -1073,8 +1382,17 @@ class Machinist():
 
         Recast time: 15s
         """
-        potency = 800
+        if not self.automaton or not isinstance(self.automaton, AutomatonQueen):
+            logging.error('{0}: Automaton Queen is not currently deployed.')
+            raise ValueError('Automaton Queen is not currently deployed.')
+        else:
+            # TODO: Potency scales with initial deployment duration (self.automaton.initial_duration)
+            potency = 800
 
-        #TODO: Implement scaling
+            logging.info('{0}: Automaton Queen gains the effect of Egi Assault III.'.format(self.time_stamp))
+            logging.info('{0}: Automaton Queen uses Pile Bunker.'.format(self.time_stamp))
+
+            self.automaton.remaining_duration = 0
+            self.automaton = None
 
         return potency

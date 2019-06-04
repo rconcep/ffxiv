@@ -465,5 +465,34 @@ def compare_leveling_rotations():
     plt.show()
 
 
+def test_rook_autoturret():
+    sim = Simulator()
+
+    mch = Machinist()
+    target = Target()
+
+    sim.add_combatant(mch)
+    sim.add_target(target)
+
+    actions_list = [
+        'hot_shot', 'gauss_round',
+        'split_shot', 'gauss_round', 'slug_shot', 'reassemble', 'clean_shot',
+        'split_shot', 'slug_shot', 'clean_shot',
+        'split_shot', 'slug_shot', 'clean_shot',
+        'split_shot', 'slug_shot', 'clean_shot', 'hypercharge', 
+        'heat_blast', 'heat_blast', 'gauss_round', 'heat_blast', 'heat_blast', 'gauss_round',
+        'split_shot', 'slug_shot', 'clean_shot',
+        'hot_shot',
+        'split_shot', 'slug_shot', 'clean_shot', 'rook_autoturret',
+        'split_shot', 'slug_shot', 'clean_shot',
+        'split_shot', 'slug_shot', 'clean_shot',
+        'split_shot', 'slug_shot', 'clean_shot',
+    ]
+
+    df = sim.simulate_mch(actions_list)
+    df.to_csv('combat_log.csv')
+
+
 if __name__ == '__main__':
     compare_leveling_rotations()
+    # test_rook_autoturret()
