@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 from ffxiv_sim.simulator import Simulator, Target
 from ffxiv_sim.machinist import Machinist 
+from ffxiv_sim.utilities import generate_graphs
 
 
 def level_15_mch():
@@ -102,11 +103,16 @@ def level_40_mch():
         'heat_blast', 'heat_blast', 'gauss_round', 'heat_blast', 'heat_blast', 'gauss_round',
         'split_shot', 'slug_shot', 'clean_shot',
         'hot_shot',
-        'split_shot', 'slug_shot', 'clean_shot', 'rook_autoturret',
+        'split_shot', 'slug_shot', 'clean_shot', 
+        'split_shot', 'slug_shot', 'rook_autoturret', 'clean_shot',
         'split_shot', 'slug_shot', 'clean_shot',
+        # 'split_shot', 'slug_shot', 'clean_shot',
     ]
 
     df_combat_40 = sim.simulate_mch(actions_list)
+    df_combat_40.to_csv('combat_log.csv')
+
+    generate_graphs(df_combat_40)
 
     return df_combat_40
 
@@ -441,10 +447,11 @@ def compare_leveling_rotations():
         ('lvl 80', level_80_mch()),
     ]
 
-    fig, axes = plt.subplots(2, 1, figsize=(12, 10))
+    fig, axes = plt.subplots(2, 1, figsize=(12, 8), sharex=True)
 
     for df_label, df in dfs:
-        df['cumulative pps'].plot(drawstyle='steps-post', linewidth=2, ax=axes[0], label=df_label)
+        df['PPS'].plot(drawstyle='steps-post', linewidth=2, ax=axes[0], label=df_label)
+        # df['DPS'].plot(drawstyle='steps-post', linewidth=2, ax=axes[-1], label=df_label)
 
         # df['heat_gauge'].plot(drawstyle='steps-post', linewidth=2, ax=axes[-1], label=df_label)
         # df['battery_gauge'].plot(drawstyle='steps-post', linewidth=2, ax=axes[-1], label=df_label)
@@ -454,9 +461,8 @@ def compare_leveling_rotations():
     axes[0].grid(True)
     axes[0].legend()
 
-    # axes[-1].set_ylim([0, 100])
     # axes[-1].set_xlabel('time [s]')
-    # axes[-1].set_title('resources')
+    # axes[-1].set_title('damage per second')
     # axes[-1].grid(True)
     # axes[-1].legend()
 
@@ -492,7 +498,64 @@ def test_rook_autoturret():
     df = sim.simulate_mch(actions_list)
     df.to_csv('combat_log.csv')
 
+def sample_mch():
+    sim = Simulator()
+
+    mch = Machinist(
+        base_global_cooldown=2.45,
+        critical_hit_chance=0.195,
+        direct_hit_chance=0.195,
+        auto_attack_delay=2.64,
+        auto_attack_potency=101.20,
+    )
+    target = Target()
+
+    sim.add_combatant(mch)
+    sim.add_target(target)
+
+    actions_list = [
+        'drill', 'gauss_round', 'ricochet',
+        'air_anchor', 'gauss_round', 'ricochet',
+        'heated_split_shot', 'gauss_round', 'ricochet',
+        'heated_slug_shot',
+        'heated_clean_shot', 
+        # Opening Wildfire
+        'barrel_stabilizer', 'hypercharge',
+        'heat_blast', 'wildfire', 'heat_blast', 'heat_blast',
+        'heat_blast', 'heat_blast', 'reassemble',
+        'drill', 'gauss_round', 'ricochet',
+        # Filler
+        'heated_split_shot', 'heated_slug_shot', 'heated_clean_shot',
+        'heated_split_shot', 'heated_slug_shot', 'heated_clean_shot',
+        'heated_split_shot', 
+        'drill',
+        'air_anchor',
+        'heated_slug_shot', 
+        # Overheat
+        'hypercharge',
+        'heat_blast', 'heat_blast', 'heat_blast', 'heat_blast', 'heat_blast', 
+        'heated_clean_shot',
+        'heated_split_shot', 
+        'drill',
+        'heated_slug_shot', 'heated_clean_shot',
+        'heated_split_shot', 'heated_slug_shot', 'heated_clean_shot',
+        # Automaton
+        'automaton_queen',
+        'heated_split_shot', 'heated_slug_shot', 
+        'drill', 'reassemble',
+        'air_anchor',
+        'heated_clean_shot',
+        'hypercharge',
+        'heat_blast', 'heat_blast', 'heat_blast', 'heat_blast', 'heat_blast', 
+    ]
+
+    df_combat = sim.simulate_mch(actions_list)
+    df_combat.to_csv('combat_log.csv')
+
+    generate_graphs(df_combat)
+
 
 if __name__ == '__main__':
-    compare_leveling_rotations()
+    sample_mch()
+    # compare_leveling_rotations()
     # test_rook_autoturret()

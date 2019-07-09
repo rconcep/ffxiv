@@ -381,11 +381,6 @@ class Machinist():
     def overheated(self, value):
         if type(value) == bool:
             self._overheated = value
-
-            if value:
-                self.increased_damage_dealt += 0.20
-            else:
-                self.increased_damage_dealt -= 0.20
         else:
             return TypeError("overheated must be of type bool.")
     
@@ -706,19 +701,22 @@ class Machinist():
         self.reset_to_normal_global_cooldown()
         self.on_global_cooldown = True
 
+        if self.overheated:
+            potency += 20
+
         return potency
     
     def slug_shot(self, target=None):
         """
         lvl 2
 
-        Delivers an attack with a potency of 240.
+        Delivers an attack with a potency of 100.
 
         **Combo Action**: Split Shot or Heated Split Shot
 
         **Combo Potency**: 240
 
-        **Additional Effect**: Increases Heat Gauge by 5
+        **Combo Bonus**: Increases Heat Gauge by 5
         """
         potency = 100
 
@@ -737,13 +735,16 @@ class Machinist():
         self.reset_to_normal_global_cooldown()
         self.on_global_cooldown = True
 
+        if self.overheated:
+            potency += 20
+
         return potency
     
     def hot_shot(self, target=None):
         """
         lvl 4
 
-        Delivers an attack with a potency of 200.
+        Delivers an attack with a potency of 300.
 
         Base recast time: 40s
 
@@ -755,7 +756,7 @@ class Machinist():
             logging.error('{0}: Hot Shot is still on cooldown.'.format(self.time_stamp))
             raise ValueError('Hot Shot is still on cooldown.')
         else:
-            potency = 200
+            potency = 300
 
             self.battery_gauge += 20
 
@@ -767,6 +768,9 @@ class Machinist():
             self.hot_shot_cooldown = self.base_global_cooldown/2.5*40
             self.reset_to_normal_global_cooldown()
             self.on_global_cooldown = True
+
+            if self.overheated:
+                potency += 20
 
         return potency
     
@@ -866,6 +870,9 @@ class Machinist():
 
         self.reset_to_normal_global_cooldown()
         self.on_global_cooldown = True
+
+        if self.overheated:
+            potency += 20
         
         return potency
     
@@ -873,7 +880,7 @@ class Machinist():
         """
         lvl 30
 
-        Release the energy building in your firearm, causing it to Overheat.
+        Releases the energy building in your firearm, causing it to become Overheated, increasing the potency of single-target weaponskills by 20.
 
         **Duration**: 8s
 
@@ -881,7 +888,7 @@ class Machinist():
 
         **Heat Gauge Cost**: 50
 
-        Recast time: 1s
+        Recast time: 10s
         """
         if self.hypercharge_cooldown > 0:
             logging.error('{0}: Hypercharge is still on cooldown.'.format(self.time_stamp))
@@ -891,7 +898,7 @@ class Machinist():
             self.overheat_duration += 8
             self.heat_gauge -= 50
 
-            self.hypercharge_cooldown = 1
+            self.hypercharge_cooldown = 10
 
             logging.info('{0}: You use Hypercharge.'.format(self.time_stamp))
             logging.info('{0}: Your weapon has become overheated.'.format(self.time_stamp))
@@ -905,17 +912,19 @@ class Machinist():
         """
         lvl 35
 
-        Delivers an attack with a potency of 220.
+        Delivers an attack with a potency of 200.
 
         **Additional Effect**: Reduces the recast time of both Gauss Round and Ricochet by 15s
 
         Can only be executed when firearm is Overheated.
+
+        Recast timer cannot be affected by status effects or gear attributes.
         """
         if not self.overheated:
             logging.error('{0}: Heat Blast may only be used when firearm is Overheated.'.format(self.time_stamp))
             raise ValueError('Heat Blast may only be used when firearm is Overheated.')
         else:
-            potency = 220
+            potency = 200
 
             self.global_cooldown = 1.5
             self.on_global_cooldown = True
@@ -928,21 +937,28 @@ class Machinist():
         
         logging.info('{0}: You use Heat Blast.'.format(self.time_stamp))
         
+        if self.overheated:
+            potency += 20
+        
         return potency
     
     def rook_autoturret(self, target=None):
         """
         lvl 40
 
-        Deploys a single-target battle turret which will deliver auto-attacks with a potency of 80.
-
-        Duration increases with remaining Battery Gauge at time of deployment up to a maximum of 15 seconds.
-
-        Shuts down when time expires or upon execution of Rook Overdrive.
+        Deploys a single-target battle turret which attacks using Volley Fire, dealing damage with a potency of 80.
 
         **Battery Gauge Cost**: 50
 
-        Recast time: 10s
+        Duration increases as Battery Gauge exceeds required cost at time of deployment, up to a maximum of 15 seconds.
+
+        Consumes Battery Gauge upon execution.
+
+        Shuts down when time expires or upon execution of Rook Overdrive.
+
+        Shares a recast timer with Rook Overdrive.
+
+        Recast time: 6s
         """
         if self.battery_gauge >= 50:
             self.automaton = RookAutoturret(
@@ -982,13 +998,13 @@ class Machinist():
         """
         lvl 40
 
-        Orders Rook Autoturret to use Rook Overload.
+        Orders the rook autoturret to use Rook Overload.
 
-        Delivers an attack with a potency of 800.
+        Delivers an attack with a potency of 400.
 
-        Potency increases with remaining Battery gauge at time of deployment.
+        Potency increases as remaining Battery Gauge exceeds required cost at time of deployment.
 
-        Rook Autoturret shuts down after execution. If this action is not used manually while Rook Autoturret is active, it will be triggered automatically immediately before shutting down.
+        The rook autoturret shuts down after execution. If this action is not used manually while the rook autoturret is active, it will be triggered automatically immediately before shutting down.
 
         Recast time: 15s
         """
@@ -997,13 +1013,13 @@ class Machinist():
             raise ValueError('Rook Autoturret is not currently deployed.')
         else:
             # TODO: Potency scales with initial deployment duration (self.automaton.initial_duration)
-            potency = 800
+            potency = 400
 
             logging.info('{0}: Rook Autoturret gains the effect of Egi Assault III.'.format(self.time_stamp))
             logging.info('{0}: Rook Autoturret uses Rook Overload.'.format(self.time_stamp))
 
             self.automaton.remaining_duration = 0
-            self.automaton = None
+            # self.automaton = None
 
         return potency
     
@@ -1015,11 +1031,11 @@ class Machinist():
 
         Deals damage when time expires or upon executing Detonator.
 
-        Potency is increased by 150 for every weaponskill landed prior to the end of the effect.
+        Potency is increased by 200 for each of your own weaponskills landed prior to the end of the effect.
 
         **Duration**: 10s
 
-        Recast time: 60s
+        Recast time: 120s
         """
         if self.wildfire_cooldown > 0:
             logging.error('{0}: Wildfire is still on cooldown.'.format(self.time_stamp))
@@ -1027,7 +1043,7 @@ class Machinist():
         else:
             self.wildfire_applied = True
             self.wildfire_weaponskill_counter = 0
-            self.wildfire_cooldown = 60
+            self.wildfire_cooldown = 120
             self.wildfire_duration = 10
 
             logging.info('{0}: You use Wildfire.'.format(self.time_stamp))
@@ -1063,7 +1079,7 @@ class Machinist():
 
         Can only be executed when firearm is Overheated.
 
-        This action does not share a recast timer with any other actions.
+        Recast timer cannot be affected by status effects or gear attributes.
         """
         if not self.overheated:
             return ValueError("Auto Crossbow may only be used when firearm is Overheated.")
@@ -1086,13 +1102,13 @@ class Machinist():
         """
         lvl 54
 
-        Delivers an attack with a potency of 220.
+        Delivers an attack with a potency of 200.
 
         **Additional Effect**: Increases Heat Gauge by 5
 
         Upgraded from Split Shot
         """
-        potency = 220
+        potency = 200
 
         self.slug_shot_combo_ready = True
         self.clean_shot_combo_ready = False
@@ -1106,15 +1122,18 @@ class Machinist():
         self.reset_to_normal_global_cooldown()
         self.on_global_cooldown = True
 
+        if self.overheated:
+            potency += 20
+
         return potency
 
     def drill(self, target=None):
         """
         lvl 58
 
-        Delivers an attack with a potency of 400.
+        Delivers an attack with a potency of 700.
 
-        **Additional Effect**: Increases Battery Gauge by 10
+        # **Additional Effect**: Increases Battery Gauge by 10
 
         Shares a recast timer with Bioblaster.
 
@@ -1124,8 +1143,8 @@ class Machinist():
             logging.error('{0}: Drill is still on cooldown.'.format(self.time_stamp))
             raise ValueError('Drill is still on cooldown.')
         else:
-            potency = 400
-            self.battery_gauge += 10
+            potency = 700
+            # self.battery_gauge += 10
 
             self.drill_cooldown = self.base_global_cooldown/2.5*20
 
@@ -1136,6 +1155,9 @@ class Machinist():
 
             self.reset_to_normal_global_cooldown()
             self.on_global_cooldown = True
+
+            if self.overheated:
+                potency += 20
 
         return potency
     
@@ -1149,7 +1171,7 @@ class Machinist():
 
         **Combo Potency**: 300
 
-        **Additional Effect**: Increases Heat Gauge by 5
+        **Combo Bonus**: Increases Heat Gauge by 5
 
         Upgraded from Slug Shot
         """
@@ -1169,6 +1191,9 @@ class Machinist():
 
         self.reset_to_normal_global_cooldown()
         self.on_global_cooldown = True
+
+        if self.overheated:
+            potency += 20
 
         return potency
     
@@ -1205,6 +1230,9 @@ class Machinist():
 
         self.reset_to_normal_global_cooldown()
         self.on_global_cooldown = True
+
+        if self.overheated:
+            potency += 20
         
         return potency
     
@@ -1214,9 +1242,9 @@ class Machinist():
 
         Increases Heat Gauge by 50.
 
-        Can only be executed when in combat.
+        Can only be executed while in combat.
 
-        Recast time: 60s
+        Recast time: 120s
         """
         if self.barrel_stabilizer_cooldown > 0:
             logging.error('{0}: Barrel Stabilizer is still on cooldown.'.format(self.time_stamp))
@@ -1224,7 +1252,7 @@ class Machinist():
         else:
             self.heat_gauge += 50
 
-            self.barrel_stabilizer_cooldown = 60
+            self.barrel_stabilizer_cooldown = 120
 
             logging.info('{0}: You use Barrel Stabilizer.'.format(self.time_stamp))
 
@@ -1244,7 +1272,7 @@ class Machinist():
 
         Cancels auto-attack upon execution.
 
-        This weaponskill does not share a recast timer with any other actions.
+        Triggers the cooldown of weaponskills upon execution. Cannot be executed during the cooldown of weaponskills.
 
         Base recast time: 60s
         """
@@ -1275,7 +1303,7 @@ class Machinist():
         """
         lvl 76
 
-        Delivers an attack with a potency of 400.
+        Delivers an attack with a potency of 700.
 
         **Additional Effect**: Increases Battery Gauge by 20
 
@@ -1289,7 +1317,7 @@ class Machinist():
             logging.error('{0}: Air Anchor is still on cooldown.'.format(self.time_stamp))
             raise ValueError('Air Anchor is still on cooldown.')
         else:
-            potency = 400
+            potency = 700
 
             self.battery_gauge += 20
 
@@ -1303,6 +1331,9 @@ class Machinist():
             self.reset_to_normal_global_cooldown()
             self.on_global_cooldown = True
 
+            if self.overheated:
+                potency += 20
+
         return potency
     
     def automaton_queen(self, target=None):
@@ -1311,13 +1342,17 @@ class Machinist():
 
         Deploys an Automaton Queen to fight at your side.
 
-        Duration increases with remaining Battery Gauge at time of deployment up to a maximum of 20 seconds.
+        **Battery Gauge Cost**: 50
+
+        Duration increases as Battery Gauge exceeds minimum cost time at time of deployment, up to a maximum of 20 seconds.
+
+        Consumes Battery Gauge upon execution.
 
         Shuts down when time expires or upon execution of Queen Overdrive.
 
-        **Battery gauge Cost**: 50
+        Shares a recast timer with Queen Overdrive.
 
-        Recast time: 5s
+        Recast time: 6s
         """
         if self.battery_gauge >= 50:
             # TODO: Determine Battery Gauge to duration function
@@ -1372,13 +1407,15 @@ class Machinist():
     
     def queen_overdrive(self, target=None):
         """
-        Orders Automaton Queen to use Pile Bunker.
+        Orders the Automaton Queen to use Pile Bunker.
+
+        Shares a recast timer with Automaton Queen.
 
         Delivers an attack with a potency of 800.
 
-        Potency increases with remaining Battery Gauge at time of deployment.
+        Potency increases as Batter Gauge exceeds required cost at time of deployment.
 
-        Automaton Queen shuts down after execution. If this action is not used manually while Automaton Queen is active, it will be triggered automatically immediately before shutting down.
+        The Automaton Queen shuts down after execution. If this action is not used manually while Automaton Queen is active, it will be triggered automatically immediately before shutting down.
 
         Recast time: 15s
         """
@@ -1393,6 +1430,6 @@ class Machinist():
             logging.info('{0}: Automaton Queen uses Pile Bunker.'.format(self.time_stamp))
 
             self.automaton.remaining_duration = 0
-            self.automaton = None
+            # self.automaton = None
 
         return potency

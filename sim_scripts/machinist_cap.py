@@ -7,16 +7,20 @@ from ffxiv_sim.machinist import Machinist
 
 
 def generate_graphs(combat_dataframe):
-    fig, axes = plt.subplots(2, 1, figsize=(12, 10))
+    fig, axes = plt.subplots(3, 1, figsize=(12, 12), sharex=True)
 
-    combat_dataframe['cumulative pps'].plot(drawstyle='steps-post', linewidth=2, ax=axes[0])
+    combat_dataframe['DPS'].plot(drawstyle='steps-post', linewidth=2, ax=axes[0])
+    combat_dataframe['damage'].plot(drawstyle='steps-post', linewidth=2, ax=axes[1])
     combat_dataframe['heat_gauge'].plot(drawstyle='steps-post', linewidth=2, ax=axes[-1], label='Heat')
     combat_dataframe['battery_gauge'].plot(drawstyle='steps-post', linewidth=2, ax=axes[-1], label='Battery')
 
     axes[0].set_xlabel('time [s]')
-    axes[0].set_title('potency per second')
+    axes[0].set_title('DPS')
     axes[0].grid(True)
-    axes[0].legend()
+
+    axes[1].set_xlabel('time [s]')
+    axes[1].set_title('Damage')
+    axes[1].grid(True)
 
     axes[-1].set_ylim([0, 100])
     axes[-1].set_xlabel('time [s]')
@@ -223,7 +227,7 @@ def wildfire_in_overheat():
     ]
 
     df = sim.simulate_mch(actions_list)
-    df.to_csv('combat_log.csv')
+    # df.to_csv('combat_log.csv')
 
     return df
 
@@ -257,12 +261,43 @@ def compare_rotations():
     plt.show()
 
 
+def monte_carlo_sim():
+    fig, axes = plt.subplots(1, 1, figsize=(12, 10))
+
+    n_trials = 50
+
+    for ix in np.arange(n_trials):
+        df = wildfire_in_overheat()
+
+        df['DPS'].plot(drawstyle='steps-post', linewidth=2, ax=axes)
+
+        # df['heat_gauge'].plot(drawstyle='steps-post', linewidth=2, ax=axes[-1], label=df_label)
+        # df['battery_gauge'].plot(drawstyle='steps-post', linewidth=2, ax=axes[-1], label=df_label)
+
+    axes.set_xlabel('time [s]')
+    axes.set_title('DPS realizations')
+    axes.grid(True)
+    # axes[0].legend()
+
+    # axes[-1].set_ylim([0, 100])
+    # axes[-1].set_xlabel('time [s]')
+    # axes[-1].set_title('resources')
+    # axes[-1].grid(True)
+    # axes[-1].legend()
+
+    # fig.suptitle('Machinist Rotations')
+
+    plt.show()
+
+
 def main():
     # df = three_minute_rotation()
     # df = wildfire_in_overheat()
     # generate_graphs(df)
 
-    compare_rotations()
+    # compare_rotations()
+
+    monte_carlo_sim()
 
 
 if __name__ == '__main__':

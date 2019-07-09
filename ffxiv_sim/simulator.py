@@ -2,6 +2,7 @@ import logging
 import sys
 
 import numpy as np
+from numpy.random import random, random_sample
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -81,15 +82,15 @@ class Simulator():
                 'heat_gauge',
                 # 'overheated',
                 'battery_gauge',
-                # 'gauss_round_charges',
+                'gauss_round_charges',
                 # 'gauss_round_charge_timer',
-                # 'ricochet_charges',
+                'ricochet_charges',
                 # 'ricochet_charge_timer',
                 # 'hot_shot_cooldown',
                 # 'global_cooldown',
                 # 'global_cooldown_timer',
                 # 'on_global_cooldown',
-                'wildfire_cooldown',
+                # 'wildfire_cooldown',
             ]
 
             for field_name in fields:
@@ -98,6 +99,67 @@ class Simulator():
                 return_dict[field_name] = field_value
         
         return return_dict
+    
+    def do_damage_roll(self, action, potency, combatant, target=None):
+        """Rolls for damage based on potency, combatant stats, and target stats."""
+        if potency > 0:
+            direct_hit_chance = combatant.direct_hit_chance
+            critical_hit_chance = combatant.critical_hit_chance
+            critical_hit_multiplier = combatant.critical_hit_multiplier
+
+            # Sample for variance: +/- 10% uniformly distributed
+            damage = potency*(0.2*random_sample() + 0.9)
+
+            if action == 'wildfire':
+                direct_hit_chance = 0
+                critical_hit_chance = 0
+                critical_hit_multiplier = 1
+
+            # Check for guaranteed DH+Crit
+            if isinstance(combatant, Machinist):
+                if action in combatant.weaponskills and combatant.reassembled:
+                    direct_hit_chance = 1.0
+                    critical_hit_chance = 1.0
+                    combatant.reassembled = False
+
+            # Roll for direct hit
+            direct_hit_roll = random()
+
+            if direct_hit_roll < direct_hit_chance:
+                # Rolled a direct hit
+                is_direct_hit = True
+                damage = damage*1.25
+            else:
+                is_direct_hit = False
+
+            # Roll for crit
+            critical_hit_roll = random()
+
+            if critical_hit_roll < critical_hit_chance:
+                # Rolled a critical hit
+                is_critical_hit = True
+                damage = damage*critical_hit_multiplier
+            else:
+                is_critical_hit = False
+            
+            # Apply effective potency to attack power for final damage calculation
+            # TODO:
+            damage = 34.27056229*damage
+            
+            # Log
+            # TODO:
+            if is_critical_hit and is_direct_hit:
+                pass
+            elif is_direct_hit:
+                pass
+            elif is_critical_hit:
+                pass
+            else:
+                pass
+        else:
+            damage = 0
+
+        return damage
     
     def simulate_mch(self, actions_list):
         for combatant in self.combatants:
@@ -127,6 +189,7 @@ class Simulator():
             mch_record['time'] = float('{0:2f}'.format(self.time))
             mch_record['ability'] = action
             mch_record['potency'] = pot
+            mch_record['damage'] = self.do_damage_roll(action, pot, mch)
             combat_record.append(mch_record)
             
             # Update time.
@@ -141,6 +204,7 @@ class Simulator():
                     mch_record['time'] = float('{0:2f}'.format(self.time))
                     mch_record['ability'] = 'attack'
                     mch_record['potency'] = callback['attack']
+                    mch_record['damage'] = self.do_damage_roll('attack', callback['attack'], mch)
                     combat_record.append(mch_record)
                 elif callback.get('rook_volley_fire', False):
                     # Add Rook Volley Fire.
@@ -150,6 +214,7 @@ class Simulator():
                     mch_record['time'] = float('{0:2f}'.format(self.time))
                     mch_record['ability'] = 'volley_fire'
                     mch_record['potency'] = callback['rook_volley_fire']
+                    mch_record['damage'] = self.do_damage_roll('volley_fire', callback['rook_volley_fire'], mch.automaton)
                     combat_record.append(mch_record)
                 elif callback.get('queen_arm_punch', False):
                     # Add Queen Arm Punch.
@@ -159,6 +224,7 @@ class Simulator():
                     mch_record['time'] = float('{0:2f}'.format(self.time))
                     mch_record['ability'] = 'arm_punch'
                     mch_record['potency'] = callback['queen_arm_punch']
+                    mch_record['damage'] = self.do_damage_roll('arm_punch', callback['queen_arm_punch'], mch.automaton)
                     combat_record.append(mch_record)
                 elif callback.get('queen_roller_dash', False):
                     # Add Queen Roller Dash.
@@ -168,6 +234,7 @@ class Simulator():
                     mch_record['time'] = float('{0:2f}'.format(self.time))
                     mch_record['ability'] = 'roller_dash'
                     mch_record['potency'] = callback['queen_roller_dash']
+                    mch_record['damage'] = self.do_damage_roll('roller_dash', callback['queen_roller_dash'], mch.automaton)
                     combat_record.append(mch_record)
                 elif callback.get('wildfire', False):
                     # Add Wildfire detonation.
@@ -176,7 +243,8 @@ class Simulator():
                     mch_record = self.record_combatant(mch)
                     mch_record['time'] = float('{0:2f}'.format(self.time))
                     mch_record['ability'] = 'wildfire'
-                    mch_record['potency'] = 150*callback['wildfire']
+                    mch_record['potency'] = 200*callback['wildfire']
+                    mch_record['damage'] = self.do_damage_roll('wildfire', 200*callback['wildfire'], mch)
                     combat_record.append(mch_record)
                 elif callback.get('rook_overdrive', False):
                     # Add Rook Overdrive.
@@ -186,7 +254,10 @@ class Simulator():
                     mch_record['time'] = float('{0:2f}'.format(self.time))
                     mch_record['ability'] = 'rook_overload'
                     mch_record['potency'] = callback['rook_overdrive']
+                    mch_record['damage'] = self.do_damage_roll('rook_overload', callback['rook_overdrive'], mch.automaton)
                     combat_record.append(mch_record)
+
+                    mch.automaton = None
                 elif callback.get('queen_overdrive', False):
                     # Add Queen Overdrive.
                     self.time += callback['re-update time']
@@ -195,7 +266,10 @@ class Simulator():
                     mch_record['time'] = float('{0:2f}'.format(self.time))
                     mch_record['ability'] = 'pile_bunker'
                     mch_record['potency'] = callback['queen_overdrive']
+                    mch_record['damage'] = self.do_damage_roll('pile_bunker', callback['queen_overdrive'], mch.automaton)
                     combat_record.append(mch_record)
+
+                    mch.automaton = None
                 
                 # Re-update time with new time increment after interrupting event.
                 mch.total_time_elapsed = self.time
@@ -207,8 +281,9 @@ class Simulator():
 
         df_combat = pd.DataFrame(combat_record)
 
-        df_combat['cumulative potency'] = df_combat['potency'].cumsum()
-        df_combat['cumulative pps'] = df_combat['cumulative potency']/df_combat['time']
+        df_combat['Cumulative Damage'] = df_combat['damage'].cumsum()
+        df_combat['DPS'] = df_combat['Cumulative Damage']/df_combat['time']
+        df_combat['PPS'] = df_combat['potency'].cumsum()/df_combat['time']
         df_combat.replace([np.inf, -np.inf], 0)
 
         df_combat.set_index('time', inplace=True)
